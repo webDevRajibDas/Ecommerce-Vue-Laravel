@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Response;
@@ -12,6 +13,7 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+    use ImageUploadTrait;
 
     public function index()
     {
@@ -27,35 +29,77 @@ class ProductController extends Controller
     // Store a newly created product in the database
     public function store(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
 
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:191',
-            'description' => 'nullable|string',
-            'content' => 'nullable|string',
-            'status' => 'required|string|in:published,draft',
-            'images' => 'nullable|array',
-            'price' => 'required|numeric|min:0',
-            'sale_price' => 'nullable|numeric|min:0',
-            'quantity' => 'nullable|integer|min:0',
-            'stock_status' => 'required|string|in:in_stock,out_of_stock',
-        ]);
+//        $validatedData = $request->validate([
+//            'productName' => 'required|string|max:255',
+//            'productDescription' => 'required|string',
+//            'category_id' => 'required|exists:categories,id',
+//            'brand_id' => 'required|exists:brands,id',
+//            'regularPrice' => 'required|numeric',
+//            'salePrice' => 'nullable|numeric',
+//            'sku' => 'required|string|unique:products,sku',
+//            'stock_status' => 'required|in:in_stock,out_of_stock',
+//            'weight' => 'nullable|numeric',
+//            'dimensionsLength' => 'nullable|numeric',
+//            'dimensionsWidth' => 'nullable|numeric',
+//            'dimensionsHeight' => 'nullable|numeric',
+//            'purchaseNote' => 'nullable|string',
+//            'menuOrder' => 'nullable|integer',
+//            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // 2MB max
+//            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate multiple images
+//            'atts' => 'nullable|json',
+//        ]);
 
+        $validatedData=[];
+
+        // Handle main image upload
+        if ($request->hasFile('image')) {
+            $validatedData['image'] = $this->uploadImage($request->file('image'), 'products');
+        }
+        // Handle multiple images upload
         $imagePaths = [];
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $imagePaths[] = $this->uploadImage($image, 'products');
             }
         }
-        $validatedData['images'] = json_encode($imagePaths);
+        $validatedData['images'] = json_encode($imagePaths); // Store image paths as JSON
+
+        // Decode attributes JSON
+        $attributes = json_decode($request->input('atts'), true);
+
+        // Save product to the database
+        $product = Product::create([
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description'],
+            'category_id' => $validatedData['category_id'],
+            'brand_id' => $validatedData['brand_id'],
+            'price' => $validatedData['price'],
+            'sale_price' => $validatedData['sale_price'],
+            'sku' => $validatedData['sku'],
+            'stock_status' => $validatedData['stock_status'],
+            'weight' => $validatedData['weight'],
+            'dimensions' => [
+                'length' => $validatedData['dimensionsLength'],
+                'width' => $validatedData['dimensionsWidth'],
+                'height' => $validatedData['dimensionsHeight'],
+            ],
+            'purchase_note' => $validatedData['purchaseNote'],
+            'menu_order' => $validatedData['menuOrder'],
+            'image' => $validatedData['image'],
+            'images' => $validatedData['images'],
+            'attributes' => $attributes, // Save attributes as JSON
+        ]);
+
+        // Return success response
+        return response()->json([
+            'message' => 'Product created successfully',
+            'product' => $product,
+        ], 201);
 
 
-        if ($request->hasFile('image')) {
-            $validatedData['image'] = $this->uploadImage($request->file('image'), 'products');
-        }
 
-        Product::create($validatedData);
-        return redirect()->route('products.index')->with('success', 'Product created successfully!');
     }
 
 

@@ -11,6 +11,7 @@
     <meta name="author" content="https://b2bplatformbd.com">
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Web Fonts  -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,400,600,700,800,900" rel="stylesheet"
           type="text/css">
@@ -21,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('admin/vendor/boxicons/css/boxicons.min.css')}}"/>
     <link rel="stylesheet" href="{{asset('admin/vendor/magnific-popup/magnific-popup.css')}}"/>
     <link rel="stylesheet" href="{{asset('admin/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css')}}"/>
+    <link rel="stylesheet" href="{{asset('admin/vendor/summernote/summernote-bs4.css')}}"/>
     <!-- Specific Page Vendor CSS -->
     <link rel="stylesheet" href="{{asset('admin/vendor/morris/morris.css')}}"/>
     <link rel="stylesheet" href="{{asset('admin/vendor/datatables/media/css/dataTables.bootstrap5.css')}}"/>
@@ -134,6 +136,7 @@
 <script src="{{asset('admin/vendor/nanoscroller/nanoscroller.js')}}"></script>
 <script src="{{asset('admin/vendor/magnific-popup/jquery.magnific-popup.js')}}"></script>
 <script src="{{asset('admin/vendor/jquery-placeholder/jquery.placeholder.js')}}"></script>
+<script src="{{asset('admin/vendor/summernote/summernote-bs4.js')}}"></script>
 <!-- Specific Page Vendor -->
 <script src="{{asset('admin/vendor/raphael/raphael.js')}}"></script>
 <script src="{{asset('admin/vendor/morris/morris.js')}}"></script>
