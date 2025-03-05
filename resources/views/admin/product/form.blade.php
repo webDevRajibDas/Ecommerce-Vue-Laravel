@@ -1,5 +1,5 @@
 
-<form class="ecommerce-form action-buttons-fixed" action="#" method="POST" enctype="multipart/form-data">
+<form class="product-form action-buttons-fixed" action="{{ route("admin.products.store") }}" method="POST" enctype="multipart/form-data">
     @csrf
     @if (isset($product))
         @method('PUT')
@@ -33,7 +33,7 @@
                             <div class="form-group row pb-3">
                                 <label class="col-lg-3 control-label text-lg-end pt-2">Product Details</label>
                                 <div class="col-lg-9">
-                                    <div class="summernote" data-plugin-summernote data-plugin-options='{ "height": 180 }'><p>Start typing...</p></div>
+                                    <textarea class="summernote" name="content" data-plugin-summernote data-plugin-options='{ "height": 180 }'><p></p></textarea>
                                 </div>
                             </div>
 
@@ -131,20 +131,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="price" role="tabpanel" aria-labelledby="price-tab">
-                                    <div class="form-group row align-items-center pb-3">
-                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Regular Price ($)</label>
-                                        <div class="col-lg-7 col-xl-6">
-                                            <input type="text" class="form-control form-control-modern" name="price" value="" required />
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Sale Price ($)</label>
-                                        <div class="col-lg-7 col-xl-6">
-                                            <input type="text" class="form-control form-control-modern" name="sale_price" value="" />
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="tab-pane fade" id="inventory" role="tabpanel" aria-labelledby="inventory-tab">
                                     <div class="form-group row align-items-center pb-3">
                                         <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">SKU</label>
@@ -185,40 +171,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="shipping" role="tabpanel" aria-labelledby="shipping-tab">
+
+                                <div class="tab-pane fade" id="price" role="tabpanel" aria-labelledby="price-tab">
                                     <div class="form-group row align-items-center pb-3">
-                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Weight (oz)</label>
+                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Regular Price ($)</label>
                                         <div class="col-lg-7 col-xl-6">
-                                            <input type="text" class="form-control form-control-modern" name="weight" value="" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center pb-3">
-                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Dimensions (in)</label>
-                                        <div class="col-lg-7 col-xl-6">
-                                            <div class="row">
-                                                <div class="col-xl-4 mb-3 mb-xl-0">
-                                                    <input type="text" class="form-control form-control-modern" name="dimensionsLength" value="" placeholder="Length" />
-                                                </div>
-                                                <div class="col-xl-4 mb-3 mb-xl-0">
-                                                    <input type="text" class="form-control form-control-modern" name="dimensionsWidth" value="" placeholder="Width" />
-                                                </div>
-                                                <div class="col-xl-4">
-                                                    <input type="text" class="form-control form-control-modern" name="dimensionsHeight" value="" placeholder="Height" />
-                                                </div>
-                                            </div>
+                                            <input type="text" class="form-control form-control-modern" name="price" value="" required />
                                         </div>
                                     </div>
                                     <div class="form-group row align-items-center">
-                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Shipping Class</label>
+                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Sale Price ($)</label>
                                         <div class="col-lg-7 col-xl-6">
-                                            <select class="form-control form-control-modern" name="shippingclass">
-                                                <option value="in-stock" selected>No Shipping Class</option>
-                                                <option value="out-of-stock">International</option>
-                                                <option value="on-backorder">National</option>
-                                            </select>
+                                            <input type="text" class="form-control form-control-modern" name="sale_price" value="" />
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="tab-pane fade" id="attributes" role="tabpanel" aria-labelledby="attributes-tab">
                                     <div class="ecommerce-attributes-wrapper">
                                         <div class="form-group row justify-content-center ecommerce-attribute-row pb-3">
@@ -262,20 +230,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">
-                                    <div class="form-group row pb-3">
-                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end pt-2 mt-1 mb-0">Purchase Note</label>
-                                        <div class="col-lg-7 col-xl-6">
-                                            <textarea class="form-control form-control-modern" name="purchaseNote" rows="6"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row align-items-center">
-                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Menu Order</label>
-                                        <div class="col-lg-7 col-xl-6">
-                                            <input type="text" class="form-control form-control-modern" name="menuOrder" value="" />
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -285,7 +240,7 @@
     </div>
     <div class="row action-buttons">
         <div class="col-12 col-md-auto">
-            <button type="submit" class="submit-button btn btn-primary btn-px-4 py-3 d-flex align-items-center font-weight-semibold line-height-1" data-loading-text="Loading...">
+            <button type="submit" class="product-submit btn btn-primary btn-px-4 py-3 d-flex align-items-center font-weight-semibold line-height-1" data-loading-text="Loading...">
                 <i class="bx bx-save text-4 me-2"></i> Save Product
             </button>
         </div>

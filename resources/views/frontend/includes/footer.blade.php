@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-6 col-xl-4">
                     <a href="#">
-                        <img class="logo mb-3" src="{{asset('assets/images/logo-default.jpeg')}}" alt="B2B Marketplace"
+                        <img class="logo mb-3" src="{{asset('assets/images/b2b-logo.png')}}" alt="B2B Marketplace"
                              width="113" height="48"></a>
                     <div class="row">
                         <div class="col-sm-6 pr-sm-0">
@@ -30,7 +30,6 @@
                                 <h4 class="widget-title font2">
                                     WORKING DAYS/HOURS:
                                 </h4>
-                                <a href="#">Mon - Sun / 9:00AM - 8:00PM</a>
                             </div>
                         </div>
                     </div>
@@ -79,7 +78,7 @@
                             <div class="col-sm-6">
                                 <ul class="links mb-0">
                                     <li>
-                                        <a href="about.html">About Porto</a>
+                                        <a href="about.html">About US</a>
                                     </li>
                                     <li><a href="#">Our Guarantees</a></li>
                                     <li><a href="#">Terms And Conditions</a></li>
@@ -97,7 +96,7 @@
                                     <li>
                                         <a href="#">Site Index</a>
                                     </li>
-                                    <li><a href="#">Porto for the Press</a></li>
+                                    <li><a href="#">The Press</a></li>
                                     <li><a href="#">Business Accounts</a></li>
                                 </ul>
                             </div>
@@ -106,20 +105,14 @@
                 </div>
                 <div class="col-lg-6 col-xl-2">
                     <div class="widget">
-                        <h4 class="widget-title">Newsletter</h4>
+                        <h4 class="widget-title">Company Information</h4>
                         <div class="widget-newsletter">
                             <div class="widget-newsletter-info">
+                                <h4>Registered Name: B2B Platform BD Limited</h4>
                                 <p class="widget-newsletter-content m-b-4">Get all the latest
                                     information on
                                     Events, Sales and Offers. Sign up for newsletter today</p>
                             </div>
-                            <form action="#">
-                                <div class="footer-submit-wrapper d-flex">
-                                    <input type="email" class="form-control mb-0" placeholder="Email Address"
-                                           size="40" required>
-                                    <button type="submit" class="btn btn-primary btn-sm ls-0">Subscribe</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>

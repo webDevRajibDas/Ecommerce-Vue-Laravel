@@ -6,7 +6,7 @@
         <section class="welcome-section">
             <div class="container">
                 <h2 class="section-title text-center text-uppercase appear-animate mb-4"
-                    data-animation-name="fadeInUpShorter" data-animation-delay="200">B2B Market Place</h2>
+                    data-animation-name="fadeInUpShorter" data-animation-delay="200">B2B Platform || Best Online Platform</h2>
                 <div class="row mb-2">
                     @foreach($allCat as $cat)
                         <div class="col-md-4 col-lg-3">
@@ -47,10 +47,7 @@
             ['name' => 'StyleHub', 'items' => 20, 'categories' => 5, 'rating' => 4.8, 'status' => 'Online', 'logo' => asset('assets/images/shops/Red-Online-Store.png')],
             ['name' => 'Gadget World', 'items' => 30, 'categories' => 8, 'rating' => 4.9, 'status' => 'Online', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
             ['name' => 'Home Essentials', 'items' => 10, 'categories' => 2, 'rating' => 4.3, 'status' => 'Busy', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
-            ['name' => 'DailyMart', 'items' => 25, 'categories' => 6, 'rating' => 4.7, 'status' => 'Online', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
-            ['name' => 'DailyMart', 'items' => 25, 'categories' => 6, 'rating' => 4.7, 'status' => 'Online', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
-            ['name' => 'DailyMart', 'items' => 25, 'categories' => 6, 'rating' => 4.7, 'status' => 'Online', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
-            ['name' => 'DailyMart', 'items' => 25, 'categories' => 6, 'rating' => 4.7, 'status' => 'Online', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
+
         ];
         ?>
         <section id="top-rated-shops">
@@ -90,54 +87,43 @@
         </section>
 
 
-        <div class="brands-section">
+        <div class="brands-section" style="background: #65829d !important;">
             <div class="container">
                 <div class="row">
                     <h2 class="section-title text-center text-uppercase appear-animate mb-4"
-                        data-animation-name="fadeInUpShorter" data-animation-delay="200">Popular Category</h2>
+                        data-animation-name="fadeInUpShorter" data-animation-delay="200" style="color: #ffffff !important;">Popular Category</h2>
                 </div>
 
                 <div class="brands-slider owl-carousel owl-theme images-center appear-animate"
                      data-animation-name="fadeIn" data-animation-delay="400" data-owl-options="{
-                    'margin': 30,
-                    'loop': true,
-                    'responsive': {
-                        '991': {
-                            'items': 4
-                        },
-                        '1200': {
-                            'items': 5
+                        'margin': 30,
+                        'loop': false,
+                        'responsive': {
+                            '0': {
+                                'items': 1
+                            },
+                            '768': {
+                                'items': 2
+                            },
+                            '1200': {
+                                'items': {{ count($productCat) }}
+                            }
                         }
-                    }
-                }">
+                    }">
 
-                    <div class="category-card">
-                        <img src="{{asset('assets/images/categories/beauty.jpg')}}" width="200" height="50" alt="brand">
-                        <p class="text-title">ICT</p>
-                    </div>
-                    <div class="category-card">
-                        <img src="{{asset('assets/images/categories/book-shop.png')}}" width="200" height="50" alt="brand">
-                        <p class="text-title">Shopping</p>
-                    </div>
-                    <div class="category-card">
-                        <img src="{{asset('assets/images/categories/beauty.jpg')}}" width="200" height="50" alt="brand">
-                        <p class="text-title">Fashion</p>
-                    </div>
-                    <div class="category-card">
-                        <img src="{{asset('assets/images/categories/beauty.jpg')}}" width="200" height="50" alt="brand">
-                        <p class="text-title">Education</p>
-                    </div>
-                    <div class="category-card">
-                        <img src="{{asset('assets/images/categories/beauty.jpg')}}" width="200" height="50" alt="brand">
-                        <p class="text-title">Real Estate</p>
-                    </div>
-                    <div class="category-card">
-                        <img src="{{asset('assets/images/categories/beauty.jpg')}}" width="200" height="50" alt="brand">
-                        <p class="text-title">Card title</p>
-                    </div>
+                    @forelse($productCat as $pCategory)
+                        <div class="category-card">
+                            <img src="{{asset('assets/images/category_diagram.png') }}"
+                                 width="200" height="100" alt="{{ $pCategory->title }}">
+                            <p class="text-title">{{ $pCategory->title }}</p>
+                        </div>
+                    @empty
+                        <div class="text-center w-100">
+                            <p class="text-muted">No Data Available</p>
+                        </div>
+                    @endforelse
+                </div>
 
-
-                </div><!-- End .brands-slider -->
             </div>
         </div>
 
@@ -151,55 +137,55 @@
 
             <div class="container">
                 <div class="row">
-                    @foreach($items as $index => $item)
+                    @foreach($products as $index => $item)
                         @if($index % 4 == 0 && $index != 0)
                 </div>
                 <div class="row">
                     @endif
-                    <div class="col-6 col-md-4 col-xl-3">
-                        <div class="product-default inner-quickview inner-icon">
-                            <figure>
-                                <a href="demo23-product.html">
-                                    <img src="assets/images/products/img-1.jpg" width="217"
-                                         height="217" alt="product">
-                                </a>
-                                <div class="label-group">
-                                    <div class="product-label label-hot">HOT</div>
-                                    <div class="product-label label-sale">-13%</div>
-                                </div>
-                                <div class="btn-icon-group">
-                                    <a href="#" title="Add To Cart"
-                                       class="btn-icon btn-add-cart product-type-simple"><i
-                                                class="icon-shopping-cart"></i></a>
-                                </div>
-                                <a href="ajax/product-quick-view.html" class="btn-quickview"
-                                   title="Quick View">Quick
-                                    View</a>
-                            </figure>
-                            <div class="product-details">
-                                <div class="category-wrap">
-                                    <div class="category-list">
-                                        <a href="demo23-shop.html" class="product-category">category</a>
+                        <div class="col-6 col-md-4 col-xl-3">
+                            <div class="product-default inner-quickview inner-icon">
+                                <figure>
+                                    <a href="demo23-product.html">
+                                        <img src="{{asset('storage/'.$item->image) }}" width="217"
+                                             height="217" alt="product">
+                                    </a>
+                                    <div class="label-group">
+                                        <div class="product-label label-hot">HOT</div>
+                                        <div class="product-label label-sale">-13%</div>
                                     </div>
-                                    <a href="wishlist.html" title="Add to Wishlist" class="btn-icon-wish"><i
-                                                class="icon-heart"></i></a>
-                                </div>
-                                <h3 class="product-title">
-                                    <a href="demo23-product.html">Baby Summer Underclothes</a>
-                                </h3>
-                                <div class="ratings-container">
-                                    <div class="product-ratings">
-                                        <span class="ratings" style="width:0%"></span><!-- End .ratings -->
-                                        <span class="tooltiptext tooltip-top"></span>
-                                    </div><!-- End .product-ratings -->
-                                </div><!-- End .product-container -->
-                                <div class="price-box">
-                                    <span class="old-price">$299.00</span>
-                                    <span class="product-price">$259.00</span>
-                                </div><!-- End .price-box -->
-                            </div><!-- End .product-details -->
+                                    <div class="btn-icon-group">
+                                        <a href="#" title="Add To Cart"
+                                           class="btn-icon btn-add-cart product-type-simple"><i
+                                                    class="icon-shopping-cart"></i></a>
+                                    </div>
+                                    <a href="ajax/product-quick-view.html" class="btn-quickview"
+                                       title="Quick View">Quick
+                                        View</a>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="category-wrap">
+                                        <div class="category-list">
+                                            <p>{{$item->product_categorie_id}}</p>
+                                        </div>
+                                        <a href="wishlist.html" title="Add to Wishlist" class="btn-icon-wish"><i
+                                                    class="icon-heart"></i></a>
+                                    </div>
+                                    <h3 class="product-title">
+                                        <a href="demo23-product.html">{{$item->name}}</a>
+                                    </h3>
+                                    <div class="ratings-container">
+                                        <div class="product-ratings">
+                                            <span class="ratings" style="width:0%"></span><!-- End .ratings -->
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div><!-- End .product-ratings -->
+                                    </div><!-- End .product-container -->
+                                    <div class="price-box">
+                                        <span class="old-price">{{$item->price}}</span>
+                                        <span class="product-price">{{$item->sale_price}}</span>
+                                    </div><!-- End .price-box -->
+                                </div><!-- End .product-details -->
+                            </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>

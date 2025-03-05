@@ -29,7 +29,7 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <a href="{{url('/')}}" class="logo">
-                    <img src="{{asset('assets/images/logo-default.jpeg')}}" alt="B2B Marketplace" width="113" height="48">
+                    <img src="{{asset('assets/images/b2b-logo.png')}}" alt="B2B Marketplace" width="113" height="48">
                 </a>
             </div>
 

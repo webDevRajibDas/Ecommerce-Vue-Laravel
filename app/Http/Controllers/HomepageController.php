@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\ProductCategory;
 use App\Models\SubCategorie;
 use App\Models\Vendor;
 use App\Models\VendorCategorie;
@@ -17,9 +19,10 @@ class HomepageController extends Controller
      */
     public function homePage()
     {
-
+        $products = Product::all();
         $allCat = VendorCategorie::all();
-        return view('homepage',compact('allCat'));
+        $productCat = ProductCategory::all();
+        return view('homepage',compact('allCat','products','productCat'));
     }
 
 
@@ -83,7 +86,7 @@ class HomepageController extends Controller
         $category = SubCategorie::where('slug', $categorySlug)->firstOrFail();
         $vendor = Vendor::where('sub_categories_id', $category)->first();
         //dd($vendors);
-        return view('frontend.vendors.vendor-landing', compact('category', 'vendor'));
+        return view('frontend.vendors.vendor-shopping', compact('category', 'vendor'));
 
     }
 

@@ -30,28 +30,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'content' => 'nullable|string',
+            'category_id' => 'required|exists:product_categories,id',
+            'brand_id' => 'required|exists:brands,id',
+            'price' => 'required|numeric',
+            'sale_price' => 'nullable|numeric',
+            'menuOrder' => 'nullable|integer',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // 2MB max
+            'atts' => 'nullable|json',
+        ]);
 
-//        $validatedData = $request->validate([
-//            'productName' => 'required|string|max:255',
-//            'productDescription' => 'required|string',
-//            'category_id' => 'required|exists:categories,id',
-//            'brand_id' => 'required|exists:brands,id',
-//            'regularPrice' => 'required|numeric',
-//            'salePrice' => 'nullable|numeric',
-//            'sku' => 'required|string|unique:products,sku',
-//            'stock_status' => 'required|in:in_stock,out_of_stock',
-//            'weight' => 'nullable|numeric',
-//            'dimensionsLength' => 'nullable|numeric',
-//            'dimensionsWidth' => 'nullable|numeric',
-//            'dimensionsHeight' => 'nullable|numeric',
-//            'purchaseNote' => 'nullable|string',
-//            'menuOrder' => 'nullable|integer',
-//            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // 2MB max
-//            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate multiple images
-//            'atts' => 'nullable|json',
-//        ]);
-
-        $validatedData=[];
+        //$validatedData=[];
 
         // Handle main image upload
         if ($request->hasFile('image')) {
@@ -69,24 +61,17 @@ class ProductController extends Controller
         // Decode attributes JSON
         $attributes = json_decode($request->input('atts'), true);
 
+        //dd($attributes);
+
         // Save product to the database
         $product = Product::create([
             'name' => $validatedData['name'],
             'description' => $validatedData['description'],
+            'content' => $validatedData['content'],
             'category_id' => $validatedData['category_id'],
             'brand_id' => $validatedData['brand_id'],
             'price' => $validatedData['price'],
             'sale_price' => $validatedData['sale_price'],
-            'sku' => $validatedData['sku'],
-            'stock_status' => $validatedData['stock_status'],
-            'weight' => $validatedData['weight'],
-            'dimensions' => [
-                'length' => $validatedData['dimensionsLength'],
-                'width' => $validatedData['dimensionsWidth'],
-                'height' => $validatedData['dimensionsHeight'],
-            ],
-            'purchase_note' => $validatedData['purchaseNote'],
-            'menu_order' => $validatedData['menuOrder'],
             'image' => $validatedData['image'],
             'images' => $validatedData['images'],
             'attributes' => $attributes, // Save attributes as JSON

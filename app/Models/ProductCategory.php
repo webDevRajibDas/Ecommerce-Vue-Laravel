@@ -21,4 +21,10 @@ class ProductCategory extends Model
             }
         });
     }
+
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'product_categorie_id');
+    }
 }
