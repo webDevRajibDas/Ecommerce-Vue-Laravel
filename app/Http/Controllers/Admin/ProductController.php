@@ -17,6 +17,8 @@ class ProductController extends Controller
 
     public function index()
     {
+
+
         return view('admin.product.index');
     }
 
@@ -35,47 +37,42 @@ class ProductController extends Controller
             'description' => 'required|string',
             'content' => 'nullable|string',
             'category_id' => 'required|exists:product_categories,id',
-            'brand_id' => 'required|exists:brands,id',
+            'brand_id' => 'required',
+            'vendor_id' => 'required',
             'price' => 'required|numeric',
             'sale_price' => 'nullable|numeric',
-            'menuOrder' => 'nullable|integer',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // 2MB max
-            'atts' => 'nullable|json',
         ]);
 
-        //$validatedData=[];
 
-        // Handle main image upload
         if ($request->hasFile('image')) {
             $validatedData['image'] = $this->uploadImage($request->file('image'), 'products');
         }
-        // Handle multiple images upload
-        $imagePaths = [];
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $imagePaths[] = $this->uploadImage($image, 'products');
-            }
-        }
-        $validatedData['images'] = json_encode($imagePaths); // Store image paths as JSON
 
         // Decode attributes JSON
-        $attributes = json_decode($request->input('atts'), true);
+        //$attributes = json_decode($request->input('atts'), true);
 
-        //dd($attributes);
 
         // Save product to the database
         $product = Product::create([
             'name' => $validatedData['name'],
             'description' => $validatedData['description'],
             'content' => $validatedData['content'],
-            'category_id' => $validatedData['category_id'],
+            'product_categorie_id' => $validatedData['category_id'],
             'brand_id' => $validatedData['brand_id'],
+            'vendor_id' => $validatedData['vendor_id'],
             'price' => $validatedData['price'],
             'sale_price' => $validatedData['sale_price'],
             'image' => $validatedData['image'],
-            'images' => $validatedData['images'],
-            'attributes' => $attributes, // Save attributes as JSON
         ]);
+
+        // Handle additional images upload
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imagePath = $this->uploadImage($image, 'products');
+                $product->images()->create(['image_path' => $imagePath]);
+            }
+        }
 
         // Return success response
         return response()->json([

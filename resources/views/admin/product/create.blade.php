@@ -133,7 +133,7 @@
                             success: function(response) {
                                 new PNotify({
                                     title: 'Success',
-                                    text: 'You completed the registration form.',
+                                    text: 'Product Successfully Added',
                                     type: 'success',
                                     addclass: 'notification-success',
                                     icon: 'fas fa-check'

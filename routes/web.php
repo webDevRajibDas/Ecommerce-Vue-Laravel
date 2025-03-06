@@ -12,6 +12,7 @@ Route::get('/vendor-form', [HomepageController::class, 'vendorForm'])->name('ven
 Route::post('/vendor-contact-form', [HomepageController::class, 'vendorContactForm'])->name('vendorContactForm');
 Route::get('/category/{slug}', [HomepageController::class, 'showSubCatList'])->name('categories.show');
 Route::get('/vendors/{slug}', [HomepageController::class, 'showVendorList'])->name('vendors.show');
+Route::get('/product/{slug}', [HomepageController::class, 'productShowDetail'])->name('product.show');
 
 
 Auth::routes();

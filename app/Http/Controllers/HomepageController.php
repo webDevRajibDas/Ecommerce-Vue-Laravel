@@ -82,11 +82,18 @@ class HomepageController extends Controller
 
     public function showVendorList($categorySlug)
     {
-
         $category = SubCategorie::where('slug', $categorySlug)->firstOrFail();
         $vendor = Vendor::where('sub_categories_id', $category)->first();
-        //dd($vendors);
-        return view('frontend.vendors.vendor-shopping', compact('category', 'vendor'));
+        $all_products = Product::all();
+        $product_categories = ProductCategory::all();
+        return view('frontend.vendors.vendor-shopping', compact('category', 'vendor','all_products','product_categories'));
+
+    }
+
+    public function productShowDetail($slug)
+    {
+        $productDetails = Product::where('slug', $slug)->firstOrFail();
+        dd($productDetails);
 
     }
 

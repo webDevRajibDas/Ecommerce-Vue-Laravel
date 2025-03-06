@@ -18,7 +18,6 @@ return new class extends Migration
             $table->longText('content')->nullable(); // LONGTEXT, nullable
             $table->string('status')->default('published'); // VARCHAR(60), default 'published'
             $table->string('image')->nullable(); // VARCHAR(191), nullable
-            $table->text('images')->nullable(); // TEXT, nullable
             $table->text('video_media')->nullable(); // TEXT, nullable
             $table->string('sku')->nullable(); // VARCHAR(191), nullable
             $table->unsignedInteger('order')->default(0); // INT UNSIGNED, default 0

@@ -5,6 +5,34 @@ html .btn-primary{
 }
 
 
+
+.boost-card-title{
+    font-size: x-large;
+    color: #2003fb;
+}
+
+.growup-card {
+    border: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.growup-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    transition: transform 0.4s ease-in-out;
+}
+
+.growup-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+
 .primary-card {
     box-sizing: border-box;
     border: 1px solid white;
@@ -41,9 +69,10 @@ html .btn-primary{
 
 
 .card p {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 20px;
+    color: #0a0a0a;
 }
 
 .card p.small {

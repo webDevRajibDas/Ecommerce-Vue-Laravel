@@ -57,11 +57,11 @@
                     <div class="header-dropdown dropdown-expanded mr-3">
                         <div class="header-menu">
                             <ul>
-                                <li><a href="dashboard.html">My Account</a></li>
-                                <li><a href="demo7-about.html">About Us</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="wishlist.html">My Wishlist</a></li>
-                                <li><a href="cart.html">Cart</a></li>
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">My Wishlist</a></li>
+                                <li><a href="#">Cart</a></li>
                                 <li><a href="#" class="login-link">Log In</a></li>
                             </ul>
                         </div>
@@ -91,57 +91,26 @@
                         <i class="fas fa-bars"></i>
                     </button>
 
-                    <a href="demo7.html" class="logo w-100">
+                    <a href="#" class="logo w-100">
                         <img src="{{asset('fashion/assets/images/b2b-logo.png')}}" alt="B2B Logo">
                     </a>
 
                     <nav class="main-nav w-100">
                         <ul class="menu">
                             <li class="active">
-                                <a href="demo7.html">Home</a>
+                                <a href="#">Home</a>
                             </li>
                             <li>
                                 <a href="#">Categories</a>
                                 <div class="megamenu megamenu-fixed-width megamenu-3cols">
                                     <div class="row">
                                         <div class="col-lg-4">
-                                            <a href="#" class="nolink">VARIATION 1</a>
                                             <ul class="submenu">
-                                                <li><a href="category.html">Fullwidth Banner</a></li>
-                                                <li><a href="category-banner-boxed-slider.html">Boxed Slider
-                                                        Banner</a>
-                                                </li>
-                                                <li><a href="category-banner-boxed-image.html">Boxed Image
-                                                        Banner</a>
-                                                </li>
-                                                <li><a href="category.html">Left Sidebar</a></li>
-                                                <li><a href="category-sidebar-right.html">Right Sidebar</a></li>
-                                                <li><a href="category-off-canvas.html">Off Canvas Filter</a></li>
-                                                <li><a href="category-horizontal-filter1.html">Horizontal
-                                                        Filter1</a>
-                                                </li>
-                                                <li><a href="category-horizontal-filter2.html">Horizontal
-                                                        Filter2</a>
-                                                </li>
+                                                <li><a href="#">Fashion</a></li>
+                                                <li><a href="#">Jewellery</a></li>
+                                                <li><a href="#">Kids Fashion</a></li>
+                                                <li><a href="#">Accessories</a></li>
                                             </ul>
-                                        </div>
-
-                                        <div class="col-lg-4 p-0">
-                                            <div class="menu-banner">
-                                                <figure>
-                                                    <img src="{{asset('fashion/assets/images/menu-banner.jpg')}}"
-                                                         alt="Menu banner" width="300" height="300">
-                                                </figure>
-                                                <div class="banner-content">
-                                                    <h4>
-                                                        <span class="">UP TO</span><br/>
-                                                        <b class="">50%</b>
-                                                        <i>OFF</i>
-                                                    </h4>
-                                                    <a href="#" class="btn btn-sm btn-dark">SHOP
-                                                        NOW</a>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -159,30 +128,6 @@
                                                 <li><a href="#">SALE PRODUCT</a></li>
                                             </ul>
                                         </div>
-                                        <!-- End .col-lg-4 -->
-
-                                        <div class="col-lg-4">
-                                        </div>
-                                        <!-- End .col-lg-4 -->
-
-                                        <div class="col-lg-4 p-0">
-                                            <div class="menu-banner menu-banner-2">
-                                                <figure>
-                                                    <img src="{{asset('fashion/assets/images/menu-banner-1.jpg')}}"
-                                                         alt="Menu banner" class="product-promo" width="380"
-                                                         height="790">
-                                                </figure>
-                                                <i>OFF</i>
-                                                <div class="banner-content">
-                                                    <h4>
-                                                        <span class="">UP TO</span><br/>
-                                                        <b class="">50%</b>
-                                                    </h4>
-                                                </div>
-                                                <a href="#" class="btn btn-sm btn-dark">SHOP NOW</a>
-                                            </div>
-                                        </div>
-                                        <!-- End .col-lg-4 -->
                                     </div>
                                     <!-- End .row -->
                                 </div>
@@ -191,20 +136,12 @@
                             <li>
                                 <a href="#">Pages</a>
                                 <ul>
-                                    <li><a href="wishlist.html">Wishlist</a></li>
-                                    <li><a href="cart.html">Shopping Cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="dashboard.html">Dashboard</a></li>
-                                    <li><a href="demo7-about.html">About Us</a></li>
-                                    <li><a href="#">Blog</a>
-                                        <ul>
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="single.html">Blog Post</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="demo7-contact.html">Contact Us</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="forgot-password.html">Forgot Password</a></li>
+                                    <li><a href="#">Wishlist</a></li>
+                                    <li><a href="#">Shopping Cart</a></li>
+                                    <li><a href="#">Checkout</a></li>
+                                    <li><a href="#">Dashboard</a></li>
+                                    <li><a href="#">Login</a></li>
+                                    <li><a href="#">Forgot Password</a></li>
                                 </ul>
                             </li>
 
@@ -245,10 +182,10 @@
 
                 <div class="header-right">
 
-                    <a href="login.html" class="header-icon header-icon-user d-lg-none d-block" title="login"><i
+                    <a href="#" class="header-icon header-icon-user d-lg-none d-block" title="login"><i
                                 class="icon-user-2"></i></a>
 
-                    <a href="wishlist.html" class="header-icon d-lg-none d-block" title="wishlist"><i
+                    <a href="#" class="header-icon d-lg-none d-block" title="wishlist"><i
                                 class="icon-wishlist-2"></i></a>
 
                     <span class="separator d-lg-inline-block d-none"></span>
@@ -319,7 +256,7 @@
                                     <div class="product">
                                         <div class="product-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Circled Ultimate 3D Speaker</a>
+                                                <a href="#">Circled Ultimate 3D Speaker</a>
                                             </h4>
 
                                             <span class="cart-product-info">
@@ -388,7 +325,7 @@
                     <div class="col-lg-3 col-sm-6 mb-2">
                         <div class="banner banner4 text-uppercase banner-hover-shadow d-flex align-items-center">
                             <figure class="w-100">
-                                <img src="fashion/assets/images/demoes/demo7/banners/banner-4.jpg"
+                                <img src="{{asset('fashion/assets/images/demoes/demo7/banners/banner-4.jpg')}}"
                                      style="background-color: #555;" alt="banner">
                             </figure>
 
@@ -436,226 +373,55 @@
                             }
                         }">
 
-                    <div class="product-default left-details">
-                        <figure>
-                            <a href="#">
-                                <img src="fashion/assets/images/demoes/demo7/products/product-1.jpg" alt="product"
-                                     width="300" height="300">
-                                <img src="fashion/assets/images/demoes/demo7/products/product-1-2.jpg" alt="product"
-                                     width="300" height="300">
-                            </a>
-                            <div class="label-group">
-                                <span class="product-label label-hot">HOT</span>
-                            </div>
-                        </figure>
-                        <div class="product-details">
-                            <div class="category-list">
-                                <a href="#" class="product-category">clothing</a>,
-                                <a href="#" class="product-category">shoes</a>
-                            </div>
-                            <h3 class="product-title"><a href="#">Black Glasses</a></h3>
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:0%"></span>
-                                    <!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                                <!-- End .product-ratings -->
-                            </div>
-                            <!-- End .product-container -->
-                            <div class="price-box">
-                                <span class="product-price">$99.00 – $109.00</span>
-                            </div>
-                            <!-- End .price-box -->
-                            <div class="product-action">
-                                <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                            class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                <a href="#" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                        <!-- End .product-details -->
-                    </div>
 
-                    <div class="product-default left-details">
-                        <figure>
-                            <a href="#">
-                                <img src="{{asset('fashion/assets/images/demoes/demo7/products/product-2.jpg')}}" alt="product"
-                                     width="300" height="300">
-                                <img src="{{asset('fashion/assets/images/demoes/demo7/products/product-2-2.jpg')}}" alt="product"
-                                     width="300" height="300">
-                            </a>
-                            <div class="label-group">
-                                <span class="product-label label-hot">HOT</span>
-                                <span class="product-label label-sale">-28%</span>
-                            </div>
-                        </figure>
-                        <div class="product-details">
-                            <div class="category-list">
-                                <a href="#" class="product-category">shoes</a>,
-                                <a href="#" class="product-category">toys</a>
-                            </div>
-                            <h3 class="product-title"><a href="#">Jeans Pants</a></h3>
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:0%"></span>
-                                    <!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                                <!-- End .product-ratings -->
-                            </div>
-                            <!-- End .product-container -->
-                            <div class="price-box">
-                                <span class="product-price">$209.00 – $249.00</span>
-                            </div>
-                            <!-- End .price-box -->
-                            <div class="product-action">
-                                <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                            class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                <a href="#" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                        <!-- End .product-details -->
-                    </div>
+                    @foreach($all_products as $product)
+                        <div class="product-default left-details">
+                            <figure>
+                                <a href="{{ route('product.show', $product->slug) }}">
+                                    <img src="{{ $product->image ? asset('storage/'.$product->image) : asset('fashion/assets/images/demoes/demo7/products/product-8.jpg') }}"
+                                         alt="{{ $product->name }}" width="300" height="300">
 
-                    <div class="product-default left-details">
-                        <figure>
-                            <a href="#">
-                                <img src="{{asset('fashion/assets/images/demoes/demo7/products/product-4.jpg')}}" alt="product"
-                                     width="300" height="300">
-                                <img src="{{asset('fashion/assets/images/demoes/demo7/products/product-4-2.jpg')}}" alt="product"
-                                     width="300" height="300">
-                            </a>
-                            <div class="label-group">
-                                <span class="product-label label-hot">HOT</span>
-                            </div>
-                        </figure>
-                        <div class="product-details">
-                            <div class="category-list">
-                                <a href="#" class="product-category">CLOTHING</a>,
-                                <a href="#" class="product-category">shoes</a>
-                            </div>
-                            <h3 class="product-title"><a href="#">Men Black Belt</a></h3>
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:0%"></span>
-                                    <!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
+                                    <img src="{{asset('fashion/assets/images/demoes/demo7/products/product-8-2.jpg')}}" alt="product"
+                                         width="300" height="300">
+                                </a>
+                                <div class="label-group">
+                                    <span class="product-label label-hot">HOT</span>
+                                    <span class="product-label label-sale">-15%</span>
                                 </div>
-                                <!-- End .product-ratings -->
+                            </figure>
+                            <div class="product-details">
+                                <div class="category-list">
+                                    <a href="#" class="product-category">T-shirts</a>,
+                                    <a href="#" class="product-category">Toys</a>
+                                </div>
+                                <h3 class="product-title"><a href="#">{{$product->name}}</a></h3>
+                                <div class="ratings-container">
+                                    <div class="product-ratings">
+                                        <span class="ratings" style="width:0%"></span>
+                                        <!-- End .ratings -->
+                                        <span class="tooltiptext tooltip-top"></span>
+                                    </div>
+                                    <!-- End .product-ratings -->
+                                </div>
+                                <!-- End .product-container -->
+                                <div class="price-box">
+                                    <span class="old-price">$1,999.00</span>
+                                    <span class="product-price">$1,699.00</span>
+                                </div>
+                                <!-- End .price-box -->
+                                <div class="product-action">
+                                    <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
+                                                class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
+                                    <a href="#" class="btn-icon-wish" title="wishlist"><i
+                                                class="icon-heart"></i></a>
+                                    <a href="#" class="btn-quickview" title="Quick View"><i
+                                                class="fas fa-external-link-alt"></i></a>
+                                </div>
                             </div>
-                            <!-- End .product-container -->
-                            <div class="price-box">
-                                <span class="product-price">$299.00</span>
-                            </div>
-                            <!-- End .price-box -->
-                            <div class="product-action">
-                                <a href="#" class="btn-icon btn-add-cart"><i
-                                            class="fa fa-arrow-right"></i><span>SELECT
-                                            OPTIONS</span></a>
-                                <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                <a href="#" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                            </div>
+                            <!-- End .product-details -->
                         </div>
-                        <!-- End .product-details -->
-                    </div>
+                    @endforeach
 
-                    <div class="product-default left-details">
-                        <figure>
-                            <a href="#">
-                                <img src="{{asset('fashion/assets/images/demoes/demo7/products/product-6.jpg')}}" alt="product"
-                                     width="300" height="300">
-                                <img src="{{asset('fashion/assets/images/demoes/demo7/products/product-6-2.jpg')}}" alt="product"
-                                     width="300" height="300">
-                            </a>
-                            <div class="label-group">
-                                <span class="product-label label-hot">HOT</span>
-                                <span class="product-label label-sale">-15%</span>
-                            </div>
-                        </figure>
-                        <div class="product-details">
-                            <div class="category-list">
-                                <a href="#" class="product-category">T-shirts</a>,
-                                <a href="#" class="product-category">Toys</a>
-                            </div>
-                            <h3 class="product-title"><a href="#">Men Gentle Shoes</a></h3>
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:0%"></span>
-                                    <!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                                <!-- End .product-ratings -->
-                            </div>
-                            <!-- End .product-container -->
-                            <div class="price-box">
-                                <span class="old-price">$1,999.00</span>
-                                <span class="product-price">$1,699.00</span>
-                            </div>
-                            <!-- End .price-box -->
-                            <div class="product-action">
-                                <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                            class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                <a href="#" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                        <!-- End .product-details -->
-                    </div>
-
-                    <div class="product-default left-details">
-                        <figure>
-                            <a href="#">
-                                <img src="{{asset('fashion/assets/images/demoes/demo7/products/product-8.jpg')}}" alt="product"
-                                     width="300" height="300">
-                                <img src="{{asset('fashion/assets/images/demoes/demo7/products/product-8-2.jpg')}}" alt="product"
-                                     width="300" height="300">
-                            </a>
-                            <div class="label-group">
-                                <span class="product-label label-hot">HOT</span>
-                                <span class="product-label label-sale">-15%</span>
-                            </div>
-                        </figure>
-                        <div class="product-details">
-                            <div class="category-list">
-                                <a href="#" class="product-category">T-shirts</a>,
-                                <a href="#" class="product-category">Toys</a>
-                            </div>
-                            <h3 class="product-title"><a href="#">Men Towel</a></h3>
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:0%"></span>
-                                    <!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                                <!-- End .product-ratings -->
-                            </div>
-                            <!-- End .product-container -->
-                            <div class="price-box">
-                                <span class="old-price">$1,999.00</span>
-                                <span class="product-price">$1,699.00</span>
-                            </div>
-                            <!-- End .price-box -->
-                            <div class="product-action">
-                                <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                            class="icon-shopping-cart"></i><span>ADD TO CART</span></a>
-                                <a href="#" class="btn-icon-wish" title="wishlist"><i
-                                            class="icon-heart"></i></a>
-                                <a href="#" class="btn-quickview" title="Quick View"><i
-                                            class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
-                        <!-- End .product-details -->
-                    </div>
                 </div>
             </section>
         </div>
@@ -687,65 +453,26 @@
                             }
                         }
                     }">
-                    <div class="banner banner-image">
-                        <a href="#">
-                            <img src="{{asset('fashion/assets/images/demoes/demo7/banners/cats/banner-1.jpg')}}" width="272" height="231"
-                                 alt="banner">
-                        </a>
-                        <div class="banner-layer banner-layer-middle">
-                            <h3>DRESS</h3>
-                            <span>2 PRODUCTS </span>
-                        </div>
-                    </div>
-                    <!-- End .banner -->
 
-                    <div class="banner banner-image">
-                        <a href="#">
-                            <img src="{{asset('fashion/assets/images/demoes/demo7/banners/cats/banner-2.jpg')}}" width="272" height="231"
-                                 alt="banner">
-                        </a>
-                        <div class="banner-layer banner-layer-middle">
-                            <h3>TOYS</h3>
-                            <span>2 PRODUCTS </span>
-                        </div>
-                    </div>
-                    <!-- End .banner -->
 
-                    <div class="banner banner-image">
-                        <a href="#">
-                            <img src="{{asset('fashion/assets/images/demoes/demo7/banners/cats/banner-3.jpg')}}" width="272" height="231"
-                                 alt="banner">
-                        </a>
-                        <div class="banner-layer banner-layer-middle">
-                            <h3>SHOES</h3>
-                            <span>2 PRODUCTS </span>
+                    @forelse($product_categories as $categories)
+                        <div class="banner banner-image">
+                            <a href="#">
+                                <img src="{{asset('fashion/assets/images/demoes/demo7/banners/cats/banner-1.jpg')}}" width="272" height="231"
+                                     alt="banner">
+                            </a>
+                            <div class="banner-layer banner-layer-middle">
+                                <h3>{{$categories->title}}</h3>
+                                <span>2 PRODUCTS </span>
+                            </div>
                         </div>
-                    </div>
-                    <!-- End .banner -->
+                        <!-- End .banner -->
+                    @empty
+                        <div class="col-12 text-center">
+                            <p>No Category found.</p>
+                        </div>
+                    @endforelse
 
-                    <div class="banner banner-image">
-                        <a href="#">
-                            <img src="{{asset('fashion/assets/images/demoes/demo7/banners/cats/banner-4.jpg')}}" width="272" height="231"
-                                 alt="banner">
-                        </a>
-                        <div class="banner-layer banner-layer-middle">
-                            <h3>WATCHES</h3>
-                            <span>2 PRODUCTS </span>
-                        </div>
-                    </div>
-                    <!-- End .banner -->
-
-                    <div class="banner banner-image">
-                        <a href="#">
-                            <img src="{{asset('fashion/assets/images/demoes/demo7/banners/cats/banner-2.jpg')}}" width="272" height="231"
-                                 alt="banner">
-                        </a>
-                        <div class="banner-layer banner-layer-middle">
-                            <h3>Dress</h3>
-                            <span>2 Products </span>
-                        </div>
-                    </div>
-                    <!-- End .banner -->
                 </div>
                 <!-- End .cat-carousel -->
             </div>

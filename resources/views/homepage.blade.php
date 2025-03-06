@@ -31,6 +31,53 @@
             </div>
         </section>
 
+        <section class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Boost Your Retail Business Using the Top B2B Platform</h2>
+                <div class="row">
+                    <div class="col-md-3 mb-4">
+                        <div class="card growup-card">
+                            <img src="{{asset('assets/images/grow-up.png')}}" class="card-img-top img-thumbnail" alt="Business Image">
+                            <div class="card-body text-center">
+                                <h5 class="card-title boost-card-title">Digitization</h5>
+                                <p class="card-text">Expand your business reach with verified retailers and suppliers.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="card growup-card">
+                            <img src="{{asset('assets/images/grow-up.png')}}" class="card-img-top img-thumbnail" alt="Business Image">
+                            <div class="card-body text-center">
+                                <h5 class="card-title boost-card-title">Verified Suppliers</h5>
+                                <p class="card-text">Connect with verified suppliers to ensure quality products.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="card growup-card">
+                            <img src="{{asset('assets/images/grow-up.png')}}" class="card-img-top img-thumbnail" alt="Business Image">
+                            <div class="card-body text-center">
+                                <h5 class="card-title boost-card-title">Wholesale Business</h5>
+                                <p class="card-text">Enjoy faster delivery with our dedicated logistics partners.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 mb-4">
+                        <div class="card growup-card">
+                            <img src="{{asset('assets/images/grow-up.png')}}" class="card-img-top img-thumbnail" alt="Business Image">
+                            <div class="card-body text-center">
+                                <h5 class="card-title boost-card-title">Fast Delivery</h5>
+                                <p class="card-text">Enjoy faster delivery with our dedicated logistics partners.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
         <?php
         $shops = [
             ['name' => 'Easy Life', 'items' => 16, 'categories' => 4, 'rating' => 5.0, 'status' => 'Online', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
@@ -145,7 +192,7 @@
                         <div class="col-6 col-md-4 col-xl-3">
                             <div class="product-default inner-quickview inner-icon">
                                 <figure>
-                                    <a href="demo23-product.html">
+                                    <a href="#">
                                         <img src="{{asset('storage/'.$item->image) }}" width="217"
                                              height="217" alt="product">
                                     </a>
@@ -158,20 +205,20 @@
                                            class="btn-icon btn-add-cart product-type-simple"><i
                                                     class="icon-shopping-cart"></i></a>
                                     </div>
-                                    <a href="ajax/product-quick-view.html" class="btn-quickview"
+                                    <a href="#" class="btn-quickview"
                                        title="Quick View">Quick
                                         View</a>
                                 </figure>
                                 <div class="product-details">
                                     <div class="category-wrap">
                                         <div class="category-list">
-                                            <p>{{$item->product_categorie_id}}</p>
+                                            {{ $item->category?->title ?? '' }}
                                         </div>
                                         <a href="wishlist.html" title="Add to Wishlist" class="btn-icon-wish"><i
                                                     class="icon-heart"></i></a>
                                     </div>
                                     <h3 class="product-title">
-                                        <a href="demo23-product.html">{{$item->name}}</a>
+                                        <a href="#">{{$item->name}}</a>
                                     </h3>
                                     <div class="ratings-container">
                                         <div class="product-ratings">

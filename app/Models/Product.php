@@ -3,16 +3,29 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class Product extends Model
 {
 
-    protected $fillable = ['name','brand_id', 'description', 'image','images'];
+    protected $fillable = ['name','brand_id', 'description', 'image','content','product_categorie_id', 'brand_id','vendor_id','price', 'sale_price','image',];
 
-
-    public function product_category()
+    protected static function boot()
     {
-        return $this->belongsTo(ProductCategory::class, 'parent_id');
+        parent::boot();
+
+        static::creating(function ($product) {
+            $slug = Str::slug($product->name);
+            $count = Product::where('slug', 'like', "{$slug}%")->count();
+            $product->slug = $count ? "{$slug}-{$count}" : $slug;
+        });
+
+        static::updating(function ($product) {
+            $slug = Str::slug($product->name);
+            $count = Product::where('slug', 'like', "{$slug}%")->where('id', '!=', $product->id)->count();
+            $product->slug = $count ? "{$slug}-{$count}" : $slug;
+        });
     }
 
     public function category()
@@ -20,4 +33,9 @@ class Product extends Model
         return $this->belongsTo(ProductCategory::class, 'product_categorie_id'); //product_categories
     }
 
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 }
