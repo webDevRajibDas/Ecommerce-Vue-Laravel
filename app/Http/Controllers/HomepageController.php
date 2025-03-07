@@ -93,7 +93,7 @@ class HomepageController extends Controller
     public function productShowDetail($slug)
     {
         $productDetails = Product::where('slug', $slug)->firstOrFail();
-        dd($productDetails);
+        return view('frontend.shopping.single-product', compact('productDetails'));
 
     }
 

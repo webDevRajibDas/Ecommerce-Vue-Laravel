@@ -1,0 +1,263 @@
+<header class="header">
+    <div class="header-top text-uppercase">
+        <div class="container">
+            <div class="header-left">
+                <div class="header-dropdown mr-3 pr-1">
+                </div>
+                <!-- End .header-dropown -->
+                <div class="header-dropdown mr-auto">
+                </div>
+                <!-- End .header-dropown -->
+            </div>
+            <!-- End .header-left -->
+
+            <div class="header-right header-dropdowns ml-0 ml-sm-auto">
+                <div class="header-dropdown dropdown-expanded mr-3">
+                    <div class="header-menu">
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">My Wishlist</a></li>
+                            <li><a href="#">Cart</a></li>
+                            <li><a href="#" class="login-link">Log In</a></li>
+                        </ul>
+                    </div>
+                    <!-- End .header-menu -->
+                </div>
+                <!-- End .header-dropown -->
+
+                <span class="separator d-none d-lg-inline-block"></span>
+
+                <div class="social-icons">
+                    <a href="#" class="social-icon social-facebook icon-facebook" target="_blank"></a>
+                    <a href="#" class="social-icon social-twitter icon-twitter" target="_blank"></a>
+                    <a href="#" class="social-icon social-instagram icon-instagram mr-1" target="_blank"></a>
+                </div>
+                <!-- End .social-icons -->
+            </div>
+            <!-- End .header-right -->
+        </div>
+        <!-- End .container -->
+    </div>
+    <!-- End .header-top -->
+
+    <div class="header-middle sticky-header">
+        <div class="container">
+            <div class="header-left">
+                <button class="mobile-menu-toggler" type="button">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <a href="#" class="logo w-100">
+                    <img src="{{asset('fashion/assets/images/b2b-logo.png')}}" alt="B2B Logo">
+                </a>
+
+                <nav class="main-nav w-100">
+                    <ul class="menu">
+                        <li class="active">
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Categories</a>
+                            <div class="megamenu megamenu-fixed-width megamenu-3cols">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <ul class="submenu">
+                                            <li><a href="#">Fashion</a></li>
+                                            <li><a href="#">Jewellery</a></li>
+                                            <li><a href="#">Kids Fashion</a></li>
+                                            <li><a href="#">Accessories</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End .megamenu -->
+                        </li>
+                        <li>
+                            <a href="#">Products</a>
+                            <div class="megamenu megamenu-fixed-width">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <a href="#" class="nolink">PRODUCT PAGES</a>
+                                        <ul class="submenu">
+                                            <li><a href="#">SIMPLE PRODUCT</a></li>
+                                            <li><a href="#">VARIABLE PRODUCT</a></li>
+                                            <li><a href="#">SALE PRODUCT</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End .row -->
+                            </div>
+                            <!-- End .megamenu -->
+                        </li>
+                        <li>
+                            <a href="#">Pages</a>
+                            <ul>
+                                <li><a href="#">Wishlist</a></li>
+                                <li><a href="#">Shopping Cart</a></li>
+                                <li><a href="#">Checkout</a></li>
+                                <li><a href="#">Dashboard</a></li>
+                                <li><a href="#">Login</a></li>
+                                <li><a href="#">Forgot Password</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </nav>
+
+                <div class="header-search header-search-popup header-search-category d-none d-lg-block ml-xl-5">
+                    <a href="#" class="search-toggle" role="button"><i class="icon-magnifier"></i></a>
+                    <form action="#" method="get">
+                        <div class="header-search-wrapper">
+                            <input type="search" class="form-control bg-white" name="q" id="q"
+                                   placeholder="I'm searching for..." required="">
+                            <div class="select-custom bg-white">
+                                <select id="cat" name="cat">
+                                    <option value="">All Categories</option>
+                                    <option value="4">Fashion</option>
+                                    <option value="12">- Women</option>
+                                    <option value="13">- Men</option>
+                                    <option value="66">- Jewellery</option>
+                                    <option value="67">- Kids Fashion</option>
+                                    <option value="5">Electronics</option>
+                                    <option value="21">- Smart TVs</option>
+                                    <option value="22">- Cameras</option>
+                                    <option value="7">Home &amp; Garden</option>
+                                    <option value="11">Motors</option>
+                                    <option value="33">- Parts &amp; Accessories</option>
+                                </select>
+                            </div>
+                            <!-- End .select-custom -->
+                            <button class="btn bg-white icon-search-3" type="submit"></button>
+                        </div>
+                        <!-- End .header-search-wrapper -->
+                    </form>
+                </div>
+            </div>
+            <!-- End .header-left -->
+
+            <div class="header-right">
+
+                <a href="#" class="header-icon header-icon-user d-lg-none d-block" title="login"><i
+                            class="icon-user-2"></i></a>
+
+                <a href="#" class="header-icon d-lg-none d-block" title="wishlist"><i
+                            class="icon-wishlist-2"></i></a>
+
+                <span class="separator d-lg-inline-block d-none"></span>
+
+                <div class="dropdown cart-dropdown">
+                    <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                        <i class="icon-shopping-cart"></i>
+                        <span class="cart-count badge-circle">3</span>
+                    </a>
+
+                    <div class="cart-overlay"></div>
+
+                    <div class="dropdown-menu mobile-cart">
+                        <a href="#" title="Close (Esc)" class="btn-close">×</a>
+
+                        <div class="dropdownmenu-wrapper custom-scrollbar">
+                            <div class="dropdown-cart-header">Shopping Cart</div>
+                            <!-- End .dropdown-cart-header -->
+
+                            <div class="dropdown-cart-products">
+                                <div class="product">
+                                    <div class="product-details">
+                                        <h4 class="product-title">
+                                            <a href="product.html">Ultimate 3D Bluetooth Speaker</a>
+                                        </h4>
+
+                                        <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × $99.00
+                                                </span>
+                                    </div>
+                                    <!-- End .product-details -->
+
+                                    <figure class="product-image-container">
+                                        <a href="product.html" class="product-image">
+                                            <img src="{{asset('assets/images/products/product-1.jpg')}}"
+                                                 alt="product" width="80" height="80">
+                                        </a>
+
+                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                    </figure>
+                                </div>
+                                <!-- End .product -->
+
+                                <div class="product">
+                                    <div class="product-details">
+                                        <h4 class="product-title">
+                                            <a href="product.html">Brown Women Casual HandBag</a>
+                                        </h4>
+
+                                        <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × $35.00
+                                                </span>
+                                    </div>
+                                    <!-- End .product-details -->
+
+                                    <figure class="product-image-container">
+                                        <a href="product.html" class="product-image">
+                                            <img src="assets/images/products/product-2.jpg" alt="product" width="80"
+                                                 height="80">
+                                        </a>
+
+                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                    </figure>
+                                </div>
+                                <!-- End .product -->
+
+                                <div class="product">
+                                    <div class="product-details">
+                                        <h4 class="product-title">
+                                            <a href="#">Circled Ultimate 3D Speaker</a>
+                                        </h4>
+
+                                        <span class="cart-product-info">
+                                                    <span class="cart-product-qty">1</span> × $35.00
+                                                </span>
+                                    </div>
+                                    <!-- End .product-details -->
+
+                                    <figure class="product-image-container">
+                                        <a href="product.html" class="product-image">
+                                            <img src="assets/images/products/product-3.jpg" alt="product" width="80"
+                                                 height="80">
+                                        </a>
+                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
+                                    </figure>
+                                </div>
+                                <!-- End .product -->
+                            </div>
+                            <!-- End .cart-product -->
+
+                            <div class="dropdown-cart-total">
+                                <span>SUBTOTAL:</span>
+
+                                <span class="cart-total-price float-right">$134.00</span>
+                            </div>
+                            <!-- End .dropdown-cart-total -->
+
+                            <div class="dropdown-cart-action">
+                                <a href="cart.html" class="btn btn-gray btn-block view-cart">View
+                                    Cart</a>
+                                <a href="checkout.html" class="btn btn-dark btn-block">Checkout</a>
+                            </div>
+                            <!-- End .dropdown-cart-total -->
+                        </div>
+                        <!-- End .dropdownmenu-wrapper -->
+                    </div>
+                    <!-- End .dropdown-menu -->
+                </div>
+                <!-- End .dropdown -->
+            </div>
+            <!-- End .header-right -->
+        </div>
+        <!-- End .container -->
+    </div>
+    <!-- End .header-middle -->
+</header>
