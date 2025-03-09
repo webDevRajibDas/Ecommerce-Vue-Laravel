@@ -33,10 +33,12 @@
 
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="{{asset('fashion/assets/css/bootstrap.min.css')}}">
-
+    <link rel="stylesheet" type="text/css" href="{{asset('fashion/assets/vendor/fontawesome-free/css/all.min.css')}}">
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{{asset('fashion/assets/css/demo7.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('fashion/assets/vendor/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('fashion/assets/css/style.min.css')}}">
+
+    @stack('styles')
 </head>
 
 <body>
@@ -109,6 +111,8 @@
 
 <!-- Main JS File -->
 <script src="{{asset('fashion/assets/js/main.min.js')}}"></script>
+
+@stack('custom-script')
 </body>
 
 

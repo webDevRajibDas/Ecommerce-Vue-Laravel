@@ -33,7 +33,7 @@
 
         <section class="py-5">
             <div class="container">
-                <h2 class="text-center mb-4">Boost Your Retail Business Using the Top B2B Platform</h2>
+                <h2 class="text-center mb-4">Boost Your Retail Business Using || B2B Platform</h2>
                 <div class="row">
                     <div class="col-md-3 mb-4">
                         <div class="card growup-card">
@@ -77,7 +77,6 @@
         </section>
 
 
-
         <?php
         $shops = [
             ['name' => 'Easy Life', 'items' => 16, 'categories' => 4, 'rating' => 5.0, 'status' => 'Online', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
@@ -97,41 +96,7 @@
 
         ];
         ?>
-        <section id="top-rated-shops">
-            <div class="container mt-4">
-                <h2 class="section-title text-center text-uppercase appear-animate mb-4"
-                    data-animation-name="fadeInUpShorter" data-animation-delay="200">Top Shops</h2>
-                <div class="row">
-                    <?php foreach ($shops as $shop): ?>
-                    <div class="col-md-4 mb-4">
-                        <div class="card border-0 shadow"
-                             style="border-radius: 15px; overflow: hidden; position: relative;">
-                            <!-- Status Badge -->
-                            <div class="badge badge-<?php echo strtolower($shop['status']) === 'online' ? 'success' : 'warning'; ?>"
-                                 style="position: absolute; top: 10px; right: 10px; font-size: 0.85rem; padding: 5px 10px; border-radius: 12px;">
-                                    <?php echo $shop['status']; ?>
-                            </div>
-                            <!-- Logo Section -->
-                            <div class="text-center p-3" style="background-color: #f4f4f4;">
-                                <img style="height: 150px; width: 100%" src="<?php echo $shop['logo']; ?>"
-                                     alt="Shop Logo" class="">
-                            </div>
-                            <div class="card-body text-white"
-                                 style="background-color: #e91e63; border-radius: 0 0 15px 15px;">
-                                <h5 class="card-title mb-2"><?php echo $shop['name']; ?></h5>
-                                <p class="card-text mb-1">
-                                    <span><?php echo $shop['items']; ?> + Items</span> &nbsp; | &nbsp;
-                                    <span><?php echo $shop['categories']; ?> + Categories</span> &nbsp; | &nbsp;
-                                    <span><i class="fa fa-star text-warning"></i> <?php echo number_format($shop['rating'], 1); ?></span>
-                                </p>
-                                <a href="#" class="btn btn-outline-light btn-sm">Visit Store →</a>
-                            </div>
-                        </div>
-                    </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </section>
+
 
 
         <div class="brands-section" style="background: #65829d !important;">
@@ -238,7 +203,41 @@
             </div>
         </div>
 
-
+        <section id="top-rated-shops">
+            <div class="container mt-4">
+                <h2 class="section-title text-center text-uppercase appear-animate mb-4"
+                    data-animation-name="fadeInUpShorter" data-animation-delay="200">Top Shops</h2>
+                <div class="row">
+                    <?php foreach ($shops as $shop): ?>
+                    <div class="col-md-4 mb-4">
+                        <div class="card border-0 shadow"
+                             style="border-radius: 15px; overflow: hidden; position: relative;">
+                            <!-- Status Badge -->
+                            <div class="badge badge-<?php echo strtolower($shop['status']) === 'online' ? 'success' : 'warning'; ?>"
+                                 style="position: absolute; top: 10px; right: 10px; font-size: 0.85rem; padding: 5px 10px; border-radius: 12px;">
+                                    <?php echo $shop['status']; ?>
+                            </div>
+                            <!-- Logo Section -->
+                            <div class="text-center p-3" style="background-color: #f4f4f4;">
+                                <img style="height: 150px; width: 100%" src="<?php echo $shop['logo']; ?>"
+                                     alt="Shop Logo" class="">
+                            </div>
+                            <div class="card-body text-white"
+                                 style="background-color: #e91e63; border-radius: 0 0 15px 15px;">
+                                <h5 class="card-title mb-2"><?php echo $shop['name']; ?></h5>
+                                <p class="card-text mb-1">
+                                    <span><?php echo $shop['items']; ?> + Items</span> &nbsp; | &nbsp;
+                                    <span><?php echo $shop['categories']; ?> + Categories</span> &nbsp; | &nbsp;
+                                    <span><i class="fa fa-star text-warning"></i> <?php echo number_format($shop['rating'], 1); ?></span>
+                                </p>
+                                <a href="#" class="btn btn-outline-light btn-sm">Visit Store →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
     </main><!-- End .main -->
 
 @endsection

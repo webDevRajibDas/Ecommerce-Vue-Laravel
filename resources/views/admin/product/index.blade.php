@@ -33,300 +33,31 @@
         </div>
     </div>
     <div class="row row-gutter-sm mb-5">
-        <div class="col-lg-2-5 col-xl-1-5 mb-4 mb-lg-0">
-            <div class="filters-sidebar-wrapper bg-light rounded">
-                <div class="card card-modern">
-                    <div class="card-header">
-                        <div class="card-actions">
-                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                        </div>
-                        <h4 class="card-title">ELECTRONICS</h4>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list list-unstyled mb-0">
-                            <li><a href="#">Smart TVs</a></li>
-                            <li><a href="#">Cameras</a></li>
-                            <li><a href="#">Headphones</a></li>
-                            <li><a href="#">Games</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <hr class="solid opacity-7">
-                <div class="card card-modern">
-                    <div class="card-header">
-                        <div class="card-actions">
-                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                        </div>
-                        <h4 class="card-title">PRICE</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="slider-range-wrapper">
-                            <div class="m-md slider-primary slider-modern" data-plugin-slider data-plugin-options='{ "half_values": true, "values": [ 25, 270 ], "range": true, "max": 300 }' data-plugin-slider-output="#priceRange" data-plugin-slider-link-values-to="#priceRangeValues">
-                                <input id="priceRange" type="hidden" value="25, 270" />
-                            </div>
-                            <form class="d-flex align-items-center justify-content-between mb-2" method="get">
-												<span id="priceRangeValues" class="price-range-values">
-													Price $<span class="min price-range-low">25</span> - $<span class="max price-range-high">270</span>
-												</span>
-                                <input type="hidden" class="hidden-price-range-low" name="priceLow" value="" />
-                                <input type="hidden" class="hidden-price-range-high" name="priceHigh" value="" />
-                                <button type="submit" class="btn btn-primary btn-h-1 font-weight-semibold rounded-0 btn-px-3 btn-py-1 text-2">FILTER</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <hr class="solid opacity-7">
-                <div class="card card-modern">
-                    <div class="card-header">
-                        <div class="card-actions">
-                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                        </div>
-                        <h4 class="card-title">SIZES</h4>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list list-inline list-filter mb-0">
-                            <li class="list-inline-item">
-                                <a href="#">S</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#" class="active">M</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">L</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">XL</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">2XL</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">3XL</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <hr class="solid opacity-7">
-                <div class="card card-modern">
-                    <div class="card-header">
-                        <div class="card-actions">
-                            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-                        </div>
-                        <h4 class="card-title">BRANDS</h4>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list list-unstyled mb-0">
-                            <li><a href="#">Adidas <span class="float-end">18</span></a></li>
-                            <li><a href="#">Camel <span class="float-end">22</span></a></li>
-                            <li><a href="#">Samsung Galaxy <span class="float-end">05</span></a></li>
-                            <li><a href="#">Seiko <span class="float-end">68</span></a></li>
-                            <li><a href="#">Sony <span class="float-end">03</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="col-lg-3-5 col-xl-4-5">
             <div class="row row-gutter-sm">
-                <div class="col-sm-6 col-xl-3 mb-4">
-                    <div class="card card-modern card-modern-alt-padding">
-                        <div class="card-body bg-light">
-                            <div class="image-frame mb-2">
-                                <div class="image-frame-wrapper">
-                                    <div class="image-frame-badges-wrapper">
-                                        <span class="badge badge-ecommerce badge-danger">27% OFF</span>
+                @foreach($products as $product)
+                    <div class="col-sm-6 col-xl-2 mb-4">
+                        <div class="card card-modern card-modern-alt-padding">
+                            <div class="card-body bg-light">
+                                <div class="image-frame mb-2">
+                                    <div class="image-frame-wrapper">
+                                        <a href="#">
+                                            <img src="{{asset('storage/'.$product->image)}}" class="img-fluid" alt="Product Short Name" />
+                                        </a>
                                     </div>
-                                    <a href="ecommerce-products-form.html"><img src="img/products/product-1.jpg" class="img-fluid" alt="Product Short Name" /></a>
                                 </div>
-                            </div>
-                            <small><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-grey text-color-hover-primary text-decoration-none">CATEGORY</a></small>
-                            <h4 class="text-4 line-height-2 mt-0 mb-2"><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-dark text-color-hover-primary text-decoration-none">Product Short Name</a></h4>
-                            <div class="stars-wrapper">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="product-price">
-                                <div class="regular-price on-sale">$59.00</div>
-                                <div class="sale-price">$49.00</div>
+                                <small><a href="#" class="ecommerce-sidebar-link text-color-grey text-color-hover-primary text-decoration-none">CATEGORY</a></small>
+                                <h4 class="text-4 line-height-2 mt-0 mb-2 text-black">
+                                    {{$product->name}}
+                                </h4>
+                                <div class="product-price">
+                                    <div class="regular-price on-sale">{{$product->price}}</div>
+                                    <div class="sale-price">{{$product->sale_price}}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-xl-3 mb-4">
-                    <div class="card card-modern card-modern-alt-padding">
-                        <div class="card-body bg-light">
-                            <div class="image-frame mb-2">
-                                <div class="image-frame-wrapper">
-                                    <div class="image-frame-badges-wrapper">
-                                        <span class="badge badge-ecommerce badge-success">NEW</span>
-                                        <span class="badge badge-ecommerce badge-danger">27% OFF</span>
-                                    </div>
-                                    <a href="ecommerce-products-form.html"><img src="img/products/product-2.jpg" class="img-fluid" alt="Product Short Name" /></a>
-                                </div>
-                            </div>
-                            <small><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-grey text-color-hover-primary text-decoration-none">CATEGORY</a></small>
-                            <h4 class="text-4 line-height-2 mt-0 mb-2"><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-dark text-color-hover-primary text-decoration-none">Product Short Name</a></h4>
-                            <div class="stars-wrapper">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="product-price">
-                                <div class="regular-price on-sale">$59.00</div>
-                                <div class="sale-price">$49.00</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3 mb-4">
-                    <div class="card card-modern card-modern-alt-padding">
-                        <div class="card-body bg-light">
-                            <div class="image-frame mb-2">
-                                <div class="image-frame-wrapper">
-                                    <a href="ecommerce-products-form.html"><img src="img/products/product-3.jpg" class="img-fluid" alt="Product Short Name" /></a>
-                                </div>
-                            </div>
-                            <small><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-grey text-color-hover-primary text-decoration-none">CATEGORY</a></small>
-                            <h4 class="text-4 line-height-2 mt-0 mb-2"><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-dark text-color-hover-primary text-decoration-none">Product Short Name</a></h4>
-                            <div class="stars-wrapper">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="product-price">
-                                <div class="regular-price on-sale">$59.00</div>
-                                <div class="sale-price">$49.00</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3 mb-4">
-                    <div class="card card-modern card-modern-alt-padding">
-                        <div class="card-body bg-light">
-                            <div class="image-frame mb-2">
-                                <div class="image-frame-wrapper">
-                                    <a href="ecommerce-products-form.html"><img src="img/products/product-4.jpg" class="img-fluid" alt="Product Short Name" /></a>
-                                </div>
-                            </div>
-                            <small><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-grey text-color-hover-primary text-decoration-none">CATEGORY</a></small>
-                            <h4 class="text-4 line-height-2 mt-0 mb-2"><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-dark text-color-hover-primary text-decoration-none">Product Short Name</a></h4>
-                            <div class="stars-wrapper">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="product-price">
-                                <div class="regular-price on-sale">$59.00</div>
-                                <div class="sale-price">$49.00</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3 mb-4 mb-lg-0">
-                    <div class="card card-modern card-modern-alt-padding">
-                        <div class="card-body bg-light">
-                            <div class="image-frame mb-2">
-                                <div class="image-frame-wrapper">
-                                    <a href="ecommerce-products-form.html"><img src="img/products/product-5.jpg" class="img-fluid" alt="Product Short Name" /></a>
-                                </div>
-                            </div>
-                            <small><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-grey text-color-hover-primary text-decoration-none">CATEGORY</a></small>
-                            <h4 class="text-4 line-height-2 mt-0 mb-2"><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-dark text-color-hover-primary text-decoration-none">Product Short Name</a></h4>
-                            <div class="stars-wrapper">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="product-price">
-                                <div class="regular-price on-sale">$59.00</div>
-                                <div class="sale-price">$49.00</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3 mb-4 mb-lg-0">
-                    <div class="card card-modern card-modern-alt-padding">
-                        <div class="card-body bg-light">
-                            <div class="image-frame mb-2">
-                                <div class="image-frame-wrapper">
-                                    <a href="ecommerce-products-form.html"><img src="img/products/product-6.jpg" class="img-fluid" alt="Product Short Name" /></a>
-                                </div>
-                            </div>
-                            <small><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-grey text-color-hover-primary text-decoration-none">CATEGORY</a></small>
-                            <h4 class="text-4 line-height-2 mt-0 mb-2"><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-dark text-color-hover-primary text-decoration-none">Product Short Name</a></h4>
-                            <div class="stars-wrapper">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="product-price">
-                                <div class="regular-price on-sale">$59.00</div>
-                                <div class="sale-price">$49.00</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3 mb-4 mb-sm-0">
-                    <div class="card card-modern card-modern-alt-padding">
-                        <div class="card-body bg-light">
-                            <div class="image-frame mb-2">
-                                <div class="image-frame-wrapper">
-                                    <a href="ecommerce-products-form.html"><img src="img/products/product-7.jpg" class="img-fluid" alt="Product Short Name" /></a>
-                                </div>
-                            </div>
-                            <small><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-grey text-color-hover-primary text-decoration-none">CATEGORY</a></small>
-                            <h4 class="text-4 line-height-2 mt-0 mb-2"><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-dark text-color-hover-primary text-decoration-none">Product Short Name</a></h4>
-                            <div class="stars-wrapper">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="product-price">
-                                <div class="regular-price on-sale">$59.00</div>
-                                <div class="sale-price">$49.00</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="card card-modern card-modern-alt-padding">
-                        <div class="card-body bg-light">
-                            <div class="image-frame mb-2">
-                                <div class="image-frame-wrapper">
-                                    <a href="ecommerce-products-form.html"><img src="img/products/product-8.jpg" class="img-fluid" alt="Product Short Name" /></a>
-                                </div>
-                            </div>
-                            <small><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-grey text-color-hover-primary text-decoration-none">CATEGORY</a></small>
-                            <h4 class="text-4 line-height-2 mt-0 mb-2"><a href="ecommerce-products-form.html" class="ecommerce-sidebar-link text-color-dark text-color-hover-primary text-decoration-none">Product Short Name</a></h4>
-                            <div class="stars-wrapper">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="product-price">
-                                <div class="regular-price on-sale">$59.00</div>
-                                <div class="sale-price">$49.00</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="row row-gutter-sm justify-content-between">
                 <div class="col-lg-auto order-2 order-lg-1">

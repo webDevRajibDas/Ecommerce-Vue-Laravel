@@ -33,8 +33,13 @@ class Product extends Model
         return $this->belongsTo(ProductCategory::class, 'product_categorie_id'); //product_categories
     }
 
+    public function brands()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id');
+    }
 
-    public function images(): HasMany
+
+    public function gallery(): HasMany
     {
         return $this->hasMany(ProductImage::class);
     }

@@ -452,3 +452,7 @@ label {
     color: #ff5500;
     font-size: 1.8rem;
 }
+
+.dot-thumbnail img{
+    height: 140px;
+}

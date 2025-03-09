@@ -19,7 +19,7 @@
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Blog</a></li>
                             <li><a href="#">My Wishlist</a></li>
-                            <li><a href="#">Cart</a></li>
+                            <li><a href="{{route('product.cart')}}">Cart</a></li>
                             <li><a href="#" class="login-link">Log In</a></li>
                         </ul>
                     </div>
@@ -56,7 +56,7 @@
                 <nav class="main-nav w-100">
                     <ul class="menu">
                         <li class="active">
-                            <a href="#">Home</a>
+                            <a href="{{url('/')}}">Home</a>
                         </li>
                         <li>
                             <a href="#">Categories</a>
@@ -91,18 +91,6 @@
                             </div>
                             <!-- End .megamenu -->
                         </li>
-                        <li>
-                            <a href="#">Pages</a>
-                            <ul>
-                                <li><a href="#">Wishlist</a></li>
-                                <li><a href="#">Shopping Cart</a></li>
-                                <li><a href="#">Checkout</a></li>
-                                <li><a href="#">Dashboard</a></li>
-                                <li><a href="#">Login</a></li>
-                                <li><a href="#">Forgot Password</a></li>
-                            </ul>
-                        </li>
-
 
                     </ul>
                 </nav>
@@ -168,7 +156,7 @@
                                 <div class="product">
                                     <div class="product-details">
                                         <h4 class="product-title">
-                                            <a href="product.html">Ultimate 3D Bluetooth Speaker</a>
+                                            <a href="#">Ultimate 3D Bluetooth Speaker</a>
                                         </h4>
 
                                         <span class="cart-product-info">
@@ -178,7 +166,7 @@
                                     <!-- End .product-details -->
 
                                     <figure class="product-image-container">
-                                        <a href="product.html" class="product-image">
+                                        <a href="#" class="product-image">
                                             <img src="{{asset('assets/images/products/product-1.jpg')}}"
                                                  alt="product" width="80" height="80">
                                         </a>
@@ -191,7 +179,7 @@
                                 <div class="product">
                                     <div class="product-details">
                                         <h4 class="product-title">
-                                            <a href="product.html">Brown Women Casual HandBag</a>
+                                            <a href="#">Brown Women Casual HandBag</a>
                                         </h4>
 
                                         <span class="cart-product-info">
@@ -201,8 +189,8 @@
                                     <!-- End .product-details -->
 
                                     <figure class="product-image-container">
-                                        <a href="product.html" class="product-image">
-                                            <img src="assets/images/products/product-2.jpg" alt="product" width="80"
+                                        <a href="#" class="product-image">
+                                            <img src="{{asset('fashion/assets/images/products/product-2.jpg')}}" alt="product" width="80"
                                                  height="80">
                                         </a>
 
@@ -224,8 +212,8 @@
                                     <!-- End .product-details -->
 
                                     <figure class="product-image-container">
-                                        <a href="product.html" class="product-image">
-                                            <img src="assets/images/products/product-3.jpg" alt="product" width="80"
+                                        <a href="#" class="product-image">
+                                            <img src="{{asset('fashion/assets/images/products/product-3.jpg')}}" alt="product" width="80"
                                                  height="80">
                                         </a>
                                         <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
@@ -243,9 +231,9 @@
                             <!-- End .dropdown-cart-total -->
 
                             <div class="dropdown-cart-action">
-                                <a href="cart.html" class="btn btn-gray btn-block view-cart">View
+                                <a href="#" class="btn btn-gray btn-block view-cart">View
                                     Cart</a>
-                                <a href="checkout.html" class="btn btn-dark btn-block">Checkout</a>
+                                <a href="#" class="btn btn-dark btn-block">Checkout</a>
                             </div>
                             <!-- End .dropdown-cart-total -->
                         </div>

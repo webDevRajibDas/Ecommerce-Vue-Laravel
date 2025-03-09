@@ -13,6 +13,8 @@ Route::post('/vendor-contact-form', [HomepageController::class, 'vendorContactFo
 Route::get('/category/{slug}', [HomepageController::class, 'showSubCatList'])->name('categories.show');
 Route::get('/vendors/{slug}', [HomepageController::class, 'showVendorList'])->name('vendors.show');
 Route::get('/product/{slug}', [HomepageController::class, 'productShowDetail'])->name('product.show');
+Route::get('/cart', [HomepageController::class, 'Cart'])->name('product.cart');
+Route::get('/upazilas/{districtId}', [HomepageController::class, 'getUpazilas']);
 
 
 Auth::routes();

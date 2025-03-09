@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\District;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\SubCategorie;
+use App\Models\Upazila;
 use App\Models\Vendor;
 use App\Models\VendorCategorie;
 use App\Models\VendorContact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomepageController extends Controller
 {
@@ -92,9 +95,24 @@ class HomepageController extends Controller
 
     public function productShowDetail($slug)
     {
-        $productDetails = Product::where('slug', $slug)->firstOrFail();
-        return view('frontend.shopping.single-product', compact('productDetails'));
+        $productDetail = Product::with(['gallery'])->where('slug', $slug)->first();
+        //dd($productDetail);
+        return view('frontend.shopping.single-product', compact('productDetail'));
 
+    }
+
+    public function Cart()
+    {
+        $districts  = District::all();
+        $upazilas  = Upazila::all();
+        return view('frontend.shopping.cart',compact('districts'));
+
+    }
+
+    public function getUpazilas($districtId)
+    {
+        $upazilas = Upazila::where('district_id', $districtId)->pluck('name', 'id');
+        return response()->json($upazilas);
     }
 
 }
