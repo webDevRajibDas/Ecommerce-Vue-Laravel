@@ -9,7 +9,7 @@ class VendorCategorie extends Model
 {
 
 
-    protected $fillable = ['title', 'description', 'slug','image'];
+    protected $fillable = ['title', 'description', 'slug','image','template'];
     public static function boot()
     {
         parent::boot();

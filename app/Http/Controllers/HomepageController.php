@@ -11,6 +11,7 @@ use App\Models\Vendor;
 use App\Models\VendorCategorie;
 use App\Models\VendorContact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class HomepageController extends Controller
@@ -91,6 +92,22 @@ class HomepageController extends Controller
         $product_categories = ProductCategory::all();
         return view('frontend.vendors.vendor-shopping', compact('category', 'vendor','all_products','product_categories'));
 
+    }
+
+    public function show(Request $request ,$slug){
+
+        $category = Cache::remember('vendor_category_' . $slug, 60, function () use ($slug) {
+            return SubCategorie::where('slug', $slug)->firstOrFail();
+        });
+        $vendor = Vendor::where('sub_categories_id', $category->id)->first();
+
+        $vendors = Cache::remember('vendors_' . $slug, 60, function () use ($category) {
+            return $category->vendors;
+        });
+        $template = 'frontend.vendors.templates.' . ($category->template ?? 'default');
+        $products = Product::all();
+        $product_categories = ProductCategory::all();
+        return view($template, compact('category', 'vendor', 'vendors','products','product_categories'));
     }
 
     public function productShowDetail($slug)

@@ -3,16 +3,30 @@
 @section('title', $category->title)
 
 @section('content')
-    <div class="container">
-        <h2>{{ $category->title }}</h2>
+
+    <div class="category-banner-container pb-12">
+        <div class="category-banner banner text-uppercase bg-info" style="background: no-repeat 60%/cover url('assets/images/page-header.jpg');">
+            <div class="container position-relative">
+                <nav aria-label="breadcrumb" class="text-white">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"> {{ $category->title }}</li>
+                    </ol>
+                </nav>
+                <h1 class="page-title text-center text-white"> {{ $category->title }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 20px">
         <div class="row">
             @foreach ($subCategories as $category)
                 <div class="col-md-3 col-sm-4 col-6 mb-4">
                     <div class="card">
-                        <a class="card1" href="{{ route('vendors.show', $category->slug) }}">
+                        <a class="card1" href="{{ route('vendor-wise.show', $category->slug) }}">
                             <h4>{{ ucfirst($category->title) }}</h4>
                             <p class="small">{{ $category->description }}</p>
-                            <div class="go-corner" href="{{ route('vendors.show', $category->id) }}">
+                            <div class="go-corner">
                                 <div class="go-arrow">→</div>
                             </div>
                         </a>

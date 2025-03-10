@@ -35,7 +35,7 @@ return new class extends Migration
 
             $table->text('references')->nullable();
             $table->string('file_path')->nullable(); // Store file path
-            $table->foreignId('categorie_id')
+            $table->foreignId('vendor_category_id')
                 ->constrained('vendor_categories')
                 ->onDelete('cascade'); // Optional: Add cascade on delete
             $table->foreignId('sub_categories_id')

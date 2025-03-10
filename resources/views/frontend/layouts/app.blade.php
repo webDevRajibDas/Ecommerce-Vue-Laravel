@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title', 'B2B Platform')</title>
-    <meta name="keywords" content="B2B Market Place"/>
-    <meta name="description" content="B2B Market Place Bangladesh">
+    <meta name="keywords" content="B2B Platform BD"/>
+    <meta name="description" content="B2B Market Place Bangladesh ,B2B Platform">
     <meta name="author" content="B2B Market Place">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
@@ -42,7 +42,7 @@
 <div class="page-wrapper">
     @include('frontend.includes.header')
 
-    <main>
+    <main class="main">
         @yield('content')
     </main>
 
