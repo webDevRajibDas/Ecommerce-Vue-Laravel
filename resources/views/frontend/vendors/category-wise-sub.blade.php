@@ -20,18 +20,18 @@
 
     <div class="container" style="margin-top: 20px">
         <div class="row">
-            @foreach ($subCategories as $category)
-                <div class="col-md-3 col-sm-4 col-6 mb-4">
-                    <div class="card">
-                        <a class="card1" href="{{ route('vendor-wise.show', $category->slug) }}">
-                            <h4>{{ ucfirst($category->title) }}</h4>
-                            <p class="small">{{ $category->description }}</p>
-                            <div class="go-corner">
-                                <div class="go-arrow">→</div>
-                            </div>
-                        </a>
+            @foreach($subCategories as $subCategory)
+                    <div class="col-md-3 col-sm-4 col-6 mb-4">
+                        <div class="card">
+                            <a class="card1" href="{{ route('subcategory.show', ['category' => $category->slug, 'subCategory' => $subCategory->slug]) }}">
+                                <h4>{{ ucfirst($subCategory->title) }}</h4>
+                                <p class="small">{{ $subCategory->description }}</p>
+                                <div class="go-corner">
+                                    <div class="go-arrow">→</div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
             @endforeach
         </div>
     </div>

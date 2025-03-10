@@ -106,10 +106,9 @@
 
 
                         <!-----------product-filters-container------------->
-                        <div class="product-action">
-                            <div class="price-box product-filtered-price">
-                                <del class="old-price"><span>{{$productDetail->price}}</span></del>
-                                <span class="product-price">{{$productDetail->sale_price}}</span>
+                        <div class="product-cart-action">
+                            <div class="price-box">
+                                <span id="price_update"></span>
                             </div>
 
                             <div class="product-single-qty">

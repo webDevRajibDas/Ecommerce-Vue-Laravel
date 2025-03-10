@@ -11,8 +11,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomepageController::class, 'homePage'])->name('homePage');
 Route::get('/vendors/{slug}', [HomepageController::class, 'showVendorList'])->name('vendors.show');
 Route::get('/category/{slug}', [HomepageController::class, 'showSubCatList'])->name('categories.show');
-Route::get('/vendor-wise/{slug}', [HomepageController::class, 'show'])->name('vendor-wise.show');
+//Route::get('/vendor-wise/{slug}', [HomepageController::class, 'show'])->name('vendor-wise.show');
 
+
+
+Route::get('/category/{category}/{subCategory}', [HomepageController::class, 'show'])->name('subcategory.show');
 
 Route::get('/product/{slug}', [HomepageController::class, 'productShowDetail'])->name('product.show');
 Route::get('/cart', [HomepageController::class, 'Cart'])->name('product.cart');

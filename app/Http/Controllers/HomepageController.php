@@ -94,20 +94,13 @@ class HomepageController extends Controller
 
     }
 
-    public function show(Request $request ,$slug){
+    public function show($category, $subCategory){
 
-        $category = Cache::remember('vendor_category_' . $slug, 60, function () use ($slug) {
-            return SubCategorie::where('slug', $slug)->firstOrFail();
-        });
-        $vendor = Vendor::where('sub_categories_id', $category->id)->first();
-
-        $vendors = Cache::remember('vendors_' . $slug, 60, function () use ($category) {
-            return $category->vendors;
-        });
+        $category = VendorCategorie::where('slug',$category)->first();
         $template = 'frontend.vendors.templates.' . ($category->template ?? 'default');
         $products = Product::all();
         $product_categories = ProductCategory::all();
-        return view($template, compact('category', 'vendor', 'vendors','products','product_categories'));
+        return view($template, compact('category', 'products','product_categories'));
     }
 
     public function productShowDetail($slug)
@@ -121,7 +114,6 @@ class HomepageController extends Controller
     public function Cart()
     {
         $districts  = District::all();
-        $upazilas  = Upazila::all();
         return view('frontend.shopping.cart',compact('districts'));
 
     }
