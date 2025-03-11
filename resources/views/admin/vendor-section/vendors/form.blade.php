@@ -24,7 +24,7 @@
                             <div class="form-group row mb-2">
                                 <label class="col-lg-3 control-label text-lg-right pt-2">Main Category</label>
                                 <div class="col-lg-6">
-                                    <select id="parentCategory" class="form-control" name="categorie_id">
+                                    <select id="parentCategory" class="form-control" name="vendor_category_id">
                                         <option value="0">Select Main Category</option>
                                         @foreach($categories as $cat)
                                             <option value="{{ $cat->id }}">{{ $cat->title }}</option>
@@ -83,7 +83,7 @@
                             <div class="form-group row align-items-center mb-2">
                                 <label class="col-lg-5 col-xl-3 control-label text-lg-right mb-0">Email</label>
                                 <div class="col-lg-7 col-xl-6">
-                                    <input type="text" class="form-control" placeholder="Email" name="email">
+                                    <input type="text" class="form-control" placeholder="Email" name="email" autocomplete="true">
                                 </div>
                                 @error('email')
                                 <span class="text-danger">{{ $message }}</span>

@@ -50,7 +50,7 @@ class VendorsController extends Controller
             'modified' => 'nullable|date',
             'references' => 'nullable|string',
             'file_path' => 'nullable|file|mimes:pdf,doc,docx,jpeg,png,jpg,gif|max:2048',
-            'categorie_id' => 'required|exists:vendor_categories,id',
+            'vendor_category_id' => 'required|exists:vendor_categories,id',
             'sub_categories_id' => 'required|exists:sub_categories,id',
         ], [
             // Custom messages for each rule
@@ -88,8 +88,8 @@ class VendorsController extends Controller
             'file_path.mimes' => 'The file must be a PDF, DOC, or DOCX file.',
             'file_path.max' => 'The file may not be greater than 2MB.',
 
-            'categorie_id.required' => 'The category field is required.',
-            'categorie_id.exists' => 'The selected category is invalid.',
+            'vendor_category_id.required' => 'The category field is required.',
+            'vendor_category_id.exists' => 'The selected category is invalid.',
 
             'sub_categories_id.required' => 'The subcategory field is required.',
             'sub_categories_id.exists' => 'The selected subcategory is invalid.',

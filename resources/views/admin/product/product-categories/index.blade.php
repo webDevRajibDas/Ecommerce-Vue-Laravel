@@ -50,8 +50,6 @@
                                 <th width="3%"><input type="checkbox" name="select-all" class="select-all checkbox-style-1 p-relative top-2" value="" /></th>
                                 <th width="8%">ID</th>
                                 <th width="28%">Name</th>
-                                <th width="23%">Slug</th>
-                                <th width="38%">Description</th>
                                 <th width="38%">Action</th>
                             </tr>
                             </thead>
@@ -61,9 +59,10 @@
                                     <td width="30"><input type="checkbox" name="checkboxRow1" class="checkbox-style-1 p-relative top-2" value="" /></td>
                                     <td><strong>{{$data->id}}</strong></td>
                                     <td><strong>{{$data->title}}</strong></td>
-                                    <td>{{$data->slug}}</td>
-                                    <td>{{$data->description}}</td>
-                                    <td></td>
+                                    <td class="actions">
+                                        <a href=""><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="" class="delete-row"><i class="far fa-trash-alt"></i></a>
+                                    </td>
                                 </tr>
                             @endforeach
 

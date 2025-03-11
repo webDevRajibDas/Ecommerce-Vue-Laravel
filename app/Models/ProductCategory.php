@@ -7,21 +7,7 @@ use Illuminate\Support\Str;
 
 class ProductCategory extends Model
 {
-    protected $fillable = ['title', 'description', 'slug','created_by','status','order'];
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($category) {
-            if (empty($category->slug)) {
-                $slug = Str::slug($category->title);
-                $count = static::where('slug', 'like', $slug . '%')->count();
-                $category->slug = $count > 0 ? "{$slug}-{$count}" : $slug;
-            }
-        });
-    }
-
+    protected $fillable = ['title','status','order'];
 
     public function products()
     {

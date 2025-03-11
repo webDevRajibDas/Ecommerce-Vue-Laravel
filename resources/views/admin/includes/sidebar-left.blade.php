@@ -40,23 +40,23 @@
                             </li>
 
                             <li>
-                                <a class="nav-link" href="ecommerce-coupons-list.html">
+                                <a class="nav-link" href="#">
                                     - Coupons List
                                 </a>
                             </li>
 
                             <li>
-                                <a class="nav-link" href="ecommerce-orders-list.html">
+                                <a class="nav-link" href="#">
                                     - Orders List
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="ecommerce-orders-detail.html">
+                                <a class="nav-link" href="#">
                                     - Orders Detail
                                 </a>
                             </li>
                             <li>
-                                <a class="nav-link" href="ecommerce-customers-list.html">
+                                <a class="nav-link" href="#">
                                     - Customers List
                                 </a>
                             </li>
@@ -89,7 +89,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="nav-link" href="mailbox-folder.html">
+                        <a class="nav-link" href="#">
                             <i class="bx bx-envelope" aria-hidden="true"></i>
                             <span>Mailbox</span>
                         </a>
@@ -133,28 +133,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-parent">
-                                <a>
-                                    - Horizontal Menu Header
-                                </a>
-                                <ul class="nav nav-children">
-                                    <li>
-                                        <a class="nav-link" href="layouts-header-menu.html">
-                                            - Pills
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="layouts-header-menu-stripe.html">
-                                            - Stripe
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="layouts-header-menu-top-line.html">
-                                            - Top Line
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+
                             <li>
                                 <a class="nav-link" href="layouts-dark.html">
                                     - Dark
@@ -162,28 +141,7 @@
                             </li>
 
 
-                            <li class="nav-parent">
-                                <a>
-                                    - Tab Navigation
-                                </a>
-                                <ul class="nav nav-children">
-                                    <li>
-                                        <a class="nav-link" href="layouts-tab-navigation-dark.html">
-                                            - Tab Navigation Dark
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="layouts-tab-navigation.html">
-                                            - Tab Navigation Light
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="layouts-tab-navigation-boxed.html">
-                                            - Tab Navigation Boxed
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+
                             <li>
                                 <a class="nav-link" href="layouts-light-sidebar.html">
                                     - Light Sidebar
@@ -199,67 +157,7 @@
                                     - Left Sidebar Scroll
                                 </a>
                             </li>
-                            <li class="nav-parent">
-                                <a>
-                                    - Left Sidebar Big Icons
-                                </a>
-                                <ul class="nav nav-children">
-                                    <li>
-                                        <a class="nav-link" href="layouts-left-sidebar-big-icons.html">
-                                            - Left Sidebar Big Icons Dark
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="layouts-left-sidebar-big-icons-light.html">
-                                            - Left Sidebar Big Icons Light
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-parent">
-                                <a>
-                                    - Left Sidebar Panel
-                                </a>
-                                <ul class="nav nav-children">
-                                    <li>
-                                        <a class="nav-link" href="layouts-left-sidebar-panel.html">
-                                            - Left Sidebar Panel Dark
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="layouts-left-sidebar-panel-light.html">
-                                            - Left Sidebar Panel Light
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-parent">
-                                <a>
-                                    - Left Sidebar Sizes
-                                </a>
-                                <ul class="nav nav-children">
-                                    <li>
-                                        <a class="nav-link" href="layouts-sidebar-sizes-xs.html">
-                                            - Left Sidebar XS
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="layouts-sidebar-sizes-sm.html">
-                                            - Left Sidebar SM
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="layouts-sidebar-sizes-md.html">
-                                            - Left Sidebar MD
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a class="nav-link" href="layouts-square-borders.html">
-                                    - Square Borders
-                                </a>
-                            </li>
+
                         </ul>
                     </li>
                     <li class="nav-group-label">Content</li>
@@ -431,53 +329,7 @@
                         </ul>
                     </li>
                     <li class="nav-group-label">Extra</li>
-                    <li class="nav-parent">
-                        <a class="nav-link" href="#">
-                            <i class="bx bx-collection" aria-hidden="true"></i>
-                            <span>Menu Levels</span>
-                        </a>
-                        <ul class="nav nav-children">
-                            <li>
-                                <a>
-                                    - First Level
-                                </a>
-                            </li>
-                            <li class="nav-parent">
-                                <a class="nav-link" href="#">
-                                    - Second Level
-                                </a>
-                                <ul class="nav nav-children">
-                                    <li>
-                                        <a>
-                                            - Second Level Link #1
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            - Second Level Link #2
-                                        </a>
-                                    </li>
-                                    <li class="nav-parent">
-                                        <a class="nav-link" href="#">
-                                            - Third Level
-                                        </a>
-                                        <ul class="nav nav-children">
-                                            <li>
-                                                <a>
-                                                    - Third Level Link #1
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a>
-                                                    - Third Level Link #2
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+
 
                 </ul>
             </nav>

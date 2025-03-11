@@ -29,7 +29,7 @@ class Vendor extends Model
         'references',
         'file_path',
         'join_date',
-        'categorie_id',
+        'vendor_category_id',
         'sub_categories_id',
     ];
 
@@ -47,7 +47,7 @@ class Vendor extends Model
 
     public function category()
     {
-        return $this->belongsTo(VendorCategorie::class, 'categorie_id');
+        return $this->belongsTo(VendorCategorie::class, 'vendor_category_id');
     }
 
     public function subCategory()

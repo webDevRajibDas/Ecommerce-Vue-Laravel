@@ -61,7 +61,10 @@
                                     <td><strong>{{$data->id}}</strong></td>
                                     <td><strong>{{$data->title}}</strong></td>
                                     <td>{{$data->description}}</td>
-                                    <td></td>
+                                    <td class="actions">
+                                        <a href=""><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="" class="delete-row"><i class="far fa-trash-alt"></i></a>
+                                    </td>
                                 </tr>
                             @endforeach
 

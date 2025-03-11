@@ -1,8 +1,3 @@
-/*
-Name: 			Forms / Advanced - Examples
-Written by: 	Okler Themes - (http://www.okler.net)
-Theme Version: 	4.3.0
-*/
 
 (function($) {
 

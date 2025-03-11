@@ -118,9 +118,6 @@
                                     <div class="form-group row align-items-center pb-3">
                                         <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Category</label>
                                         <div class="col-lg-7 col-xl-6">
-                                            @php
-                                                $categories = \App\Models\ProductCategory::where('status', 1) ->orderBy('title', 'asc')->get();
-                                            @endphp
                                             <select data-plugin-selectTwo class="form-control form-control-modern" name="category_id">
                                                 <option value="">Select a category</option>
                                                 @foreach($categories as $category)
@@ -135,9 +132,6 @@
                                     <div class="form-group row align-items-center">
                                         <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Brand</label>
                                         <div class="col-lg-7 col-xl-6">
-                                            @php
-                                                $brands = \App\Models\Brand::where('status', 1) ->orderBy('title', 'asc')->get();
-                                            @endphp
                                             <select data-plugin-selectTwo class="form-control form-control-modern" name="brand_id">
                                                 <option value="">Select a brand</option>
                                                 @foreach($brands as $brand)
@@ -166,8 +160,6 @@
                                     </div>
                                 </div>
 
-
-
                             </div>
                         </div>
                     </div>
@@ -177,17 +169,12 @@
     </div>
     <div class="row action-buttons">
         <div class="col-12 col-md-auto">
-            <button type="submit" class="product-submit btn btn-primary btn-px-4 py-3 d-flex align-items-center font-weight-semibold line-height-1" data-loading-text="Loading...">
+            <button type="submit" class="submit-button btn btn-primary btn-px-4 py-3 d-flex align-items-center font-weight-semibold line-height-1" data-loading-text="Loading...">
                 <i class="bx bx-save text-4 me-2"></i> Save Product
             </button>
         </div>
         <div class="col-12 col-md-auto px-md-0 mt-3 mt-md-0">
             <a href="#" class="cancel-button btn btn-light btn-px-4 py-3 border font-weight-semibold text-color-dark text-3">Cancel</a>
-        </div>
-        <div class="col-12 col-md-auto ms-md-auto mt-3 mt-md-0 ms-auto">
-            <a href="#" class="delete-button btn btn-danger btn-px-4 py-3 d-flex align-items-center font-weight-semibold line-height-1">
-                <i class="bx bx-trash text-4 me-2"></i> Delete Product
-            </a>
         </div>
     </div>
 </form>

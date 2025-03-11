@@ -28,7 +28,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'isAdmin'])->group(f
         Route::post('/store', [ProductController::class, 'store'])->name('store');
         Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('edit');
         Route::put('/{product}', [ProductController::class, 'update'])->name('update');
-        Route::post('/dropzone/upload', [ProductController::class, 'dropzone_upload'])->name('dropzone.upload');
+
     });
 
     Route::resource('product-categories', ProductCategoriesController::class);

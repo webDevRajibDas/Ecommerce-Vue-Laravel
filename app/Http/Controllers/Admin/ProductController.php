@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Brand;
+use App\Models\ProductCategory;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 
@@ -24,7 +23,9 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.product.create');
+        $brands = Brand::where('status', 1) ->orderBy('id', 'desc')->get();
+        $categories =  ProductCategory::where('status', 'active') ->orderBy('id', 'desc')->get();
+        return view('admin.product.create',compact('categories','brands'));
     }
 
 
@@ -70,7 +71,7 @@ class ProductController extends Controller
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $imagePath = $this->uploadImage($image, 'products');
-                $product->images()->create(['image_path' => $imagePath]);
+                $product->gallery()->create(['image_path' => $imagePath]);
             }
         }
 
@@ -80,31 +81,8 @@ class ProductController extends Controller
             'product' => $product,
         ], 201);
 
-
-
     }
 
 
 
-    public function dropzone_upload(Request $request)
-    {
-
-        $validator = Validator::make($request->all(), [
-            'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:3000', // 3MB max
-        ]);
-
-        if ($validator->fails()) {
-            return Response::make($validator->errors()->first(), 400);
-        }
-        $file = $request->file('file');
-        $extension = $file->getClientOriginalExtension();
-        $directory = public_path('uploads');
-        $filename = sha1(time() . time()) . ".{$extension}";
-
-        if (!File::exists($directory)) {
-            File::makeDirectory($directory, 0777, true);
-        }
-        $file->move($directory, $filename);
-        return Response::json('success', 200);
-    }
 }
