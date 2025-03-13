@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomepageController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
@@ -14,18 +14,19 @@ Route::get('/category/{slug}', [HomepageController::class, 'showSubCatList'])->n
 //Route::get('/vendor-wise/{slug}', [HomepageController::class, 'show'])->name('vendor-wise.show');
 
 
-
 Route::get('/category/{category}/{subCategory}', [HomepageController::class, 'show'])->name('subcategory.show');
-
 Route::get('/product/{slug}', [HomepageController::class, 'productShowDetail'])->name('product.show');
-Route::get('/cart', [HomepageController::class, 'Cart'])->name('product.cart');
 Route::get('/upazilas/{districtId}', [HomepageController::class, 'getUpazilas']);
 
 Route::get('/vendor-form', [HomepageController::class, 'vendorForm'])->name('vendor-form');
 Route::post('/vendor-contact-form', [HomepageController::class, 'vendorContactForm'])->name('vendorContactForm');
 
-
-
+//Cart
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
+Route::get('/view-cart', [CartController::class, 'viewCart'])->name('view.cart');
+Route::get('/cart/count', [CartController::class, 'cartCount'])->name('cart.count');
+Route::post('/cart/remove', [CartController::class, 'removeCartItem'])->name('cart.remove');
+Route::get('/cart/items', [CartController::class, 'getCartItems'])->name('cart.items');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

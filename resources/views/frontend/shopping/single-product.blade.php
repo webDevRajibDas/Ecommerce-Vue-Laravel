@@ -61,7 +61,6 @@
 
                     <div class="col-lg-7 col-md-6 product-single-details">
                         <h1 class="product-title">{{$productDetail->name}}</h1>
-
                         <div class="ratings-container">
                             <div class="product-ratings">
                                 <span class="ratings" style="width:60%"></span>
@@ -69,13 +68,10 @@
                                 <span class="tooltiptext tooltip-top"></span>
                             </div>
                             <!-- End .product-ratings -->
-
                             <a href="#" class="rating-link">( 6 Reviews )</a>
                         </div>
                         <!-- End .ratings-container -->
-
                         <hr class="short-divider">
-
                         <div class="price-box">
                             <span class="product-price">TK :{{$productDetail->sale_price}}</span>
                         </div>
@@ -89,37 +85,33 @@
                         <!-- End .product-desc -->
 
                         <ul class="single-info-list">
-
                             <li>SKU: <strong>{{$productDetail->sku}}</strong></li>
-
                             @if($productDetail->category)
                                 <li>CATEGORY: <strong><a href="#" class="product-category">{{$productDetail->category->title}}</a></strong></li>
                             @else
                                 <li class="product-category">No Category</li>
                             @endif
-
                             <li>
                                 TAGs: <strong><a href="#" class="product-category">CLOTHES</a></strong>,
                                 <strong><a href="#" class="product-category">SWEATER</a></strong>
                             </li>
                         </ul>
-
-
                         <!-----------product-filters-container------------->
-                        <div class="product-cart-action">
+                        <div class="product-cart-box">
                             <div class="price-box">
                                 <span id="price_update"></span>
                             </div>
 
                             <div class="product-single-qty">
-                                <input class="horizontal-quantity form-control" type="text">
+                                <input id="single_quantity" class="horizontal-quantity form-control" type="number">
                             </div>
+
                             <!-- End .product-single-qty -->
+                            <a href="javascript:;" class="btn btn-dark cart-add" title="Add to Cart" data-product-id="{{ $productDetail->id }}">
+                                Add to Cart
+                            </a>
 
-                            <a href="javascript:;" class="btn btn-dark add-cart mr-2" title="Add to Cart">Add to
-                                Cart</a>
-
-                            <a href="#" class="btn btn-gray view-cart d-none">View cart</a>
+                            <a href="{{route('view.cart')}}" class="btn btn-gray cart-view d-none">View cart</a>
                         </div>
                         <!-- End .product-action -->
 
@@ -286,6 +278,58 @@
 
     <!-- End .main -->
 @endsection
+
+
+@push('custom-script')
+    <script>
+
+        $(document).ready(function () {
+            $('.cart-add').on('click', function () {
+                var productId = $(this).data("product-id");
+                var quantity = $(this).prev(".product-single-qty").find("#single_quantity").val();
+
+                if (!quantity || quantity <= 0) {
+                    alert("Please enter a valid quantity.");
+                    return;
+                }
+                addToCart(productId, quantity);
+            });
+
+        });
+        function addToCart(productId,quantity) {
+            let cartUrl = "{{ route('addToCart') }}";
+            $.ajax({
+                url: cartUrl,
+                type: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    product_id: productId,
+                    quantity: quantity
+                },
+                success: function(response) {
+                    alert(response.message);
+                    $(".cart-view").removeClass("d-none");
+                    updateCartCount();
+                },
+                error: function(xhr) {
+                    alert("Error adding product to cart.");
+                }
+            });
+        }
+        function updateCartCount() {
+            $.ajax({
+                url: "{{ route('cart.count') }}",
+                type: "GET",
+                success: function (response) {
+                    $(".cart-count").text(response.cart_count);
+                }
+            });
+        }
+
+
+    </script>
+@endpush
+
 
 
 @push('styles')

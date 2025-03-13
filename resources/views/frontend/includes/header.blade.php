@@ -2,8 +2,6 @@
     <div class="header-middle sticky-header" data-sticky-options="{'mobile': true}">
         <div class="container-fluid">
             <div class="header-left d-none d-lg-flex">
-
-
                 <div class="header-dropdown">
                     <a href="#"><i class="flag-bd flag"></i>ENG</a>
                     <div class="header-menu">
@@ -183,6 +181,10 @@
                     <ul class="menu">
                         <li class="active">
                             <a href="{{url('/')}}">Home</a>
+                        </li>
+
+                        <li class="">
+                            <a href="#">About Us</a>
                         </li>
                         <li>
                             <a href="#">Categories</a>

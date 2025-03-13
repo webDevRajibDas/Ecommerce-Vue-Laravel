@@ -33,6 +33,7 @@
 
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="{{asset('fashion/assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.3.0/jquery.bootstrap-touchspin.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('fashion/assets/vendor/fontawesome-free/css/all.min.css')}}">
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{{asset('fashion/assets/css/demo7.min.css')}}">
@@ -108,9 +109,15 @@
 <script src="{{asset('fashion/assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('fashion/assets/js/plugins.min.js')}}"></script>
 <script src="{{asset('fashion/assets/js/jquery.appear.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.3.0/jquery.bootstrap-touchspin.min.js"></script>
 
 <!-- Main JS File -->
 <script src="{{asset('fashion/assets/js/main.min.js')}}"></script>
+
+<script>
+
+</script>
+
 
 @stack('custom-script')
 </body>

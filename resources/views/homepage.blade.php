@@ -2,11 +2,88 @@
 
 @section('content')
 
+    <section class="intro-section mb-3">
+        <div class="home-slider slide-animate owl-carousel owl-theme" data-owl-options="{
+                        'nav': false,
+                        'responsive': {
+                            '1440': {
+                                'nav': true
+                            }
+                        }
+                    }">
+            <div class="home-slide home-slide-1 banner">
+                <img class="slide-bg" src="{{asset('assets/images/slider/slide-1.jpg')}}" alt="slider image"
+                     width="1200" height="575">
+
+                <div class="banner-layer banner-layer-middle banner-layer-left">
+                    <div class="container-fluid">
+                        <div class="appear-animate" data-animation-name="fadeInLeftShorter"
+                             data-animation-delay="200">
+                            <h2 class="font-weight-light ls-10 text-primary">Discover our Arrivals!</h2>
+                            <a href="#" class="btn btn-link"><i>View
+                                    our
+                                    Dresses</i><i class="icon-right-open-big"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="home-slide home-slide-2 banner">
+                <img class="slide-bg" src="{{asset('assets/images/slider/slide-2.jpg')}}" alt="slider image"
+                     width="1200" height="575">
+                <div class="banner-layer banner-layer-middle banner-layer-right w-100">
+                    <div class="container-fluid">
+                        <div class="col-6 offset-6 appear-animate" data-animation-name="fadeInRightShorter"
+                             data-animation-delay="200">
+                            <h2 class="font-weight-light ls-10 text-primary">Trendy Collections!</h2>
+                            <a href="#" class="btn btn-link"><i>View
+                                    our
+                                    Specials</i><i class="icon-right-open-big"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-slide home-slide-2 banner">
+                <img class="slide-bg" src="{{asset('assets/images/slider/slide-3.jpg')}}" alt="slider image"
+                     width="1200" height="575">
+                <div class="banner-layer banner-layer-middle banner-layer-right w-100">
+                    <div class="container-fluid">
+                        <div class="col-6 offset-6 appear-animate" data-animation-name="fadeInRightShorter"
+                             data-animation-delay="200">
+                            <h2 class="font-weight-light ls-10 text-primary">Trendy Collections!</h2>
+                            <a href="#" class="btn btn-link"><i>View
+                                    our
+                                    Specials</i><i class="icon-right-open-big"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-slide home-slide-2 banner">
+                <img class="slide-bg" src="{{asset('assets/images/slider/slide-5.jpg')}}" alt="slider image"
+                     width="1200" height="575">
+                <div class="banner-layer banner-layer-middle banner-layer-right w-100">
+                    <div class="container-fluid">
+                        <div class="col-6 offset-6 appear-animate" data-animation-name="fadeInRightShorter"
+                             data-animation-delay="200">
+                            <h2 class="font-weight-light ls-10 text-primary">Trendy Collections!</h2>
+                            <a href="#" class="btn btn-link"><i>View
+                                    our
+                                    Specials</i><i class="icon-right-open-big"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
     <section class="welcome-section">
         <div class="container">
             <h2 class="section-title text-center text-uppercase appear-animate mb-4"
                 data-animation-name="fadeInUpShorter" data-animation-delay="200">B2B Platform || Best Online
-                Platform</h2>
+                Market Place</h2>
             <div class="row mb-2">
                 @foreach($allCat as $cat)
                     <div class="col-md-4 col-lg-3">
@@ -28,6 +105,30 @@
                         </a>
                     </div>
                 @endforeach
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Full Width Section -->
+    <section class="full-width-section">
+        <div class="container">
+            <div class="row">
+                <!-- Left Side: Text -->
+                <div class="col-md-6 text-center-vertical">
+                    <div>
+                        <h2>B2B Platform for All Your Retail Business Needs</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <!-- Right Side: YouTube Video -->
+                <div class="col-md-6">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/your-youtube-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -105,7 +206,7 @@
 
 
     <div class="brands-section" style="background: #65829d !important;">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <h2 class="section-title text-center text-uppercase appear-animate mb-4"
                     data-animation-name="fadeInUpShorter" data-animation-delay="200" style="color: #ffffff !important;">
@@ -114,7 +215,7 @@
 
             <div class="brands-slider owl-carousel owl-theme images-center appear-animate"
                  data-animation-name="fadeIn" data-animation-delay="400" data-owl-options="{
-                        'margin': 30,
+                        'margin': 20,
                         'loop': false,
                         'responsive': {
                             '0': {
@@ -124,7 +225,7 @@
                                 'items': 2
                             },
                             '1200': {
-                                'items': {{ count($productCat) }}
+                                'items': 7
                             }
                         }
                     }">
@@ -133,7 +234,7 @@
                     <div class="category-card">
                         <img src="{{asset('assets/images/category_diagram.png') }}"
                              width="200" height="100" alt="{{ $pCategory->title }}">
-                        <p class="text-title">{{ $pCategory->title }}</p>
+                        <p class="text-title" style="color: #a700db">{{ $pCategory->title }}</p>
                     </div>
                 @empty
                     <div class="text-center w-100">

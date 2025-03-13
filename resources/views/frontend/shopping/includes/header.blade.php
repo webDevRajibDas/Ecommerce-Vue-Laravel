@@ -19,7 +19,7 @@
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Blog</a></li>
                             <li><a href="#">My Wishlist</a></li>
-                            <li><a href="{{route('product.cart')}}">Cart</a></li>
+                            <li><a href="{{route('view.cart')}}">Cart</a></li>
                             <li><a href="#" class="login-link">Log In</a></li>
                         </ul>
                     </div>
@@ -137,10 +137,9 @@
                 <span class="separator d-lg-inline-block d-none"></span>
 
                 <div class="dropdown cart-dropdown">
-                    <a href="#" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                    <a href="javascript:;" title="Cart" class="dropdown-toggle dropdown-arrow cart-toggle">
                         <i class="icon-shopping-cart"></i>
-                        <span class="cart-count badge-circle">3</span>
+                        <span class="cart-count badge-circle">{{ getCartCount() }}</span>
                     </a>
 
                     <div class="cart-overlay"></div>
@@ -153,73 +152,28 @@
                             <!-- End .dropdown-cart-header -->
 
                             <div class="dropdown-cart-products">
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="#">Ultimate 3D Bluetooth Speaker</a>
-                                        </h4>
+                                @foreach ($cartItems as $item)
+                                    <div class="product">
+                                        <div class="product-details">
+                                            <h4 class="product-title">
+                                                <a href="#">{{ $item->products->name }}</a>
+                                            </h4>
 
-                                        <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span> × $99.00
-                                                </span>
+                                            <span class="cart-product-info">
+                    <span class="cart-product-qty">{{ $item->quantity }}</span> × ${{ number_format($item->products->price, 2) }}
+                </span>
+                                        </div>
+                                        <!-- End .product-details -->
+
+                                        <figure class="product-image-container">
+                                            <a href="#" class="product-image">
+                                                <img src="{{ asset('storage/'.$item->products->image) }}" alt="product" width="80" height="80">
+                                            </a>
+
+                                            <a href="javascript:;" class="btn-remove remove-cart" data-id="{{ $item->id }}" title="Remove Product"><span>×</span></a>
+                                        </figure>
                                     </div>
-                                    <!-- End .product-details -->
-
-                                    <figure class="product-image-container">
-                                        <a href="#" class="product-image">
-                                            <img src="{{asset('assets/images/products/product-1.jpg')}}"
-                                                 alt="product" width="80" height="80">
-                                        </a>
-
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
-                                <!-- End .product -->
-
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="#">Brown Women Casual HandBag</a>
-                                        </h4>
-
-                                        <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span> × $35.00
-                                                </span>
-                                    </div>
-                                    <!-- End .product-details -->
-
-                                    <figure class="product-image-container">
-                                        <a href="#" class="product-image">
-                                            <img src="{{asset('fashion/assets/images/products/product-2.jpg')}}" alt="product" width="80"
-                                                 height="80">
-                                        </a>
-
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
-                                <!-- End .product -->
-
-                                <div class="product">
-                                    <div class="product-details">
-                                        <h4 class="product-title">
-                                            <a href="#">Circled Ultimate 3D Speaker</a>
-                                        </h4>
-
-                                        <span class="cart-product-info">
-                                                    <span class="cart-product-qty">1</span> × $35.00
-                                                </span>
-                                    </div>
-                                    <!-- End .product-details -->
-
-                                    <figure class="product-image-container">
-                                        <a href="#" class="product-image">
-                                            <img src="{{asset('fashion/assets/images/products/product-3.jpg')}}" alt="product" width="80"
-                                                 height="80">
-                                        </a>
-                                        <a href="#" class="btn-remove" title="Remove Product"><span>×</span></a>
-                                    </figure>
-                                </div>
-                                <!-- End .product -->
+                                @endforeach
                             </div>
                             <!-- End .cart-product -->
 

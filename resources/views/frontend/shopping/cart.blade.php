@@ -28,30 +28,31 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="product-row">
-                            <td>
-                                <figure class="product-image-container">
-                                    <a href="#" class="product-image">
-                                        <img src="{{asset('fashion/assets/images/products/product-4.jpg')}}"
-                                             alt="product">
-                                    </a>
-                                    <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
-                                </figure>
-                            </td>
-                            <td class="product-col">
-                                <h5 class="product-title">
-                                    <a href="#">Men Watch</a>
-                                </h5>
-                            </td>
-                            <td>$17.90</td>
-                            <td>
-                                <div class="product-single-qty">
-                                    <input class="horizontal-quantity form-control" type="text">
-                                </div><!-- End .product-single-qty -->
-                            </td>
-                            <td class="text-right"><span class="subtotal-price">$17.90</span></td>
-                        </tr>
-
+                            @foreach($cartItems as $data)
+                                <tr class="product-row">
+                                    <td>
+                                        <figure class="product-image-container">
+                                            <a href="#" class="product-image">
+                                                <img src="{{asset('storage/'.$data->products->image)}}"
+                                                     alt="product">
+                                            </a>
+                                            <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
+                                        </figure>
+                                    </td>
+                                    <td class="product-col">
+                                        <h5 class="product-title">
+                                            <a href="#">{{ $data->products->name }}</a>
+                                        </h5>
+                                    </td>
+                                    <td>{{ number_format($data->products->price, 2) }}</td>
+                                    <td>
+                                        <div class="product-single-qty">
+                                            <input class="horizontal-quantity form-control" type="text" value="{{$data->quantity}}">
+                                        </div><!-- End .product-single-qty -->
+                                    </td>
+                                    <td class="text-right"><span class="subtotal-price">{{ number_format($data->products->price * $data->quantity, 2) }}</span></td>
+                                </tr>
+                            @endforeach
                         </tbody>
 
                         <tfoot>
@@ -156,10 +157,10 @@
                         </tbody>
 
                         <tfoot>
-                        <tr>
-                            <td>Total</td>
-                            <td>$17.90</td>
-                        </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>$17.90</td>
+                            </tr>
                         </tfoot>
                     </table>
 

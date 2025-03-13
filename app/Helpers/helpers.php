@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Cart;
 use Carbon\Carbon;
 
 /**
@@ -23,5 +24,15 @@ if (! function_exists('convertMdyToYmd')) {
     function convertMdyToYmd($date)
     {
         return Carbon::createFromFormat('m-d-Y', $date)->format('Y-m-d');
+    }
+}
+
+
+
+if (! function_exists('getCartCount')) {
+     function getCartCount()
+    {
+        $user_id = auth()->id() ?? session()->getId();
+        return Cart::where('user_id', $user_id)->sum('quantity');
     }
 }

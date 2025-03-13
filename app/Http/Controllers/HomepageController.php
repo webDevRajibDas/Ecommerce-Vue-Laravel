@@ -111,12 +111,7 @@ class HomepageController extends Controller
 
     }
 
-    public function Cart()
-    {
-        $districts  = District::all();
-        return view('frontend.shopping.cart',compact('districts'));
 
-    }
 
     public function getUpazilas($districtId)
     {
