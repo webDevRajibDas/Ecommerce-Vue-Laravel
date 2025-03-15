@@ -91,6 +91,7 @@
 {{--                                <a class="nav-link" id="shipping-tab" data-bs-toggle="pill" data-bs-target="#shipping" role="tab" aria-controls="shipping" aria-selected="false">Shipping</a>--}}
 {{--                                <a class="nav-link" id="attributes-tab" data-bs-toggle="pill" data-bs-target="#attributes" role="tab" aria-controls="attributes">Attributes</a>--}}
 {{--                                <a class="nav-link" id="advanced-tab" data-bs-toggle="pill" data-bs-target="#advanced" role="tab" aria-controls="advanced">Advanced</a>--}}
+                                <a class="nav-link" id="meta-tab" data-bs-toggle="pill" data-bs-target="#metatab" role="tab" aria-controls="metatab">Search engine optimisation (SEO)</a>
                             </div>
                         </div>
                         <div class="col-lg-3-5 col-xl-4-5">
@@ -156,6 +157,28 @@
                                         <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Sale Price ($)</label>
                                         <div class="col-lg-7 col-xl-6">
                                             <input type="text" class="form-control form-control-modern" name="sale_price" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="tab-pane fade" id="metatab" role="tabpanel" aria-labelledby="meta-tab">
+                                    <div class="form-group row align-items-center pb-3">
+                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Meta Title</label>
+                                        <div class="col-lg-7 col-xl-6">
+                                            <input type="text" class="form-control form-control-modern" name="meta_title" value="" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row align-items-center">
+                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Meta description</label>
+                                        <div class="col-lg-7 col-xl-6">
+                                            <input type="text" class="form-control form-control-modern" name="meta_description" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row align-items-center">
+                                        <label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Meta keywords</label>
+                                        <div class="col-lg-7 col-xl-6">
+                                            <input type="text" class="form-control form-control-modern" name="meta_keywords" value="" />
                                         </div>
                                     </div>
                                 </div>

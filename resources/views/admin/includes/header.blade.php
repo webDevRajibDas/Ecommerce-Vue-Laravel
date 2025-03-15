@@ -1,8 +1,8 @@
 <header class="header header-nav-menu header-nav-links">
     <div class="logo-container">
         <a href="#" class="logo">
-            <img src="{{asset('admin/img/b2b-logo.png')}}" class="logo-image" width="90" height="34" alt="Porto Admin"/><img
-                    src="{{asset('admin/img/b2b-logo.png')}}" class="logo-image-mobile" width="90" height="41" alt="B2B Market Place BD"/>
+            <img src="{{asset('admin/img/b2b-logo.png')}}" class="logo-image" width="90" height="34" alt="B2B PlatForm"/><img
+                    src="{{asset('admin/img/b2b-logo.png')}}" class="logo-image-mobile" width="90" height="41" alt="B2B PlatForm"/>
         </a>
         <button class="btn header-btn-collapse-nav d-lg-none" data-bs-toggle="collapse"
                 data-bs-target=".header-nav">
@@ -14,8 +14,8 @@
                 <nav>
                     <ul class="nav nav-pills" id="mainNav">
                         <li class="">
-                            <a class="nav-link" href="layouts-default.html">
-                                Dashboard
+                            <a class="nav-link" href="{{ url('/') }}" target="_blank">
+                                {{ app_name() }}&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </li>
                         <li class="dropdown"></li>
