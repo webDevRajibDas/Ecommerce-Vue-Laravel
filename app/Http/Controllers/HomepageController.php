@@ -119,4 +119,9 @@ class HomepageController extends Controller
         return response()->json($upazilas);
     }
 
+    public function aboutUs()
+    {
+        return view('frontend.about-us');
+    }
+
 }

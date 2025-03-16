@@ -20,6 +20,7 @@ Route::get('/upazilas/{districtId}', [HomepageController::class, 'getUpazilas'])
 
 Route::get('/vendor-form', [HomepageController::class, 'vendorForm'])->name('vendor-form');
 Route::post('/vendor-contact-form', [HomepageController::class, 'vendorContactForm'])->name('vendorContactForm');
+Route::get('/about-us', [HomepageController::class, 'aboutUs'])->name('about.us');
 
 //Cart
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');

@@ -183,9 +183,7 @@
                             <a href="{{url('/')}}">Home</a>
                         </li>
 
-                        <li class="">
-                            <a href="#">About Us</a>
-                        </li>
+                        <li><a href="{{url('about-us')}}">About Us</a></li>
                         <li>
                             <a href="#">Categories</a>
                             <div class="megamenu megamenu-fixed-width megamenu-3cols">
@@ -222,7 +220,6 @@
                                 <li><a href="#">Shopping Cart</a></li>
                                 <li><a href="#">Checkout</a></li>
                                 <li><a href="#">Dashboard</a></li>
-                                <li><a href="#">About Us</a></li>
                                 <li><a href="#">Contact Us</a></li>
                                 <li><a href="#">Login</a></li>
                                 <li><a href="#">Forgot Password</a></li>

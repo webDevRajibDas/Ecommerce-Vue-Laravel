@@ -123,7 +123,7 @@
     <div class="footer-bottom">
         <div class="container-fluid d-sm-flex align-items-center">
             <div class="footer-left">
-                <span class="footer-copyright">© Porto eCommerce. 2021. All Rights Reserved</span>
+                <span class="footer-copyright mr-4">© B2B Platform. 2025. All Rights Reserved</span><span style="color: #000000!important;">Total Visitors: {{ $visitorCount ?? '' }}</span>
             </div>
 
             <div class="footer-right ml-auto mt-1 mt-sm-0">

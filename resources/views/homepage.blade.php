@@ -119,7 +119,7 @@
                 <div class="col-md-6 text-center-vertical">
                     <div>
                         <h2>B2B Platform for All Your Retail Business Needs</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p class="color: black;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         <a href="#" class="btn btn-primary">Learn More</a>
                     </div>
                 </div>
