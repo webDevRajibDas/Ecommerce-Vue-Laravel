@@ -33,7 +33,7 @@
                                     <td>
                                         <figure class="product-image-container">
                                             <a href="#" class="product-image">
-                                                <img src="{{asset('storage/'.$data->products->image)}}"
+                                                <img src="{{asset('storage/'.$data->product->image)}}"
                                                      alt="product">
                                             </a>
                                             <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
@@ -41,16 +41,16 @@
                                     </td>
                                     <td class="product-col">
                                         <h5 class="product-title">
-                                            <a href="#">{{ $data->products->name }}</a>
+                                            <a href="#">{{ $data->product->name }}</a>
                                         </h5>
                                     </td>
-                                    <td>{{ number_format($data->products->price, 2) }}</td>
+                                    <td>{{ number_format($data->product->price, 2) }}</td>
                                     <td>
                                         <div class="product-single-qty">
                                             <input class="horizontal-quantity form-control" type="text" value="{{$data->quantity}}">
                                         </div><!-- End .product-single-qty -->
                                     </td>
-                                    <td class="text-right"><span class="subtotal-price">{{ number_format($data->products->price * $data->quantity, 2) }}</span></td>
+                                    <td class="text-right"><span class="subtotal-price">{{ number_format($data->product->price * $data->quantity, 2) }}</span></td>
                                 </tr>
                             @endforeach
                         </tbody>

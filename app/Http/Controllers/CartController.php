@@ -57,9 +57,10 @@ class CartController extends Controller
                 }
             }
         }
-        dd($cartItems);
+        //dd($cartItems[0]->product);
         // Fetch districts
         $districts = District::all();
+        //dd($cartItems);
         return view('frontend.shopping.cart', compact('districts', 'cartItems'));
     }
 
