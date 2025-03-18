@@ -20,7 +20,18 @@
                             <li><a href="#">Blog</a></li>
                             <li><a href="#">My Wishlist</a></li>
                             <li><a href="{{route('view.cart')}}">Cart</a></li>
-                            <li><a href="#" class="login-link">Log In</a></li>
+                            <li>
+                                @auth
+                                    <!-- Display if the user is logged in -->
+                                    <a href="{{ route('logout') }}" class="logout-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                @else
+                                    <!-- Display if the user is not logged in -->
+                                    <a href="{{ route('login') }}" class="login-link">Log In</a>
+                                @endauth
+                            </li>
                         </ul>
                     </div>
                     <!-- End .header-menu -->
@@ -152,6 +163,7 @@
                             <!-- End .dropdown-cart-header -->
 
                             <div class="dropdown-cart-products">
+
                                 @foreach ($cartItems as $item)
                                     <div class="product">
                                         <div class="product-details">
@@ -160,7 +172,7 @@
                                             </h4>
 
                                             <span class="cart-product-info">
-                    <span class="cart-product-qty">{{ $item->quantity }}</span> × ${{ number_format($item->products->price, 2) }}
+                    <span class="cart-product-qty">{{ $item->quantity }}</span> × {{ number_format($item->products->price, 2) }}
                 </span>
                                         </div>
                                         <!-- End .product-details -->
@@ -173,20 +185,26 @@
                                             <a href="javascript:;" class="btn-remove remove-cart" data-id="{{ $item->id }}" title="Remove Product"><span>×</span></a>
                                         </figure>
                                     </div>
+
                                 @endforeach
                             </div>
                             <!-- End .cart-product -->
 
                             <div class="dropdown-cart-total">
-                                <span>SUBTOTAL:</span>
+                                @php
+                                    $subtotal = 0;
+                                     foreach ($cartItems as $item) {
+                                         $subtotal += $item->quantity * $item->products->price;
+                                     }
 
-                                <span class="cart-total-price float-right">$134.00</span>
+                                @endphp
+                                <span>SUBTOTAL:</span>
+                                <span class="cart-total-price float-right">TK : {{ number_format($subtotal, 2) }}</span>
                             </div>
                             <!-- End .dropdown-cart-total -->
 
                             <div class="dropdown-cart-action">
-                                <a href="#" class="btn btn-gray btn-block view-cart">View
-                                    Cart</a>
+                                <a href="{{route('view.cart')}}" class="btn btn-gray btn-block view-cart">View Cart</a>
                                 <a href="#" class="btn btn-dark btn-block">Checkout</a>
                             </div>
                             <!-- End .dropdown-cart-total -->

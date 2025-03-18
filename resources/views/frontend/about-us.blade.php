@@ -7,7 +7,6 @@
             <div class="row mt-5">
                 <div class="col-md-12 align-self-center p-static order-2 text-center">
                     <h1 class="text-9 font-weight-bold">About Us</h1>
-                    <span class="sub-title">The perfect choice for your next project</span>
                 </div>
                 <div class="col-md-12 align-self-center order-1">
                     <ul class="breadcrumb breadcrumb-light d-block text-center">
@@ -41,17 +40,38 @@
                 </div>
 
                 <div class="row mt-3 mb-5">
-                    <div class="col-md-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="800">
-                        <h3 class="font-weight-bold text-4 mb-2">Our Mission</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu.</p>
-                    </div>
+
+                       <div class="col-md-4 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="800">
+                           <div class="card" style=" background: rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;">
+                               <div class="card-header text-8">Our Mission</div>
+                               <div class="card-body">
+                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel pellentesque consequat, ante nulla hendrerit arcu.</p>
+                               </div>
+
+                           </div>
+                       </div>
+
                     <div class="col-md-4 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="600">
-                        <h3 class="font-weight-bold text-4 mb-2">Our Vision</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla vel pellentesque consequat, ante nulla hendrerit arcu.</p>
+                        <div class="card" style=" background: rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;">
+
+                            <div class="card-header text-8">Our Vision</div>
+                            <div class="card-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nulla vel pellentesque consequat, ante nulla hendrerit arcu.</p>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="col-md-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="800">
-                        <h3 class="font-weight-bold text-4 mb-2">Why Us</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel consequat, ante nulla hendrerit arcu.</p>
+                        <div class="card" style=" background: rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;">
+                            <div class="card-header font-weight-bold text-8">Why Us</div>
+                        <div class="card-body">
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum, nulla vel consequat, ante nulla hendrerit arcu.</p>
+                        </div>
+                        </div>
                     </div>
                 </div>
 
@@ -118,29 +138,24 @@
             <div class="col-md-6 order-2 order-md-1 text-center text-md-left">
                 <div class="owl-carousel owl-theme nav-style-1 nav-center-images-only stage-margin mb-0" data-plugin-options="{'responsive': {'576': {'items': 1}, '768': {'items': 1}, '992': {'items': 2}, '1200': {'items': 2}}, 'margin': 25, 'loop': false, 'nav': true, 'dots': false, 'stagePadding': 40}">
                     <div>
-                        <img class="img-fluid rounded-0 mb-4" src="img/team/team-1.jpg" alt="" />
+                        <img class="img-fluid rounded-0 mb-4" src="{{asset('assets/images/team-1.jpg')}}" alt="" />
                         <h3 class="font-weight-bold text-color-dark text-4 mb-0">John Doe</h3>
                         <p class="text-2 mb-0">CEO</p>
                     </div>
                     <div>
-                        <img class="img-fluid rounded-0 mb-4" src="img/team/team-2.jpg" alt="" />
+                        <img class="img-fluid rounded-0 mb-4" src="{{asset('assets/images/team-1.jpg')}}" alt="" />
                         <h3 class="font-weight-bold text-color-dark text-4 mb-0">Jessica Doe</h3>
                         <p class="text-2 mb-0">CEO</p>
                     </div>
                     <div>
-                        <img class="img-fluid rounded-0 mb-4" src="img/team/team-3.jpg" alt="" />
+                        <img class="img-fluid rounded-0 mb-4" src="{{asset('assets/images/team-1.jpg')}}" alt="" />
                         <h3 class="font-weight-bold text-color-dark text-4 mb-0">Chris Doe</h3>
                         <p class="text-2 mb-0">DEVELOPER</p>
                     </div>
                     <div>
-                        <img class="img-fluid rounded-0 mb-4" src="img/team/team-4.jpg" alt="" />
+                        <img class="img-fluid rounded-0 mb-4" src="{{asset('assets/images/team-1.jpg')}}" alt="" />
                         <h3 class="font-weight-bold text-color-dark text-4 mb-0">Julie Doe</h3>
                         <p class="text-2 mb-0">SEO ANALYST</p>
-                    </div>
-                    <div>
-                        <img class="img-fluid rounded-0 mb-4" src="img/team/team-5.jpg" alt="" />
-                        <h3 class="font-weight-bold text-color-dark text-4 mb-0">Robert Doe</h3>
-                        <p class="text-2 mb-0">DESIGNER</p>
                     </div>
                 </div>
             </div>

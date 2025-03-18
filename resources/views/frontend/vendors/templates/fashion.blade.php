@@ -56,10 +56,10 @@
                     <div class="product-default left-details">
                         <figure>
                             <a href="{{ route('product.show', $product->slug) }}">
-                                <img src="{{ $product->image ? asset('storage/'.$product->image) : asset('fashion/assets/images/demoes/demo7/products/product-8.jpg') }}"
+                                <img src="{{ asset('storage/'.$product->image)}}"
                                      alt="{{ $product->name }}" width="300" height="300">
 
-                                <img src="{{asset('fashion/assets/images/demoes/demo7/products/product-8-2.jpg')}}"
+                                <img src="{{ asset('storage/'.$product->image)}}"
                                      alt="product"
                                      width="300" height="300">
                             </a>
@@ -70,8 +70,7 @@
                         </figure>
                         <div class="product-details">
                             <div class="category-list">
-                                <a href="#" class="product-category">T-shirts</a>,
-                                <a href="#" class="product-category">Toys</a>
+                                <a href="#" class="product-category"></a>,
                             </div>
                             <h3 class="product-title"><a href="#">{{$product->name}}</a></h3>
                             <div class="ratings-container">
@@ -109,9 +108,7 @@
         <div class="container">
             <h2 class="section-title border-0 title-decorate text-center text-white d-flex align-items-center appear-animate"
                 data-animation-name="fadeInUpShorter">
-                        <span>BROWSE
-                            OUR
-                            CATEGORIES</span></h2>
+                        <span>BROWSE OUR CATEGORIES</span></h2>
             <div class="owl-carousel owl-theme appear-animate show-nav-hover" data-animation-name="fadeInUpShorter"
                  data-animation-delay="200" data-owl-options="{
                         'dots': false,
@@ -143,7 +140,7 @@
                         </a>
                         <div class="banner-layer banner-layer-middle">
                             <h3>{{$categories->title}}</h3>
-                            <span>2 PRODUCTS </span>
+                            <span> *</span>
                         </div>
                     </div>
                     <!-- End .banner -->
@@ -333,171 +330,7 @@
                         <!-- End .product-details -->
                     </div>
                 </div>
-                <div class="col-6 col-lg-3 col-md-4 col-xl-5col">
-                    <div class="product-default left-details">
-                        <figure>
-                            <a href="#">
-                                <img src="assets/images/demoes/demo7/products/product-6.jpg" alt="product"
-                                     width="300" height="300">
-                                <img src="assets/images/demoes/demo7/products/product-6-2.jpg" alt="product"
-                                     width="300" height="300">
-                            </a>
-                        </figure>
-                        <div class="product-details">
-                            <div class="category-list">
-                                <a href="#" class="product-category">clothing</a>,
-                                <a href="#" class="product-category">shoes</a>
-                            </div>
-                            <h3 class="product-title"><a href="#">Men Gentle Shoes</a></h3>
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:0%"></span>
-                                    <!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                                <!-- End .product-ratings -->
-                            </div>
-                            <!-- End .product-container -->
-                            <div class="price-box">
-                                <span class="product-price">$99.00 – $109.00</span>
-                            </div>
-                            <!-- End .price-box -->
-                        </div>
-                        <!-- End .product-details -->
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-4 col-xl-5col">
-                    <div class="product-default left-details">
-                        <figure>
-                            <a href="#">
-                                <img src="assets/images/demoes/demo7/products/product-4.jpg" alt="product"
-                                     width="300" height="300">
-                                <img src="assets/images/demoes/demo7/products/product-4-2.jpg" alt="product"
-                                     width="300" height="300">
-                            </a>
-                        </figure>
-                        <div class="product-details">
-                            <div class="category-list">
-                                <a href="#" class="product-category">clothing</a>,
-                                <a href="#" class="product-category">shoes</a>
-                            </div>
-                            <h3 class="product-title"><a href="#">Men Black Belt</a></h3>
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:0%"></span>
-                                    <!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                                <!-- End .product-ratings -->
-                            </div>
-                            <!-- End .product-container -->
-                            <div class="price-box">
-                                <span class="product-price">$99.00 – $109.00</span>
-                            </div>
-                            <!-- End .price-box -->
-                        </div>
-                        <!-- End .product-details -->
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-4 col-xl-5col">
-                    <div class="product-default left-details">
-                        <figure>
-                            <a href="#">
-                                <img src="assets/images/demoes/demo7/products/product-2.jpg" alt="product"
-                                     width="300" height="300">
-                                <img src="assets/images/demoes/demo7/products/product-2-2.jpg" alt="product"
-                                     width="300" height="300">
-                            </a>
-                        </figure>
-                        <div class="product-details">
-                            <div class="category-list">
-                                <a href="#" class="product-category">clothing</a>,
-                                <a href="#" class="product-category">shoes</a>
-                            </div>
-                            <h3 class="product-title"><a href="#">Jeans Pants</a></h3>
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:0%"></span>
-                                    <!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                                <!-- End .product-ratings -->
-                            </div>
-                            <!-- End .product-container -->
-                            <div class="price-box">
-                                <span class="product-price">$99.00 – $109.00</span>
-                            </div>
-                            <!-- End .price-box -->
-                        </div>
-                        <!-- End .product-details -->
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-4 col-xl-5col">
-                    <div class="product-default left-details">
-                        <figure>
-                            <a href="#">
-                                <img src="assets/images/demoes/demo7/products/product-3.jpg" alt="product"
-                                     width="300" height="300">
-                                <img src="assets/images/demoes/demo7/products/product-3-2.jpg" alt="product"
-                                     width="300" height="300">
-                            </a>
-                        </figure>
-                        <div class="product-details">
-                            <div class="category-list">
-                                <a href="#" class="product-category">clothing</a>,
-                                <a href="#" class="product-category">shoes</a>
-                            </div>
-                            <h3 class="product-title"><a href="#">Jeans Trouser</a></h3>
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:0%"></span>
-                                    <!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                                <!-- End .product-ratings -->
-                            </div>
-                            <!-- End .product-container -->
-                            <div class="price-box">
-                                <span class="product-price">$99.00 – $109.00</span>
-                            </div>
-                            <!-- End .price-box -->
-                        </div>
-                        <!-- End .product-details -->
-                    </div>
-                </div>
-                <div class="col-6 col-lg-3 col-md-4 col-xl-5col">
-                    <div class="product-default left-details">
-                        <figure>
-                            <a href="#">
-                                <img src="assets/images/demoes/demo7/products/product-7.jpg" alt="product"
-                                     width="300" height="300">
-                                <img src="assets/images/demoes/demo7/products/product-7-2.jpg" alt="product"
-                                     width="300" height="300">
-                            </a>
-                        </figure>
-                        <div class="product-details">
-                            <div class="category-list">
-                                <a href="#" class="product-category">clothing</a>,
-                                <a href="#" class="product-category">shoes</a>
-                            </div>
-                            <h3 class="product-title"><a href="#">Men Gray Cap</a></h3>
-                            <div class="ratings-container">
-                                <div class="product-ratings">
-                                    <span class="ratings" style="width:0%"></span>
-                                    <!-- End .ratings -->
-                                    <span class="tooltiptext tooltip-top"></span>
-                                </div>
-                                <!-- End .product-ratings -->
-                            </div>
-                            <!-- End .product-container -->
-                            <div class="price-box">
-                                <span class="product-price">$99.00 – $109.00</span>
-                            </div>
-                            <!-- End .price-box -->
-                        </div>
-                        <!-- End .product-details -->
-                    </div>
-                </div>
+
             </div>
 
             <hr class="mt-1 mb-4">

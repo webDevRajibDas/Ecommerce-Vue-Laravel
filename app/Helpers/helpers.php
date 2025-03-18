@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Cookie;
 use App\Models\Cart;
 use Carbon\Carbon;
 
@@ -47,9 +48,17 @@ if (! function_exists('convertMdyToYmd')) {
 
 
 if (! function_exists('getCartCount')) {
-     function getCartCount()
+    function getCartCount()
     {
         $user_id = auth()->id() ?? session()->getId();
-        return Cart::where('user_id', $user_id)->sum('quantity');
+        $cart_count = Cookie::get('cart_count');
+        if (!$cart_count) {
+            $cart_count = Cart::where('user_id', $user_id)->sum('quantity');
+
+            // Store cart count in a cookie (valid for 60 minutes)
+            Cookie::queue('cart_count', $cart_count, 60);
+        }
+
+        return $cart_count;
     }
 }

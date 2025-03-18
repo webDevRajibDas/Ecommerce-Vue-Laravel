@@ -94,7 +94,7 @@
                             <span>Mailbox</span>
                         </a>
                     </li>
-                    <li class="nav-group-label">Visual</li>
+                    <li class="nav-group-label">Frontend</li>
                     <li class="nav-parent">
                         <a class="nav-link" href="#">
                             <i class="bx bx-layout" aria-hidden="true"></i>
@@ -102,8 +102,8 @@
                         </a>
                         <ul class="nav nav-children">
                             <li>
-                                <a class="nav-link" href="index.html">
-                                    - Landing Page
+                                <a class="nav-link" href="{{url('admin/sliders')}}">
+                                    - Sliders
                                 </a>
                             </li>
                             <li>

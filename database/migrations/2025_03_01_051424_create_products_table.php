@@ -44,7 +44,7 @@ return new class extends Migration
             $table->string('stock_status')->default('in_stock'); // VARCHAR(191), default 'in_stock'
             $table->unsignedBigInteger('vendor_id')->nullable(); // BIGINT UNSIGNED, nullable
             $table->unsignedBigInteger('created_by_id')->default(0); // BIGINT UNSIGNED, default 0
-            $table->string('created_by')->nullable('Admin');
+            $table->string('created_by')->nullable('slider');
             $table->unsignedBigInteger('approved_by')->default(0); // BIGINT UNSIGNED, default 0
             $table->string('product_type')->default('physical'); // VARCHAR(60), default 'physical'
             $table->string('barcode', 50)->nullable(); // VARCHAR(50), nullable

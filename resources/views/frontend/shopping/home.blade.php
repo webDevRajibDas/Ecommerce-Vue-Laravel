@@ -43,8 +43,8 @@
     <div class="top-notice text-white">
         <div class="container text-center">
             <h5 class="d-inline-block mb-0">Get Up to <b>40% OFF</b> New-Season Styles</h5>
-            <a href="demo7-shop.html" class="category">MEN</a>
-            <a href="demo7-shop.html" class="category ml-2 mr-3">WOMEN</a>
+            <a href="#" class="category">MEN</a>
+            <a href="#" class="category ml-2 mr-3">WOMEN</a>
             <small>* Limited time only.</small>
             <button title="Close (Esc)" type="button" class="mfp-close">×</button>
         </div>
@@ -87,11 +87,11 @@
                     <div class="header-dropdown dropdown-expanded mr-3">
                         <div class="header-menu">
                             <ul>
-                                <li><a href="dashboard.html">My Account</a></li>
-                                <li><a href="demo7-about.html">About Us</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="wishlist.html">My Wishlist</a></li>
-                                <li><a href="cart.html">Cart</a></li>
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">My Wishlist</a></li>
+                                <li><a href="#">Cart</a></li>
                                 <li><a href="#" class="login-link">Log In</a></li>
                             </ul>
                         </div>
@@ -131,13 +131,13 @@
                                 <a href="demo7.html">Home</a>
                             </li>
                             <li>
-                                <a href="demo7-shop.html">Categories</a>
+                                <a href="#">Categories</a>
                                 <div class="megamenu megamenu-fixed-width megamenu-3cols">
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <a href="#" class="nolink">VARIATION 1</a>
                                             <ul class="submenu">
-                                                <li><a href="category.html">Fullwidth Banner</a></li>
+                                                <li><a href="#">Fullwidth Banner</a></li>
                                                 <li><a href="category-banner-boxed-slider.html">Boxed Slider
                                                         Banner</a>
                                                 </li>
@@ -155,20 +155,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="col-lg-4">
-                                            <a href="#" class="nolink">VARIATION 2</a>
-                                            <ul class="submenu">
-                                                <li><a href="category-list.html">List Types</a></li>
-                                                <li><a href="category-infinite-scroll.html">Ajax Infinite Scroll</a>
-                                                </li>
-                                                <li><a href="category.html">3 Columns Products</a></li>
-                                                <li><a href="category-4col.html">4 Columns Products</a></li>
-                                                <li><a href="category-5col.html">5 Columns Products</a></li>
-                                                <li><a href="category-6col.html">6 Columns Products</a></li>
-                                                <li><a href="category-7col.html">7 Columns Products</a></li>
-                                                <li><a href="category-8col.html">8 Columns Products</a></li>
-                                            </ul>
-                                        </div>
+
                                         <div class="col-lg-4 p-0">
                                             <div class="menu-banner">
                                                 <figure>
@@ -180,7 +167,7 @@
                                                         <b class="">50%</b>
                                                         <i>OFF</i>
                                                     </h4>
-                                                    <a href="demo7-shop.html" class="btn btn-sm btn-dark">SHOP
+                                                    <a href="#" class="btn btn-sm btn-dark">SHOP
                                                         NOW</a>
                                                 </div>
                                             </div>
@@ -208,26 +195,11 @@
                                         </div>
                                         <!-- End .col-lg-4 -->
 
-                                        <div class="col-lg-4">
-                                            <a href="#" class="nolink">PRODUCT LAYOUTS</a>
-                                            <ul class="submenu">
-                                                <li><a href="product-extended-layout.html">EXTENDED LAYOUT</a></li>
-                                                <li><a href="product-grid-layout.html">GRID IMAGE</a></li>
-                                                <li><a href="product-full-width.html">FULL WIDTH LAYOUT</a></li>
-                                                <li><a href="product-sticky-info.html">STICKY INFO</a></li>
-                                                <li><a href="product-sticky-both.html">LEFT & RIGHT STICKY</a></li>
-                                                <li><a href="product-transparent-image.html">TRANSPARENT IMAGE</a>
-                                                </li>
-                                                <li><a href="product-center-vertical.html">CENTER VERTICAL</a></li>
-                                                <li><a href="#">BUILD YOUR OWN</a></li>
-                                            </ul>
-                                        </div>
-                                        <!-- End .col-lg-4 -->
 
                                         <div class="col-lg-4 p-0">
                                             <div class="menu-banner menu-banner-2">
                                                 <figure>
-                                                    <img src="assets/images/menu-banner-1.jpg" alt="Menu banner" class="product-promo" width="380" height="790">
+                                                    <img src="{{asset('assets/images/menu-banner-1.jpg')}}" alt="Menu banner" class="product-promo" width="380" height="790">
                                                 </figure>
                                                 <i>OFF</i>
                                                 <div class="banner-content">
@@ -236,7 +208,7 @@
                                                         <b class="">50%</b>
                                                     </h4>
                                                 </div>
-                                                <a href="demo7-shop.html" class="btn btn-sm btn-dark">SHOP NOW</a>
+                                                <a href="#" class="btn btn-sm btn-dark">SHOP NOW</a>
                                             </div>
                                         </div>
                                         <!-- End .col-lg-4 -->
@@ -264,9 +236,7 @@
                                     <li><a href="forgot-password.html">Forgot Password</a></li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="https://1.envato.market/DdLk5" target="_blank">Buy
-                                    Porto!</a></li>
+                            <li><a href="#">Blog</a></li>
                         </ul>
                     </nav>
 

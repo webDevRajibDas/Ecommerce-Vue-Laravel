@@ -92,8 +92,11 @@
                                 <li class="product-category">No Category</li>
                             @endif
                             <li>
-                                TAGs: <strong><a href="#" class="product-category">CLOTHES</a></strong>,
-                                <strong><a href="#" class="product-category">SWEATER</a></strong>
+                                TAGs:
+                                <strong>
+                                    <a href="#" class="product-category"></a>
+                                </strong>,
+
                             </li>
                         </ul>
                         <!-----------product-filters-container------------->
@@ -316,6 +319,8 @@
                 }
             });
         }
+
+        updateCartCount();
         function updateCartCount() {
             $.ajax({
                 url: "{{ route('cart.count') }}",

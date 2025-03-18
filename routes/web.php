@@ -32,7 +32,7 @@ Route::get('/cart/items', [CartController::class, 'getCartItems'])->name('cart.i
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-require base_path('routes/admin.php');
+
 
 Route::get('/clear-cache', function() {
     Artisan::call('config:cache');
