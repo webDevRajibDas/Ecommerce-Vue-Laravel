@@ -1,15 +1,14 @@
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 
-<form class="ecommerce-form action-buttons-fixed" action="{{route('admin.vendor-categories.store')}}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+<x-alert-error class="mb-4 p-3 rounded-lg" />
+
+<h1>{{ isset($category) ? 'Edit ' : 'Add New ' }}</h1>
+
+<form class="action-buttons-fixed" action="{{ isset($category) ? route('admin.vendor-categories.update', $category->id) : route('admin.vendor-categories.store') }}" method="post" novalidate="novalidate" enctype="multipart/form-data">
     @csrf
+    @if (isset($category))
+        @method('PUT')
+    @endif
+
     <div class="row">
         <div class="col">
             <section class="card card-modern card-big-info">
@@ -33,17 +32,16 @@
                             <div class="form-group row align-items-center">
                                 <label class="col-lg-5 col-xl-3 control-label text-lg-right mb-0">Category Name</label>
                                 <div class="col-lg-7 col-xl-6">
-                                    <input type="text" class="form-control form-control-modern" name="title" value="" required="">
+                                    <input type="text" class="form-control form-control-modern" name="title"  value="{{ $category->title }}" required="">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-5 col-xl-3 control-label text-lg-right pt-2 mt-1 mb-0">Description</label>
                                 <div class="col-lg-7 col-xl-6">
-                                    <textarea class="form-control form-control-modern" name="description" rows="6"></textarea>
+                                    <textarea class="form-control form-control-modern" name="description" rows="6">{{ $category->description }}</textarea>
                                 </div>
                             </div>
 
-                        </div>
                     </div>
                 </div>
             </section>

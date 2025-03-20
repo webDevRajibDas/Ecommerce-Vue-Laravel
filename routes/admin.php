@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/settings', [MasterSettingController::class, 'Settings'])->name('dashboard');
+    Route::get('/settings', [MasterSettingController::class, 'Settings'])->name('settings');
 
     Route::get('/get-subcategories', [VendorsController::class, 'getSubcategories'])->name('get.subcategories');
     Route::resource('vendors', VendorsController::class);

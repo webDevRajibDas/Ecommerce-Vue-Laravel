@@ -34,7 +34,7 @@ class MoveCartToSession
 
                 // Clear the cart cookie and session
                 session()->forget('cart');
-                return redirect()->route('cart.view')->withCookie(Cookie::forget('cart'));
+                return redirect()->route('view.cart')->withCookie(Cookie::forget('cart'));
             }
         }
 

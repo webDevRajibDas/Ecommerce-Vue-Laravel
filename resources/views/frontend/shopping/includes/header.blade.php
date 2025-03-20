@@ -76,9 +76,6 @@
                                     <div class="col-lg-4">
                                         <ul class="submenu">
                                             <li><a href="#">Fashion</a></li>
-                                            <li><a href="#">Jewellery</a></li>
-                                            <li><a href="#">Kids Fashion</a></li>
-                                            <li><a href="#">Accessories</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -164,29 +161,33 @@
 
                             <div class="dropdown-cart-products">
 
-                                @foreach ($cartItems as $item)
-                                    <div class="product">
-                                        <div class="product-details">
-                                            <h4 class="product-title">
-                                                <a href="#">{{ $item->products->name }}</a>
-                                            </h4>
-
-                                            <span class="cart-product-info">
-                    <span class="cart-product-qty">{{ $item->quantity }}</span> × {{ number_format($item->products->price, 2) }}
-                </span>
-                                        </div>
-                                        <!-- End .product-details -->
-
-                                        <figure class="product-image-container">
-                                            <a href="#" class="product-image">
-                                                <img src="{{ asset('storage/'.$item->products->image) }}" alt="product" width="80" height="80">
-                                            </a>
-
-                                            <a href="javascript:;" class="btn-remove remove-cart" data-id="{{ $item->id }}" title="Remove Product"><span>×</span></a>
-                                        </figure>
+                                @if (empty($cartItems))
+                                    <div class="alert alert-info">
+                                        Your cart is empty.
                                     </div>
+                                @else
+                                    @foreach ($cartItems as $item)
+                                        @if ($item)
+                                            <div class="product">
+                                                <div class="product-details">
+                                                    <h4 class="product-title">
+                                                        <a href="#">{{ $item->products->name ?? 'Product Name Not Available' }}</a>
+                                                    </h4>
 
-                                @endforeach
+                                                    <span class="cart-product-info">
+                        <span class="cart-product-qty">{{ $item->quantity ?? 0 }}</span> × {{ number_format($item->products->price ?? 0, 2) }}
+                    </span>
+                                                </div>
+                                                <figure class="product-image-container">
+                                                    <a href="#" class="product-image">
+                                                        <img src="{{ asset('storage/'.($item->products->image ?? 'default-image.png')) }}" alt="product" width="80" height="80">
+                                                    </a>
+                                                    <a href="javascript:;" class="btn-remove remove-cart" data-id="{{ $item->id }}" title="Remove Product"><span>×</span></a>
+                                                </figure>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                @endif
                             </div>
                             <!-- End .cart-product -->
 

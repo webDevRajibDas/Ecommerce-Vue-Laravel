@@ -18,22 +18,23 @@
             <div class="col-lg-8">
                 <div class="cart-table-container">
                     <table class="table table-cart">
-                        <thead>
-                        <tr>
-                            <th class="thumbnail-col"></th>
-                            <th class="product-col">Product</th>
-                            <th class="price-col">Price</th>
-                            <th class="qty-col">Quantity</th>
-                            <th class="text-right">Subtotal</th>
-                        </tr>
-                        </thead>
+                            <thead>
+                                <tr>
+                                    <th class="thumbnail-col"></th>
+                                    <th class="product-col">Product</th>
+                                    <th class="price-col">Price</th>
+                                    <th class="qty-col">Quantity</th>
+                                    <th class="text-right">Subtotal</th>
+                                </tr>
+                            </thead>
                         <tbody>
+
                             @foreach($cartItems as $data)
                                 <tr class="product-row">
                                     <td>
                                         <figure class="product-image-container">
                                             <a href="#" class="product-image">
-                                                <img src="{{asset('storage/'.$data->product->image)}}"
+                                                <img src="{{asset('storage/'.$data->products->image)}}"
                                                      alt="product">
                                             </a>
                                             <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
@@ -41,16 +42,16 @@
                                     </td>
                                     <td class="product-col">
                                         <h5 class="product-title">
-                                            <a href="#">{{ $data->product->name }}</a>
+                                            <a href="#">{{ $data->products->name }}</a>
                                         </h5>
                                     </td>
-                                    <td>{{ number_format($data->product->price, 2) }}</td>
+                                    <td>{{ number_format($data->products->price, 2) }}</td>
                                     <td>
                                         <div class="product-single-qty">
                                             <input class="horizontal-quantity form-control" type="text" value="{{$data->quantity}}">
                                         </div><!-- End .product-single-qty -->
                                     </td>
-                                    <td class="text-right"><span class="subtotal-price">{{ number_format($data->product->price * $data->quantity, 2) }}</span></td>
+                                    <td class="text-right"><span class="subtotal-price">{{ number_format($data->products->price * $data->quantity, 2) }}</span></td>
                                 </tr>
                             @endforeach
                         </tbody>

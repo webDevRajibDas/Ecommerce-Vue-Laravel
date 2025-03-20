@@ -14,8 +14,8 @@
                             }
                         }
                     }">
-
             <div class="home-slide home-slide-1 banner">
+                <img class="slide-bg" src="{{asset('assets/images/slider/slide-5.jpg')}}" alt="slider image">
                 <div class="banner-layer banner-layer-middle banner-layer-left">
                     <div class="container-fluid">
                         <div class="appear-animate" data-animation-name="fadeInLeftShorter"
@@ -28,7 +28,21 @@
                     </div>
                 </div>
             </div>
+            <div class="home-slide home-slide-2 banner">
+                <img class="slide-bg" src="{{asset('assets/images/slider/slide-5.jpg')}}" alt="slider image">
 
+                <div class="banner-layer banner-layer-middle banner-layer-right w-100">
+                    <div class="container-fluid">
+                        <div class="col-6 offset-6 appear-animate" data-animation-name="fadeInRightShorter"
+                             data-animation-delay="200">
+                            <h2 class="font-weight-light ls-10 text-primary">Trendy Collections!</h2>
+                            <a href="#" class="btn btn-link"><i>View
+                                    our
+                                    Specials</i><i class="icon-right-open-big"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -147,20 +161,12 @@
         ['name' => 'DailyMart', 'items' => 25, 'categories' => 6, 'rating' => 4.7, 'status' => 'Online', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
     ];
 
-    $items = [
-        ['name' => 'Easy Life', 'items' => 16, 'categories' => 4, 'rating' => 5.0, 'status' => 'Online', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
-        ['name' => 'ShopMax', 'items' => 12, 'categories' => 3, 'rating' => 4.5, 'status' => 'Offline', 'logo' => asset('assets/images/shops/Orange-Online-Shop.jpg')],
-        ['name' => 'StyleHub', 'items' => 20, 'categories' => 5, 'rating' => 4.8, 'status' => 'Online', 'logo' => asset('assets/images/shops/Red-Online-Store.png')],
-        ['name' => 'Gadget World', 'items' => 30, 'categories' => 8, 'rating' => 4.9, 'status' => 'Online', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
-        ['name' => 'Home Essentials', 'items' => 10, 'categories' => 2, 'rating' => 4.3, 'status' => 'Busy', 'logo' => asset('assets/images/shops/Online-Store-Toy-Shop.jpg')],
-
-    ];
     ?>
 
 
 
     <div class="brands-section" style="background: #65829d !important;">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <h2 class="section-title text-center text-uppercase appear-animate mb-4"
                     data-animation-name="fadeInUpShorter" data-animation-delay="200" style="color: #ffffff !important;">
@@ -179,7 +185,7 @@
                                 'items': 2
                             },
                             '1200': {
-                                'items': 7
+                                'items': 6
                             }
                         }
                     }">
@@ -188,11 +194,11 @@
                     <div class="category-card">
                         <img src="{{asset('assets/images/category_diagram.png') }}"
                              width="200" height="100" alt="{{ $pCategory->title }}">
-                        <p class="text-title" style="color: #a700db">{{ $pCategory->title }}</p>
+                        <p class="text-title" style="color: #0074db">{{ $pCategory->title }}</p>
                     </div>
                 @empty
                     <div class="text-center w-100">
-                        <p class="text-muted">No Data Available</p>
+                        <p class="text-muted">No Category Available !! Now</p>
                     </div>
                 @endforelse
             </div>
@@ -218,14 +224,11 @@
                 <div class="col-6 col-md-4 col-xl-3">
                     <div class="product-default inner-quickview inner-icon">
                         <figure>
-                            <a href="#">
+                            <a href="{{ route('product.show', $item->slug) }}">
                                 <img src="{{asset('storage/'.$item->image) }}" width="217"
                                      height="217" alt="product">
                             </a>
-                            <div class="label-group">
-                                <div class="product-label label-hot">HOT</div>
-                                <div class="product-label label-sale">-13%</div>
-                            </div>
+
                             <div class="btn-icon-group">
                                 <a href="#" title="Add To Cart"
                                    class="btn-icon btn-add-cart product-type-simple"><i
@@ -299,5 +302,38 @@
             </div>
         </div>
     </section>
+
+    <div class="banner-container">
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <img style="height: 450px;" src="{{asset('assets/images/b2b-handshake.jpg')}}" class="card-img-top img-thumbnail"
+                     alt="Business Image">
+
+            </div>
+            <div class="col-md-6">
+                <div class="right-content">
+                    <div class="orange-top"></div>
+                    <div class="orange-right"></div>
+                    <div class="navy-bottom"></div>
+                    <div class="content-wrapper">
+                        <!-- B2B Platform Logo -->
+                        <div class="b2b-logo">
+                            <div class="b2b-text">
+                                <span class="b-letter">B</span>
+                                <span class="number-2">2</span>
+                                <span class="b-letter">B</span>
+                            </div>
+                            <div class="platform-text">PLATFORM</div>
+                        </div>
+
+                        <!-- Bengali text -->
+                        <div class="bengali-text">
+                            আমাদের সাথে যোগাযোগ করুন
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection

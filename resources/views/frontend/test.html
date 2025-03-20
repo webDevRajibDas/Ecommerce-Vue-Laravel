@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B2B Platform</title>
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <style>
+    /* Custom styles */
+    .banner-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .banner-image {
+      height: 400px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .right-content {
+      height: 400px;
+      background-color: white;
+      position: relative;
+    }
+    
+    .orange-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 33%;
+      height: 80px;
+      background-color: #F9A826;
+      z-index: 1;
+    }
+    
+    .orange-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 80px;
+      background-color: #F9A826;
+      z-index: 1;
+    }
+    
+    .navy-bottom {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #1A2B47;
+      z-index: 1;
+    }
+    
+    .content-wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .b2b-logo {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .b2b-text {
+      display: inline-block;
+    }
+    
+    .b-letter {
+      font-size: 4.5rem;
+      font-weight: bold;
+      color: #1A4A5E;
+    }
+    
+    .number-2 {
+      font-size: 4.5rem;
+      font-weight: bold;
+      color: #2A8CB8;
+    }
+    
+    .platform-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #E01E2B;
+      letter-spacing: 2px;
+    }
+    
+    .bengali-text {
+      font-size: 1.8rem;
+      color: #1A2B47;
+      margin-top: 1rem;
+    }
+    
+    @media (max-width: 767.98px) {
+      .orange-top, .orange-right, .navy-bottom {
+        width: 100%;
+      }
+      
+      .b-letter, .number-2 {
+        font-size: 3.5rem;
+      }
+      
+      .platform-text {
+        font-size: 1.2rem;
+      }
+      
+      .bengali-text {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="banner-container">
+    <div class="row no-gutters">
+     
+      <!-- Right side with logo and text -->
+      <div class="col-md-12">
+        <div class="right-content">
+          <!-- Orange rectangles -->
+          <div class="orange-top"></div>
+          <div class="orange-right"></div>
+          
+          <!-- Navy rectangle -->
+          <div class="navy-bottom"></div>
+          
+          <!-- Content -->
+          <div class="content-wrapper">
+            <!-- B2B Platform Logo -->
+            <div class="b2b-logo">
+              <div class="b2b-text">
+                <span class="b-letter">B</span>
+                <span class="number-2">2</span>
+                <span class="b-letter">B</span>
+              </div>
+              <div class="platform-text">PLATFORM</div>
+            </div>
+            
+            <!-- Bengali text -->
+            <div class="bengali-text">
+              আমাদের সাথে যোগাযোগ করুন
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 4 JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

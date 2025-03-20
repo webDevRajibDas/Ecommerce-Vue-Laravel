@@ -46,21 +46,15 @@ class CartController extends Controller
             $cartItems = Cart::where('user_id', $user_id)->with('products')->get();
         } else {
             $cart = json_decode(request()->cookie('cart'), true) ?? session('cart', []);
-            $cartItems = [];
-            foreach ($cart as $product_id => $quantity) {
+
+            $cartItems = collect($cart)->map(function ($quantity, $product_id) {
                 $product = \App\Models\Product::find($product_id);
-                if ($product) {
-                    $cartItems[] = (object) [
-                        'product' => $product,
-                        'quantity' => $quantity,
-                    ];
-                }
-            }
+                return $product ? (object) ['product' => $product, 'quantity' => $quantity] : null;
+            })->filter()->values()->all();
         }
-        //dd($cartItems[0]->product);
+
         // Fetch districts
         $districts = District::all();
-        //dd($cartItems);
         return view('frontend.shopping.cart', compact('districts', 'cartItems'));
     }
 

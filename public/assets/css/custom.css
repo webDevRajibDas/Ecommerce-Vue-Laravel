@@ -4,6 +4,12 @@ html .btn-primary{
     color: #FFF;
 }
 
+@media (min-width: 1200px) {
+    .home-slide {
+        width: 100% !important;
+        margin: 0 auto
+    }
+}
 
 
 .boost-card-title{
@@ -383,14 +389,14 @@ html .btn-primary{
 
 /* From Uiverse.io by alexruix */
 .category-card {
-    border-radius: 20px;
+    border-radius: 12px;
     background: #f5f5f5;
     position: relative;
-    padding: 1.8rem;
-    border: 2px solid #c3c6ce;
+    padding: .5rem;
     transition: 0.5s ease-out;
     overflow: visible;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    min-height: 250px;
 }
 
 .card-details {
@@ -481,3 +487,222 @@ label {
     width: 100%;
     height: 100%;
 }
+
+
+
+
+/******** Footer banner  **********/
+/* Custom styles */
+.banner-container {
+    margin: 0 auto;
+    position: relative;
+}
+
+.banner-image {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.right-content {
+    height: 100%;
+    background-color: white;
+    position: relative;
+}
+
+.orange-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 33%;
+    height: 80px;
+    background-color: #F9A826;
+    z-index: 1;
+}
+
+.orange-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #F9A826;
+    z-index: 1;
+}
+
+.navy-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1A2B47;
+    z-index: 1;
+}
+
+.content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.b2b-logo {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.b2b-text {
+    display: inline-block;
+}
+
+.b-letter {
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: #1A4A5E;
+}
+
+.number-2 {
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: #2A8CB8;
+}
+
+.platform-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #E01E2B;
+    letter-spacing: 2px;
+}
+
+.bengali-text {
+    font-size: 1.8rem;
+    color: #1A2B47;
+    margin-top: 1rem;
+}
+
+@media (max-width: 767.98px) {
+    .orange-top, .orange-right, .navy-bottom {
+        width: 100%;
+    }
+
+    .b-letter, .number-2 {
+        font-size: 3.5rem;
+    }
+
+    .platform-text {
+        font-size: 1.2rem;
+    }
+
+    .bengali-text {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+/* Social Icons */
+.main__socials {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+}
+
+.Link__instagram {
+    padding: 0.8em;
+    outline: none;
+    border: none;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.instagram {
+    fill: #cc39a4;
+}
+
+.Link__twitter {
+    padding: 0.8em;
+    outline: none;
+    border: none;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.twitter {
+    fill: #03a9f4;
+}
+
+.Link__github {
+    padding: 0.8em;
+    outline: none;
+    border: none;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.Link__facebook {
+    padding: 0.8em;
+    outline: none;
+    border: none;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: 0.2s ease-in-out;
+}
+
+.discord {
+    fill: #8c9eff;
+}
+
+.Link__instagram:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #cc39a4;
+}
+
+.Link__instagram:hover .instagram {
+    fill: white;
+}
+
+.Link__twitter:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #03a9f4;
+}
+
+.Link__twitter:hover .twitter {
+    fill: white;
+}
+
+.Link__youtube:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: black;
+}
+
+.Link__youtube:hover .youtube {
+    fill: white;
+}
+
+.Link__facebook:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #8c9eff;
+}
+
+.Link__facebook:hover .discord {
+    fill: white;
+}
+
+
+

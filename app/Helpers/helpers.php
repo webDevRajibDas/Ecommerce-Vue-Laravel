@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\Cart;
 use Carbon\Carbon;
@@ -60,5 +61,62 @@ if (! function_exists('getCartCount')) {
         }
 
         return $cart_count;
+    }
+}
+
+
+if (!function_exists('ProductCategoryDropdown')) {
+    /**
+     * Generate a dropdown menu for product categories.
+     *
+     * @param string $name The name attribute for the dropdown.
+     * @param int|null $selected The ID of the selected category (optional).
+     * @param array $attributes Additional HTML attributes for the dropdown (optional).
+     * @return string
+     */
+    function ProductCategoryDropdown($name, $selected = null, $attributes = [])
+    {
+
+        $categories = ProductCategory::all();
+        $html = '<select name="' . $name . '"';
+        foreach ($attributes as $key => $value) {
+            $html .= ' ' . $key . '="' . $value . '"';
+        }
+        $html .= '>';
+        $html .= '<option value="">Select a category</option>';
+        foreach ($categories as $category) {
+            $html .= '<option value="' . $category->id . '"';
+            if ($selected == $category->id) {
+                $html .= ' selected';
+            }
+            $html .= '>' . $category->name . '</option>';
+        }
+        $html .= '</select>';
+        return $html;
+    }
+
+
+
+    if (!function_exists('ProductCategoryMenu')) {
+        function ProductCategoryMenu($categories)
+        {
+            $html = '<ul class="submenu">';
+            foreach ($categories as $category) {
+                if ($category) {
+                    $html .= '<li><a href="#">' . $category->name . '</a>';
+                    // Check if the category has children
+                    $children = $categories;
+                    if ($children->isNotEmpty()) {
+                        $html .= ProductCategoryMenu($categories); // Recursively build submenu
+                    }
+
+                    $html .= '</li>';
+                }
+            }
+
+            $html .= '</ul>';
+
+            return $html;
+        }
     }
 }

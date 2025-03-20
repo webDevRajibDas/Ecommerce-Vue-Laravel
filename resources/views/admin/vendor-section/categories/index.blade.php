@@ -31,7 +31,7 @@
                                 <img src="{{ asset('storage/' . $cat->image) }}" alt="Category Image" width="150">
                             </td>
                             <td class="actions">
-                                <a href=""><i class="fas fa-pencil-alt"></i></a>
+                                <a href="{{ route('admin.vendor-categories.edit', $cat->id) }}"><i class="fas fa-pencil-alt"></i></a>
                                 <a href="" class="delete-row"><i class="far fa-trash-alt"></i></a>
                             </td>
                         </tr>
@@ -51,8 +51,21 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
         });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteButtons = document.querySelectorAll('.delete-row');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    if (!confirm('Are you sure you want to delete this category?')) {
+                        event.preventDefault();
+                    }
+                });
+            });
+        });
+
     </script>
 @endpush

@@ -21,10 +21,8 @@
                     <div class="col-lg-5 col-md-6 product-single-gallery">
                         <div class="product-slider-container">
                             <div class="label-group">
-                                <div class="product-label label-hot">HOT</div>
-                                <div class="product-label label-sale">
-                                    -16%
-                                </div>
+                                {{--  <div class="product-label label-hot">HOT</div> --}}
+                                {{-- <div class="product-label label-sale">-16%</div> --}}
                             </div>
 
                             <div class="product-single-carousel owl-carousel owl-theme show-nav-hover">

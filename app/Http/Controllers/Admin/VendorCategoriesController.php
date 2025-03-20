@@ -54,6 +54,13 @@ class VendorCategoriesController extends Controller
     }
 
 
+    public function edit($id)
+    {
+        $category = VendorCategorie::findOrFail($id);
+        return view('admin.vendor-section.categories.edit', compact('category'));
+    }
+
+
     public function show($slug)
     {
 
