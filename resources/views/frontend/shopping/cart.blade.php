@@ -4,10 +4,10 @@
     <div class="container">
         <ul class="checkout-progress-bar d-flex justify-content-center flex-wrap">
             <li class="active">
-                <a href="#">Shopping Cart</a>
+                <a href="{{route('view.cart')}}">Shopping Cart</a>
             </li>
             <li>
-                <a href="#">Checkout</a>
+                <a href="{{route('checkouts')}}">Checkout</a>
             </li>
             <li class="disabled">
                 <a href="#">Order Complete</a>
@@ -30,11 +30,11 @@
                         <tbody>
 
                             @foreach($cartItems as $data)
-                                <tr class="product-row">
+                                <tr class="product-row" data-product-id="{{$data->product->id}}">
                                     <td>
                                         <figure class="product-image-container">
                                             <a href="#" class="product-image">
-                                                <img src="{{asset('storage/'.$data->products->image)}}"
+                                                <img src="{{asset('storage/'.$data->product->image)}}"
                                                      alt="product">
                                             </a>
                                             <a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
@@ -42,16 +42,16 @@
                                     </td>
                                     <td class="product-col">
                                         <h5 class="product-title">
-                                            <a href="#">{{ $data->products->name }}</a>
+                                            <a href="#">{{ $data->product->name }}</a>
                                         </h5>
                                     </td>
-                                    <td>{{ number_format($data->products->price, 2) }}</td>
+                                    <td class="product-price">{{ number_format($data->product->price, 2) }}</td>
                                     <td>
-                                        <div class="product-single-qty">
-                                            <input class="horizontal-quantity form-control" type="text" value="{{$data->quantity}}">
+                                        <div class="product-cart-total">
+                                            <input type="text" value="{{$data->quantity}}" class="form-control cart-quantity" name="cart-quantity">
                                         </div><!-- End .product-single-qty -->
                                     </td>
-                                    <td class="text-right"><span class="subtotal-price">{{ number_format($data->products->price * $data->quantity, 2) }}</span></td>
+                                    <td class="text-right subtotal-price">{{ number_format($data->product->price * $data->quantity, 2) }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -95,7 +95,7 @@
                         <tbody>
                         <tr>
                             <td>Subtotal</td>
-                            <td>$17.90</td>
+                            <td id="cart_totals"></td>
                         </tr>
 
                         <tr>
@@ -140,13 +140,7 @@
                                     </div><!-- End .form-group -->
 
                                     <div class="form-group form-group-sm">
-                                        <input type="text" class="form-control form-control-sm"
-                                               placeholder="Town / City">
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group form-group-sm">
-                                        <input type="text" class="form-control form-control-sm"
-                                               placeholder="ZIP">
+                                       <textarea class="form-control form-control-sm" placeholder="Address"></textarea>
                                     </div><!-- End .form-group -->
 
                                     <button type="submit" class="btn btn-shop btn-update-total">
@@ -160,13 +154,13 @@
                         <tfoot>
                             <tr>
                                 <td>Total</td>
-                                <td>$17.90</td>
+                                <td id="totalAmount"></td>
                             </tr>
                         </tfoot>
                     </table>
 
                     <div class="checkout-methods">
-                        <a href="#" class="btn btn-block btn-dark">Proceed to Checkout
+                        <a href="{{route('checkouts')}}" class="btn btn-block btn-dark">Proceed to Checkout
                             <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div><!-- End .cart-summary -->
@@ -183,6 +177,7 @@
 
 @push('custom-script')
     <script>
+
         function loadUpazilas(districtId) {
             const upazilaDropdown = document.getElementById('upazilas');
             upazilaDropdown.innerHTML = '<option value="">-- Select Upazila --</option>';
@@ -205,5 +200,72 @@
                 })
                 .catch(error => console.error('Error fetching upazilas:', error));
         }
+
+        $(document).ready(function() {
+
+            $("input[name='cart-quantity']").TouchSpin({
+                buttondown_class: "btn btn-outline btn-down-icon",
+                buttonup_class: "btn btn-outline btn-up-icon",
+                min: 1,
+                max: 100,
+                stepinterval: 50,
+                maxboostedstep: 10000000,
+            });
+
+            // Event delegation for increment and decrement buttons
+            $('div.product-cart-total').off('click', '.btn-down-icon, .btn-up-icon').on('click', '.btn-down-icon, .btn-up-icon', function(e) {
+                e.preventDefault();
+
+                const $row = $(this).closest('.product-row');
+                const $quantityInput = $row.find('.cart-quantity');
+                const $price = $row.find('.product-price');
+                const $subtotal = $row.find('.subtotal-price');
+                let quantity = parseInt($quantityInput.val()) || 0;
+                const price = parseFloat($price.text().replace(/,/g, ''));
+
+                $quantityInput.val(quantity);
+                const subtotal = quantity * price;
+                $subtotal.text(subtotal.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+
+                updateTotalPrice('#cart_totals');
+                updateTotalPrice('#totalAmount');
+            });
+            updateTotalPrice('#cart_totals');
+            updateTotalPrice('#totalAmount');
+            function updateTotalPrice(tagID) {
+                let total = 0;
+                $('.subtotal-price').each(function () {
+                    total += parseFloat($(this).text().replace(/,/g, '')) || 0;
+                });
+
+                $(tagID).text(total.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+            }
+
+
+//updateSubtotalOnServer($row.data('product-id'), quantity);
+            // Function to send AJAX request
+            function updateSubtotalOnServer(productId, quantity) {
+                console.log(productId)
+                console.log(quantity)
+
+                $.ajax({
+                    url: '/update-subtotal',
+                    type: 'POST',
+                    data: {
+                        product_id: productId,
+                        quantity: quantity,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        console.log('Subtotal updated on server:', response);
+                    },
+                    error: function(xhr) {
+                        console.log('Error:', xhr.responseText);
+                    }
+                });
+            }
+        });
+
+
     </script>
 @endpush

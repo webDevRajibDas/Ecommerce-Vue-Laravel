@@ -24,7 +24,8 @@ Route::get('/about-us', [HomepageController::class, 'aboutUs'])->name('about.us'
 
 //Cart
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
-Route::get('/view-cart', [CartController::class, 'viewCart'])->name('view.cart');
+Route::get('/carts', [CartController::class, 'viewCart'])->name('view.cart');
+Route::get('/checkouts', [CartController::class, 'checkOuts'])->name('checkouts');
 Route::get('/cart/count', [CartController::class, 'cartCount'])->name('cart.count');
 Route::post('/cart/remove', [CartController::class, 'removeCartItem'])->name('cart.remove');
 Route::get('/cart/items', [CartController::class, 'getCartItems'])->name('cart.items');

@@ -116,6 +116,19 @@
 
 <script>
 
+
+    $(document).ready(function () {
+        updateCartCount();
+        function updateCartCount() {
+            $.ajax({
+                url: "{{ route('cart.count') }}",
+                type: "GET",
+                success: function (response) {
+                    $(".cart-count").text(response.cart_count);
+                }
+            });
+        }
+    });
 </script>
 
 

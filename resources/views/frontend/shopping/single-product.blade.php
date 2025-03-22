@@ -289,6 +289,9 @@
                 var productId = $(this).data("product-id");
                 var quantity = $(this).prev(".product-single-qty").find("#single_quantity").val();
 
+                console.log(productId)
+                console.log(quantity)
+
                 if (!quantity || quantity <= 0) {
                     alert("Please enter a valid quantity.");
                     return;
@@ -308,6 +311,8 @@
                     quantity: quantity
                 },
                 success: function(response) {
+                    console.log(response)
+
                     alert(response.message);
                     $(".cart-view").removeClass("d-none");
                     updateCartCount();

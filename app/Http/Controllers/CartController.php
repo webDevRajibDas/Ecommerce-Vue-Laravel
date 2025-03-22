@@ -32,7 +32,7 @@ class CartController extends Controller
                 $cart[$productId] = $quantity;
             }
             $cookie = Cookie::make('cart', json_encode($cart), 60 * 24 * 30);
-            return response()->json(['cart' => $cart])->withCookie($cookie);
+            return response()->json(['cart' => $cart, 'message'=>'Cart Add Successful'])->withCookie($cookie);
         }
 
         return response()->json(['cart' => $cart]);
@@ -110,6 +110,13 @@ class CartController extends Controller
             'html' => $html,
             'cart_count' => $cart_count,
         ]);
+    }
+
+
+    public function checkOuts()
+    {
+        return view('frontend.shopping.checkout');
+
     }
 
 
