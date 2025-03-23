@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\District;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Session;
 
@@ -53,9 +55,7 @@ class CartController extends Controller
             })->filter()->values()->all();
         }
 
-        // Fetch districts
-        $districts = District::all();
-        return view('frontend.shopping.cart', compact('districts', 'cartItems'));
+        return view('frontend.shopping.cart', compact( 'cartItems'));
     }
 
     public function cartCount(){
@@ -113,8 +113,89 @@ class CartController extends Controller
     }
 
 
+    public function updateCartPage(Request $request)
+    {
+
+
+        // Validate the request
+        $request->validate([
+            'product_id' => 'required|integer|exists:products,id', // Ensure the product exists
+            'quantity' => 'required|integer|min:1', // Ensure quantity is at least 1
+        ]);
+
+        $productId = $request->input('product_id');
+        $quantity = $request->input('quantity');
+
+        $product = Product::find($productId);
+        //dd($product);
+        if (!$product) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Product not found.',
+            ], 404);
+        }
+
+        $price = $product->price;
+        $subtotal = $quantity * $price;
+        $cart = json_decode($request->cookie('cart'), true) ?? [];
+        if (!is_array($cart)) {
+            $cart = [];
+        }
+
+        $sessionCart = session('cart', []);
+        if (is_array($sessionCart)) {
+            $cart = array_merge($cart, $sessionCart);
+        }
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity'] = $quantity;
+            $cart[$productId]['subtotal'] = $subtotal;
+        } else {
+            // If the product is not in the cart, add it
+            $cart[$productId] = [
+                'name' => $product->name,
+                'price' => $price,
+                'quantity' => $quantity,
+                'subtotal' => $subtotal,
+            ];
+        }
+
+        if ($request->hasCookie('cart')) {
+            $cookie = Cookie::make('cart', json_encode($cart), 60 * 24 * 30); // 30 days expiration
+            dd($cookie);
+            return response()->json([
+                'success' => true,
+                'subtotal' => number_format($subtotal, 2),
+            ])->withCookie($cookie);
+        } else {
+            session(['cart' => $cart]);
+            return response()->json([
+                'success' => true,
+                'subtotal' => number_format($subtotal, 2),
+            ]);
+        }
+    }
+
+
+
+
+
     public function checkOuts()
     {
+        if (auth()->check()) {
+            $user_id = auth()->id();
+            $cartItems = Cart::where('user_id', $user_id)->with('products')->get();
+        } else {
+            $cart = json_decode(request()->cookie('cart'), true) ?? session('cart', []);
+
+            dd($cart);
+
+            $cartItems = collect($cart)->map(function ($quantity, $product_id) {
+                $product = \App\Models\Product::find($product_id);
+                return $product ? (object) ['product' => $product, 'quantity' => $quantity] : null;
+            })->filter()->values()->all();
+        }
+
+
         return view('frontend.shopping.checkout');
 
     }

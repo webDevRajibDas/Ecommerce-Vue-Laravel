@@ -29,6 +29,7 @@ Route::get('/checkouts', [CartController::class, 'checkOuts'])->name('checkouts'
 Route::get('/cart/count', [CartController::class, 'cartCount'])->name('cart.count');
 Route::post('/cart/remove', [CartController::class, 'removeCartItem'])->name('cart.remove');
 Route::get('/cart/items', [CartController::class, 'getCartItems'])->name('cart.items');
+Route::post('/update-subtotal', [CartController::class, 'updateCartPage'])->name('update.cart');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

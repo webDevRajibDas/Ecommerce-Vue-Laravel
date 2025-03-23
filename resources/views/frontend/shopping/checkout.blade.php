@@ -55,7 +55,7 @@
                                     me</label>
                             </div>
 
-                            <a href="forgot-password.html" class="forget-password">Lost your password?</a>
+                            <a href="#" class="forget-password">Lost your password?</a>
                         </div>
                     </form>
                 </div>

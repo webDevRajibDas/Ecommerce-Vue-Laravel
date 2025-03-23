@@ -173,7 +173,7 @@
                         <div class="product-size-content">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="assets/images/products/single/body-shape.png" alt="body shape" width="217" height="398">
+                                    <img src="{{asset('fashion/assets/images/products/single/body-shape.png')}}" alt="body shape" width="217" height="398">
                                 </div>
                                 <!-- End .col-md-4 -->
 

@@ -57,31 +57,10 @@
                         </tbody>
 
                         <tfoot>
-                        <tr>
-                            <td colspan="5" class="clearfix">
-                                <div class="float-left">
-                                    <div class="cart-discount">
-                                        <form action="#">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control form-control-sm"
-                                                       placeholder="Coupon Code" required>
-                                                <div class="input-group-append">
-                                                    <button class="btn btn-sm" type="submit">Apply
-                                                        Coupon
-                                                    </button>
-                                                </div>
-                                            </div><!-- End .input-group -->
-                                        </form>
-                                    </div>
-                                </div><!-- End .float-left -->
-
-                                <div class="float-right">
-                                    <button type="submit" class="btn btn-shop btn-update-cart">
-                                        Update Cart
-                                    </button>
-                                </div><!-- End .float-right -->
-                            </td>
-                        </tr>
+                            <tr>
+                                <td colspan="5" class="clearfix">
+                                </td>
+                            </tr>
                         </tfoot>
                     </table>
                 </div><!-- End .cart-table-container -->
@@ -117,36 +96,6 @@
                                     </div><!-- End .custom-checkbox -->
                                 </div><!-- End .form-group -->
 
-                                <form action="#">
-                                    <div class="form-group form-group-sm">
-                                        <label>Shipping to</label>
-                                        <div class="select-custom">
-                                            <select  class="form-control form-control-sm" id="districts" name="districts" onchange="loadUpazilas(this.value)">
-                                                <option value="">-- Select District --</option>
-                                                @foreach($districts as $district)
-                                                    <option value="{{$district->id}}">-- {{$district->name}} --</option>
-                                                @endforeach
-
-                                            </select>
-                                        </div><!-- End .select-custom -->
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group form-group-sm">
-                                        <div class="select-custom">
-                                            <select id="upazilas" name="upazilas" class="form-control form-control-sm">
-                                                <option value="">-- Select Upazila --</option>
-                                            </select>
-                                        </div><!-- End .select-custom -->
-                                    </div><!-- End .form-group -->
-
-                                    <div class="form-group form-group-sm">
-                                       <textarea class="form-control form-control-sm" placeholder="Address"></textarea>
-                                    </div><!-- End .form-group -->
-
-                                    <button type="submit" class="btn btn-shop btn-update-total">
-                                        Update Totals
-                                    </button>
-                                </form>
                             </td>
                         </tr>
                         </tbody>
@@ -178,29 +127,6 @@
 @push('custom-script')
     <script>
 
-        function loadUpazilas(districtId) {
-            const upazilaDropdown = document.getElementById('upazilas');
-            upazilaDropdown.innerHTML = '<option value="">-- Select Upazila --</option>';
-
-            if (!districtId) {
-                return; // Exit if no district is selected
-            }
-
-            // Fetch upazilas from the server
-            fetch(`/upazilas/${districtId}`)
-                .then(response => response.json())
-                .then(data => {
-                    // Populate the upazila dropdown
-                    Object.entries(data).forEach(([id, name]) => {
-                        const option = document.createElement('option');
-                        option.value = id;
-                        option.textContent = name;
-                        upazilaDropdown.appendChild(option);
-                    });
-                })
-                .catch(error => console.error('Error fetching upazilas:', error));
-        }
-
         $(document).ready(function() {
 
             $("input[name='cart-quantity']").TouchSpin({
@@ -229,6 +155,9 @@
 
                 updateTotalPrice('#cart_totals');
                 updateTotalPrice('#totalAmount');
+
+                updateSubtotalServer($row.data('product-id'), quantity);
+
             });
             updateTotalPrice('#cart_totals');
             updateTotalPrice('#totalAmount');
@@ -242,9 +171,7 @@
             }
 
 
-//updateSubtotalOnServer($row.data('product-id'), quantity);
-            // Function to send AJAX request
-            function updateSubtotalOnServer(productId, quantity) {
+            function updateSubtotalServer(productId, quantity) {
                 console.log(productId)
                 console.log(quantity)
 
@@ -258,6 +185,13 @@
                     },
                     success: function(response) {
                         console.log('Subtotal updated on server:', response);
+                        if (response.success) {
+                            console.log('Subtotal updated on server:', response.subtotal);
+                            // Update the subtotal on the frontend
+                            $(`tr[data-product-id="${productId}"] .subtotal-price`).text(response.subtotal);
+                        } else {
+                            console.log('Error:', response.message);
+                        }
                     },
                     error: function(xhr) {
                         console.log('Error:', xhr.responseText);

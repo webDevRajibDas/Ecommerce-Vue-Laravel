@@ -83,19 +83,21 @@
     <section class="full-width-section">
         <div class="container">
             <div class="row">
-                <!-- Left Side: Text -->
-                <div class="col-md-6 text-center-vertical">
-                    <div>
-                        <h2>B2B Platform for All Your Retail Business Needs</h2>
-                        <p class="color: black;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <a href="#" class="btn btn-primary">Learn More</a>
-                    </div>
-                </div>
-                <!-- Right Side: YouTube Video -->
                 <div class="col-md-6">
                     <div class="video-container">
                         <iframe src="https://www.youtube.com/embed/your-youtube-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
+                </div>
+                <div class="col-md-6 text-center-vertical">
+                    <div class="bgblue">
+                        <div class="promo-card">
+                            <h4 class="text-white font-weight-bold text-12">B2B PLATFORM (ONLINE MARKETPLACE)</h4>
+                            <h2 class="text-white">পণ্য আপনার বিক্রয় আমাদের!</h2>
+                            <h4 class="text-white">দেশে এই প্রথম উদ্যোক্তা বা সাপ্লায়ারদের পন্য কে একই সাথে মার্কেটিং এবং অর্থায়ন সুবিধা দিচ্ছে B2B PLATFORM</h4>
+                            <a href="#" class="btn btn-primary">বিস্তারিত...</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
