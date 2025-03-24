@@ -8,9 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Shopping') }}</title>
+    <title>{{ config('app.name', 'B2B Shopping') }}</title>
     <meta name="keywords" content="B2B Platform , Online shopping, bd online shopping,"/>
-    <meta name="description" content="eCommerce Template">
+    <meta name="description" content="b2b platform , shopping">
     <meta name="author" content="b2b platform">
 
     <!-- Favicon -->
@@ -25,7 +25,7 @@
         (function (d) {
             var wf = d.createElement('script'),
                 s = d.scripts[0];
-            wf.src = '{{ asset('fashion/assets/js/webfont.js') }}';
+            wf.src = '{{ asset("fashion/assets/js/webfont.js") }}';
             wf.async = true;
             s.parentNode.insertBefore(wf, s);
         })(document);

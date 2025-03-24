@@ -95,7 +95,6 @@ class HomepageController extends Controller
     }
 
     public function show($category, $subCategory){
-
         $category = VendorCategorie::where('slug',$category)->first();
         $template = 'frontend.vendors.templates.' . ($category->template ?? 'default');
         $products = Product::all();

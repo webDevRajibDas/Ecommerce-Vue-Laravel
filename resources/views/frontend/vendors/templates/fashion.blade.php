@@ -1,6 +1,6 @@
 
 @extends('frontend.shopping.layouts.page')
-
+@section('title', 'B2B Shopping')
 @section('content')
 
     <div class="home-top-container appear-animate" data-animation-name="fadeIn" data-animation-delay="100">

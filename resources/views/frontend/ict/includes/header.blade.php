@@ -5,8 +5,8 @@
                 <div class="header-column">
                     <div class="header-row">
                         <div class="header-logo">
-                            <a href="index.html">
-                                <img alt="Porto" width="82" height="40" src="img/logo-default-slim-dark.png">
+                            <a href="#">
+                                <img alt="B2B" width="82" height="40" src="img/logo-default-slim-dark.png">
                             </a>
                         </div>
                     </div>
@@ -18,37 +18,14 @@
                                 <nav class="collapse">
                                     <ul class="nav nav-pills" id="mainNav">
                                         <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle active" href="index.html">
+                                            <a class="dropdown-item dropdown-toggle active" href="#">
                                                 Home
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li>
-                                                    <a class="dropdown-item" href="index.html">
+                                                    <a class="dropdown-item" href="#">
                                                         Landing Page
                                                     </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item" href="index.html#demos">
-                                                        Demos
-                                                    </a>
-                                                </li>
-                                                <li class="dropdown-submenu">
-                                                    <a class="dropdown-item" href="#">Classic</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="index-classic.html">Classic - Original</a></li>
-                                                        <li><a class="dropdown-item" href="index-classic-color.html">Classic - Color</a></li>
-                                                        <li><a class="dropdown-item" href="index-classic-light.html">Classic - Light</a></li>
-                                                        <li><a class="dropdown-item" href="index-classic-video.html">Classic - Video</a></li>
-                                                        <li><a class="dropdown-item" href="index-classic-video-light.html">Classic - Video - Light</a></li>
-                                                    </ul>
-                                                </li>
-
-
-                                                <li class="dropdown-submenu">
-                                                    <a class="dropdown-item" href="#">One Page</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="index-one-page.html">One Page Original</a></li>
-                                                    </ul>
                                                 </li>
                                             </ul>
                                         </li>
@@ -91,11 +68,7 @@
                                                         <li><a class="dropdown-item" href="page-services-3.html">Services - Version 3</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a class="dropdown-item" href="page-custom-header.html">Custom Header</a></li>
-                                                <li><a class="dropdown-item" href="page-careers.html">Careers</a></li>
-                                                <li><a class="dropdown-item" href="page-faq.html">FAQ</a></li>
-                                                <li><a class="dropdown-item" href="page-login.html">Login / Register</a></li>
-                                                <li><a class="dropdown-item" href="page-user-profile.html">User Profile</a></li>
+                                               
                                             </ul>
                                         </li>
 
