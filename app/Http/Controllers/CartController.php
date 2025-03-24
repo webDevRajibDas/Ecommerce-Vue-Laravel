@@ -48,7 +48,6 @@ class CartController extends Controller
             $cartItems = Cart::where('user_id', $user_id)->with('products')->get();
         } else {
             $cart = json_decode(request()->cookie('cart'), true) ?? session('cart', []);
-
             $cartItems = collect($cart)->map(function ($quantity, $product_id) {
                 $product = \App\Models\Product::find($product_id);
                 return $product ? (object) ['product' => $product, 'quantity' => $quantity] : null;
@@ -115,19 +114,18 @@ class CartController extends Controller
 
     public function updateCartPage(Request $request)
     {
-
-
         // Validate the request
         $request->validate([
             'product_id' => 'required|integer|exists:products,id', // Ensure the product exists
             'quantity' => 'required|integer|min:1', // Ensure quantity is at least 1
         ]);
 
+        // Get the product ID and quantity from the request
         $productId = $request->input('product_id');
         $quantity = $request->input('quantity');
 
+        // Fetch the product price (replace with your logic to get the product price)
         $product = Product::find($productId);
-        //dd($product);
         if (!$product) {
             return response()->json([
                 'success' => false,
@@ -136,21 +134,22 @@ class CartController extends Controller
         }
 
         $price = $product->price;
+
+        // Calculate the new subtotal
         $subtotal = $quantity * $price;
+
+        // Get the current cart from the cookie or session
         $cart = json_decode($request->cookie('cart'), true) ?? [];
         if (!is_array($cart)) {
-            $cart = [];
+            $cart = []; // Ensure $cart is always an array
         }
 
-        $sessionCart = session('cart', []);
-        if (is_array($sessionCart)) {
-            $cart = array_merge($cart, $sessionCart);
-        }
-        if (isset($cart[$productId])) {
+        // Update the cart with the new quantity and subtotal
+        if (isset($cart[$productId]) && is_array($cart[$productId])) {
             $cart[$productId]['quantity'] = $quantity;
             $cart[$productId]['subtotal'] = $subtotal;
         } else {
-            // If the product is not in the cart, add it
+            // If the product is not in the cart or $cart[$productId] is not an array, add it
             $cart[$productId] = [
                 'name' => $product->name,
                 'price' => $price,
@@ -159,20 +158,26 @@ class CartController extends Controller
             ];
         }
 
-        if ($request->hasCookie('cart')) {
+
+        //dd($cart);
+
+        // Save the updated cart to the cookie or session
+        if ($request->cookie('cart')) {
+            // Update the cart cookie
             $cookie = Cookie::make('cart', json_encode($cart), 60 * 24 * 30); // 30 days expiration
-            dd($cookie);
             return response()->json([
                 'success' => true,
-                'subtotal' => number_format($subtotal, 2),
+                'subtotal' => number_format($subtotal, 2), // Format the subtotal
             ])->withCookie($cookie);
         } else {
+            // Update the cart session
             session(['cart' => $cart]);
             return response()->json([
                 'success' => true,
-                'subtotal' => number_format($subtotal, 2),
+                'subtotal' => number_format($subtotal, 2), // Format the subtotal
             ]);
         }
+
     }
 
 

@@ -69,14 +69,12 @@
             <div class="col-lg-4">
                 <div class="cart-summary">
                     <h3>CART TOTALS</h3>
-
                     <table class="table table-totals">
                         <tbody>
                         <tr>
                             <td>Subtotal</td>
                             <td id="cart_totals"></td>
                         </tr>
-
                         <tr>
                             <td colspan="2" class="text-left">
                                 <h4>Shipping</h4>
