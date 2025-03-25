@@ -28,8 +28,7 @@
                                 </tr>
                             </thead>
                         <tbody>
-
-                            @foreach($cartItems as $data)
+                            @forelse($cartItems ?? [] as $data)
                                 <tr class="product-row" data-product-id="{{$data->product->id}}">
                                     <td>
                                         <figure class="product-image-container">
@@ -53,7 +52,11 @@
                                     </td>
                                     <td class="text-right subtotal-price">{{ number_format($data->product->price * $data->quantity, 2) }}</td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="text-center">Your cart is empty</td>
+                                </tr>
+                            @endforelse
                         </tbody>
 
                         <tfoot>
@@ -198,6 +201,33 @@
             }
         });
 
+
+
+        $(document).on('click', '.remove-cart', function (e) {
+            e.preventDefault();
+            const productId = $(this).data('id');
+            if (!productId) {
+                alert('Product ID is missing. Cannot remove the item.');
+                return;
+            }
+            if (!confirm('Are you sure you want to remove this product from the cart?')) {
+                return;
+            }
+            $.ajax({
+                url: `/cart/remove/${productId}`,
+                type: 'DELETE',
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function (response) {
+                    alert('Product removed successfully!');
+                    location.reload();
+                },
+                error: function () {
+                    alert('Failed to remove the product. Please try again.');
+                }
+            });
+        });
 
     </script>
 @endpush

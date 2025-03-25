@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -34,7 +35,7 @@ Route::post('/update-subtotal', [CartController::class, 'updateCartPage'])->name
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile')->middleware('auth');
 
 Route::get('/clear-cache', function() {
     Artisan::call('config:cache');

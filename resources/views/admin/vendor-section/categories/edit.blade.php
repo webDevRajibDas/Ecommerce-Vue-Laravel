@@ -3,9 +3,7 @@
 @section('title', 'Update Category')
 
 @section('content')
-
     @include('admin.vendor-section.categories.form')
-
 @endsection
 
 @push('styles')

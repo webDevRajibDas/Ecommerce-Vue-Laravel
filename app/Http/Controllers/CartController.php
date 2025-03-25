@@ -192,7 +192,7 @@ class CartController extends Controller
         } else {
             $cart = json_decode(request()->cookie('cart'), true) ?? session('cart', []);
 
-            dd($cart);
+            //dd($cart);
 
             $cartItems = collect($cart)->map(function ($quantity, $product_id) {
                 $product = \App\Models\Product::find($product_id);

@@ -171,18 +171,19 @@
                                             <div class="product">
                                                 <div class="product-details">
                                                     <h4 class="product-title">
-                                                        <a href="#">{{ $item->product->name ?? 'Product Name Not Available' }}</a>
+                                                        <a href="#">{{ $item->product->name ?? 'Not Available' }}</a>
                                                     </h4>
 
                                                     <span class="cart-product-info">
-                        <span class="cart-product-qty">{{ $item->quantity ?? 0 }}</span> × {{ number_format($item->product->price ?? 0, 2) }}
-                    </span>
+                                                        <span class="cart-product-qty">{{ $item->quantity ?? 0 }}</span>
+                                                        × {{ number_format($item->product->price ?? 0, 2) }}
+                                                    </span>
                                                 </div>
                                                 <figure class="product-image-container">
                                                     <a href="#" class="product-image">
                                                         <img src="{{ asset('storage/'.($item->product->image ?? 'default-image.png')) }}" alt="product" width="80" height="80">
                                                     </a>
-                                                    <a href="javascript:;" class="btn-remove remove-cart" data-id="{{ $item->product->id }}" title="Remove Product"><span>×</span></a>
+                                                    <a href="javascript:;" class="btn-remove remove-cart" data-id="{{ $item->product->id ?? '' }}" title="Remove Product"><span>×</span></a>
                                                 </figure>
                                             </div>
                                         @endif
@@ -195,7 +196,7 @@
                                 @php
                                     $subtotal = 0;
                                      foreach ($cartItems as $item) {
-                                         $subtotal += $item->quantity * $item->product->price;
+                                        $subtotal += $item->quantity * optional($item->product)->price;
                                      }
 
                                 @endphp

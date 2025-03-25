@@ -29,14 +29,14 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <h5 class="text-6 text-transform-none font-weight-semibold text-color-light mb-4">Newsletter</h5>
+                <h5 class="text-6 text-transform-none font-weight-semibold text-color-light mb-4">Contact Us</h5>
                 <p class="text-4 mb-1">Get all the latest informationon Sales and Offers.</p>
                 <p class="text-4">Sign up for newsletter today.</p>
                 <div class="alert alert-success d-none" id="newsletterSuccess">
                     <strong>Success!</strong> You've been added to our email list.
                 </div>
                 <div class="alert alert-danger d-none" id="newsletterError"></div>
-                <form id="newsletterForm" action="php/newsletter-subscribe.php" method="POST" class="mw-100">
+                <form id="newsletterForm" action="#" method="POST" class="mw-100">
                     <div class="input-group input-group-rounded">
                         <input class="form-control form-control-sm bg-light px-4 text-3" placeholder="Email Address..." name="newsletterEmail" id="newsletterEmail" type="text">
                         <span class="input-group-append">

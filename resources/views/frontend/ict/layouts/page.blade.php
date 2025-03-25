@@ -46,7 +46,6 @@
 
     <!-- Skin CSS -->
     <link rel="stylesheet" href="{{asset('assets/ict/skins/skin-corporate-7.css')}}">
-
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="{{asset('assets/ict/custom.css')}}">
 

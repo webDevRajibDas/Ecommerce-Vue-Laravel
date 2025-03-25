@@ -6,7 +6,7 @@
                     <div class="header-row">
                         <div class="header-logo">
                             <a href="#">
-                                <img alt="B2B" width="82" height="40" src="img/logo-default-slim-dark.png">
+                                <img alt="B2B Smart Card" width="82" height="40" src="{{asset('assets/images/b2b-logo.png')}}">
                             </a>
                         </div>
                     </div>
@@ -21,55 +21,33 @@
                                             <a class="dropdown-item dropdown-toggle active" href="#">
                                                 Home
                                             </a>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a class="dropdown-item" href="#">
-                                                        Landing Page
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown dropdown-mega">
-                                            <a class="dropdown-item dropdown-toggle" href="elements.html">
-                                                Elements
-                                            </a>
-
                                         </li>
 
                                         <li class="dropdown">
                                             <a class="dropdown-item dropdown-toggle" href="#">
-                                                Pages
+                                                Products
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li class="dropdown-submenu">
-                                                    <a class="dropdown-item" href="#">Contact Us</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="contact-us-advanced.php">Contact Us - Advanced</a></li>
-                                                        <li><a class="dropdown-item" href="contact-us.html">Contact Us - Basic</a></li>
-                                                        <li><a class="dropdown-item" href="contact-us-recaptcha.html">Contact Us - Recaptcha</a></li>
-                                                    </ul>
+                                                    <a class="dropdown-item" href="#">Student Card</a>
+                                                    <a class="dropdown-item" href="#">Digital Business Card</a>
+                                                    <a class="dropdown-item" href="#">Digital Business Card 2</a>
+                                                    <a class="dropdown-item" href="#">Digital Business Card 3</a>
+                                                    <a class="dropdown-item" href="#">Digital Business Card 4</a>
                                                 </li>
-                                                <li class="dropdown-submenu">
-                                                    <a class="dropdown-item" href="#">About Us</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="about-us-advanced.html">About Us - Advanced</a></li>
-                                                        <li><a class="dropdown-item" href="about-us.html">About Us - Basic</a></li>
-                                                        <li><a class="dropdown-item" href="about-me.html">About Me</a></li>
-                                                    </ul>
-                                                </li>
-
-
-
-                                                <li class="dropdown-submenu">
-                                                    <a class="dropdown-item" href="#">Services</a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="page-services.html">Services - Version 1</a></li>
-                                                        <li><a class="dropdown-item" href="page-services-2.html">Services - Version 2</a></li>
-                                                        <li><a class="dropdown-item" href="page-services-3.html">Services - Version 3</a></li>
-                                                    </ul>
-                                                </li>
-                                               
                                             </ul>
+                                        </li>
+
+                                        <li class="dropdown">
+                                            <a class="dropdown-item dropdown-toggle " href="#">
+                                                About Us
+                                            </a>
+                                        </li>
+
+                                        <li class="dropdown">
+                                            <a class="dropdown-item dropdown-toggle " href="#">
+                                                Contact Us
+                                            </a>
                                         </li>
 
                                     </ul>
@@ -83,7 +61,7 @@
                             <div class="header-nav-feature header-nav-features-search d-inline-flex">
                                 <a href="#" class="header-nav-features-toggle" data-focus="headerSearch"><i class="fas fa-search header-nav-top-icon"></i></a>
                                 <div class="header-nav-features-dropdown header-nav-features-dropdown-mobile-fixed" id="headerTopSearchDropdown">
-                                    <form role="search" action="page-search-results.html" method="get">
+                                    <form role="search" action="#" method="get">
                                         <div class="simple-search input-group">
                                             <input class="form-control text-1" id="headerSearch" name="q" type="search" value="" placeholder="Search...">
                                             <span class="input-group-append">

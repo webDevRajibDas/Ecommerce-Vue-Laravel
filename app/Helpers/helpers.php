@@ -107,7 +107,7 @@ if (!function_exists('ProductCategoryDropdown')) {
                     // Check if the category has children
                     $children = $categories;
                     if ($children->isNotEmpty()) {
-                        $html .= ProductCategoryMenu($categories); // Recursively build submenu
+                        $html .= ProductCategoryMenu($categories);
                     }
 
                     $html .= '</li>';

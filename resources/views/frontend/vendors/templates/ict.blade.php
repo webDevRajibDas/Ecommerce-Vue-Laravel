@@ -6,7 +6,7 @@
         <div id="revolutionSlider" class="slider rev_slider" data-version="5.4.8" data-plugin-revolution-slider data-plugin-options="{'sliderLayout': 'fullscreen', 'delay': 9000, 'gridwidth': 1170, 'gridheight': 700, 'disableProgressBar': 'on', 'responsiveLevels': [4096,1200,992,500], 'parallax': { 'type': 'scroll', 'origo': 'enterpoint', 'speed': 1000, 'levels': [2,3,4,5,6,7,8,9,12,50], 'disable_onmobile': 'on' }}">
             <ul>
                 <li class="slide-overlay" data-transition="fade">
-                    <img src="img/slides/slide-corporate-7-1.jpg"
+                    <img src="{{asset('assets/ict/slides/slide-corporate-7-1.jpg')}}"
                          alt=""
                          data-bgposition="center center"
                          data-bgfit="cover"
@@ -18,7 +18,7 @@
                          data-y="center" data-voffset="['-110','-110','-110','-135']"
                          data-start="1000"
                          data-transform_in="x:[-300%];opacity:0;s:500;"
-                         data-transform_idle="opacity:0.2;s:500;"><img src="img/slides/slide-title-border.png" alt=""></div>
+                         data-transform_idle="opacity:0.2;s:500;"><img src="{{asset('img/ict/images/slide-title-border.png')}}" alt=""></div>
 
                     <div class="tp-caption text-color-light font-weight-normal"
                          data-x="center"
@@ -33,14 +33,14 @@
                          data-y="center" data-voffset="['-110','-110','-110','-135']"
                          data-start="1000"
                          data-transform_in="x:[300%];opacity:0;s:500;"
-                         data-transform_idle="opacity:0.2;s:500;"><img src="img/slides/slide-title-border.png" alt=""></div>
+                         data-transform_idle="opacity:0.2;s:500;"><img src="{{asset('img/ict/slides/slide-title-border.png')}}" alt=""></div>
 
                     <h1 class="tp-caption font-weight-extra-bold text-color-light negative-ls-2"
                         data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:1.5;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
                         data-x="center"
                         data-y="center" data-voffset="['-60','-60','-60','-85']"
                         data-fontsize="['50','50','50','90']"
-                        data-lineheight="['55','55','55','95']">AWESOME DESIGNS</h1>
+                        data-lineheight="['55','55','55','95']"> B2B Smart Digital Card</h1>
 
                     <div class="tp-caption font-weight-light text-center"
                          data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":2000,"split":"chars","splitdelay":0.05,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
@@ -48,35 +48,12 @@
                          data-y="center" data-voffset="['-10','-10','-10','-25']"
                          data-fontsize="['18','18','18','50']"
                          data-lineheight="['29','29','29','40']"
-                         style="color: #b5b5b5;">Porto is a huge success in the of one of the world’s largest MarketPlace.</div>
+                         style="color: #b5b5b5;">AWESOME DESIGNS </div>
 
-                    <a class="tp-caption btn btn-light font-weight-bold text-color-primary"
-                       href="#"
-                       data-frames='[{"delay":3000,"speed":2000,"frame":"0","from":"y:50%;opacity:0;","to":"y:0;o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                       data-x="center" data-hoffset="['-120','-120','-120','-195']"
-                       data-y="center" data-voffset="['65','65','65','210']"
-                       data-paddingtop="['15','15','15','30']"
-                       data-paddingbottom="['15','15','15','30']"
-                       data-paddingleft="['33','33','33','50']"
-                       data-paddingright="['33','33','33','50']"
-                       data-fontsize="['13','13','13','25']"
-                       data-lineheight="['20','20','20','25']">LEARN MORE</a>
-
-                    <a class="tp-caption btn btn-primary font-weight-bold"
-                       href="#"
-                       data-frames='[{"delay":3000,"speed":2000,"frame":"0","from":"y:50%;opacity:0;","to":"y:0;o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                       data-x="center" data-hoffset="['90','90','90','165']"
-                       data-y="center" data-voffset="['65','65','65','210']"
-                       data-paddingtop="['15','15','15','30']"
-                       data-paddingbottom="['15','15','15','30']"
-                       data-paddingleft="['33','33','33','50']"
-                       data-paddingright="['33','33','33','50']"
-                       data-fontsize="['13','13','13','25']"
-                       data-lineheight="['20','20','20','25']">GET STARTED NOW <i class="fas fa-arrow-right ml-1"></i></a>
 
                 </li>
                 <li class="slide-overlay" data-transition="fade">
-                    <img src="img/slides/slide-corporate-7-2.jpg"
+                    <img src="{{asset('assets/ict/slides/slide-corporate-7-1.jpg')}}"
                          alt=""
                          data-bgposition="center center"
                          data-bgfit="cover"
@@ -84,11 +61,11 @@
                          class="rev-slidebg">
 
                     <div class="tp-caption"
-                         data-x="center" data-hoffset="['-115','-115','-115','-185']"
+                         data-x="center" data-hoffset="['-165','-165','-165','-215']"
                          data-y="center" data-voffset="['-110','-110','-110','-135']"
                          data-start="1000"
                          data-transform_in="x:[-300%];opacity:0;s:500;"
-                         data-transform_idle="opacity:0.2;s:500;"><img src="img/slides/slide-title-border.png" alt=""></div>
+                         data-transform_idle="opacity:0.2;s:500;"><img src="{{asset('img/ict/images/slide-title-border.png')}}" alt=""></div>
 
                     <div class="tp-caption text-color-light font-weight-normal"
                          data-x="center"
@@ -96,21 +73,21 @@
                          data-start="700"
                          data-fontsize="['22','22','22','40']"
                          data-lineheight="['25','25','25','45']"
-                         data-transform_in="y:[-50%];opacity:0;s:500;">HELLO, THIS IS</div>
+                         data-transform_in="y:[-50%];opacity:0;s:500;">WE ROCK AND WE MAKE</div>
 
                     <div class="tp-caption"
-                         data-x="center" data-hoffset="['115','115','115','185']"
+                         data-x="center" data-hoffset="['165','165','165','215']"
                          data-y="center" data-voffset="['-110','-110','-110','-135']"
                          data-start="1000"
                          data-transform_in="x:[300%];opacity:0;s:500;"
-                         data-transform_idle="opacity:0.2;s:500;"><img src="img/slides/slide-title-border.png" alt=""></div>
+                         data-transform_idle="opacity:0.2;s:500;"><img src="{{asset('img/ict/slides/slide-title-border.png')}}" alt=""></div>
 
-                    <div class="tp-caption font-weight-extra-bold text-color-light negative-ls-2"
-                         data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:1.5;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                         data-x="center"
-                         data-y="center" data-voffset="['-60','-60','-60','-85']"
-                         data-fontsize="['50','50','50','90']"
-                         data-lineheight="['55','55','55','95']">PORTO HTML TEMPLATE</div>
+                    <h1 class="tp-caption font-weight-extra-bold text-color-light negative-ls-2"
+                        data-frames='[{"delay":1000,"speed":2000,"frame":"0","from":"sX:1.5;opacity:0;fb:20px;","to":"o:1;fb:0;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
+                        data-x="center"
+                        data-y="center" data-voffset="['-60','-60','-60','-85']"
+                        data-fontsize="['50','50','50','90']"
+                        data-lineheight="['55','55','55','95']"> B2B Smart Digital Card</h1>
 
                     <div class="tp-caption font-weight-light text-center"
                          data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":2000,"split":"chars","splitdelay":0.05,"ease":"Power2.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power2.easeInOut"}]'
@@ -118,24 +95,36 @@
                          data-y="center" data-voffset="['-10','-10','-10','-25']"
                          data-fontsize="['18','18','18','50']"
                          data-lineheight="['29','29','29','40']"
-                         style="color: #b5b5b5;">Trusted by over <strong>30,000</strong> satisfied users.</div>
+                         style="color: #b5b5b5;">AWESOME DESIGNS </div>
 
-                    <a class="tp-caption btn btn-primary font-weight-bold"
-                       href="#"
-                       data-frames='[{"delay":3000,"speed":2000,"frame":"0","from":"y:50%;opacity:0;","to":"y:0;o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;fb:0;","ease":"Power3.easeInOut"}]'
-                       data-x="center"
-                       data-y="center" data-voffset="['65','65','65','210']"
-                       data-paddingtop="['15','15','15','30']"
-                       data-paddingbottom="['15','15','15','30']"
-                       data-paddingleft="['33','33','33','50']"
-                       data-paddingright="['33','33','33','50']"
-                       data-fontsize="['13','13','13','25']"
-                       data-lineheight="['20','20','20','25']">GET STARTED NOW <i class="fas fa-arrow-right ml-1"></i></a>
 
                 </li>
             </ul>
         </div>
     </div>
+
+
+
+    <!-- Full Width Section -->
+    <section class="full-width-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/your-youtube-video-id" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center-vertical">
+                    <div class="bgblue">
+                        <div class="promo-card">
+                            <h4 class="text-white font-weight-bold text-12">B2B Smart Card</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="container py-4">
         <div class="row pt-4 mt-5">
@@ -216,22 +205,37 @@
         </div>
         <div class="row pb-5 mb-5 mt-3">
             <div class="col text-center">
-                <a href="#" class="btn btn-primary btn-px-5 py-3 font-weight-semibold text-2 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="300">LEARN MORE</a>
+
             </div>
         </div>
     </div>
 
-    <section class="section section-secondary border-0 py-0 m-0 appear-animation" data-appear-animation="fadeIn">
+    <section class="section section-secondary border-0 py-0 m-0 appear-animation" data-appear-animation="fadeIn" style="height: 450px;">
         <div class="container">
             <div class="row align-items-center justify-content-center justify-content-lg-between pb-5 pb-lg-0">
-                <div class="col-lg-5 order-2 order-lg-1 pt-4 pt-lg-0 pb-5 pb-lg-0 mt-5 mt-lg-0 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
-                    <h2 class="font-weight-bold text-color-light text-7 mb-2">Who We Are</h2>
-                    <p class="lead font-weight-light text-color-light text-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit massa enim. Nullam id varius nunc.</p>
-                    <p class="font-weight-light text-color-light text-2 mb-4 opacity-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Vivamus bibendun magna ex, et faucibus lacus venenatis eget</p>
-                    <a href="#" class="btn btn-dark-scale-2 btn-px-5 btn-py-2 text-2">LEARN MORE</a>
-                </div>
-                <div class="col-9 offset-lg-1 col-lg-5 order-1 order-lg-2 scale-2">
-                    <img class="img-fluid box-shadow-3 my-2 border-radius" src="img/gallery/gallery-1.jpg" alt="">
+                <h2 class="font-weight-bold text-color-light text-7 mb-2 mt-4">BRANDED PRODUCTS</h2>
+            </div>
+            <div class="row mb-5 pb-3">
+                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200">
+                    <div class="card flip-card text-center rounded-0">
+                        <div class="flip-front p-5">
+                            <div class="flip-content my-4">
+                                <strong class="font-weight-extra-bold text-color-dark line-height-1 text-13 mb-3 d-inline-block">01</strong>
+                                <h4 class="font-weight-bold text-color-primary text-4">FIRST STEP</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius.</p>
+                            </div>
+                        </div>
+                        <div class="flip-back d-flex align-items-center p-5"
+                             style="background-image: url({{ asset('assets/ict/images/generic-corporate-17-1.jpg') }});
+            background-size: cover;
+            background-position: center;">
+                            <div class="flip-content my-4">
+                                <h4 class="font-weight-bold text-color-light">FIRST MEETING</h4>
+                                <p class="font-weight-light text-color-light opacity-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius.</p>
+                                <a href="#" class="btn btn-light btn-modern text-color-dark font-weight-bold">LEARN MORE</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -246,7 +250,7 @@
                             <div class="col">
                                 <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0">
                                     <div class="testimonial-author">
-                                        <img src="img/clients/client-1.jpg" class="img-fluid rounded-circle" alt="">
+                                        <img src="{{asset('img/ict/clients/client-1.jpg')}}" class="img-fluid rounded-circle" alt="">
                                     </div>
                                     <blockquote>
                                         <p class="text-color-dark text-5 line-height-5">Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma - which is living with the results of other people’s thinking. Don’t let the noise of others’ opinions drown out your own inner voice.</p>
@@ -261,7 +265,7 @@
                             <div class="col">
                                 <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0">
                                     <div class="testimonial-author">
-                                        <img src="img/clients/client-1.jpg" class="img-fluid rounded-circle" alt="">
+                                        <img src="{{asset('img/ict/clients/client-1.jpg')}}" class="img-fluid rounded-circle" alt="">
                                     </div>
                                     <blockquote>
                                         <p class="text-color-dark text-5 line-height-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta, tincidunt turpis at, interdum tortor. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce ante tellus, convallis non consectetur sed, pharetra nec ex.</p>
@@ -276,7 +280,7 @@
                             <div class="col">
                                 <div class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-quotes-dark mb-0">
                                     <div class="testimonial-author">
-                                        <img src="img/clients/client-1.jpg" class="img-fluid rounded-circle" alt="">
+                                        <img src="{{asset('img/ict/clients/client-1.jpg')}}" class="img-fluid rounded-circle" alt="">
                                     </div>
                                     <blockquote>
                                         <p class="text-color-dark text-5 line-height-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta, tincidunt turpis at, interdum tortor. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -299,28 +303,28 @@
 
                 <div class="owl-carousel owl-theme mb-0" data-plugin-options="{'responsive': {'0': {'items': 1}, '476': {'items': 1}, '768': {'items': 5}, '992': {'items': 7}, '1200': {'items': 7}}, 'autoplay': true, 'autoplayTimeout': 3000, 'dots': false}">
                     <div>
-                        <img class="img-fluid opacity-2" src="img/logos/logo-1.png" alt="">
+                        <img class="img-fluid opacity-2" src="{{asset('img/ict/logos/logo-1.png')}}" alt="">
                     </div>
                     <div>
-                        <img class="img-fluid opacity-2" src="img/logos/logo-2.png" alt="">
+                        <img class="img-fluid opacity-2" src="{{asset('img/ict/logos/logo-2.png')}}" alt="">
                     </div>
                     <div>
-                        <img class="img-fluid opacity-2" src="img/logos/logo-3.png" alt="">
+                        <img class="img-fluid opacity-2" src="{{asset('img/ict/logos/logo-3.png')}}" alt="">
                     </div>
                     <div>
-                        <img class="img-fluid opacity-2" src="img/logos/logo-4.png" alt="">
+                        <img class="img-fluid opacity-2" src="{{asset('img/ict/logos/logo-4.png')}}" alt="">
                     </div>
                     <div>
-                        <img class="img-fluid opacity-2" src="img/logos/logo-5.png" alt="">
+                        <img class="img-fluid opacity-2" src="{{asset('img/ict/logos/logo-4.png')}}" alt="">
                     </div>
                     <div>
-                        <img class="img-fluid opacity-2" src="img/logos/logo-6.png" alt="">
+                        <img class="img-fluid opacity-2" src="{{asset('img/ict/logos/logo-6.png')}}" alt="">
                     </div>
                     <div>
-                        <img class="img-fluid opacity-2" src="img/logos/logo-4.png" alt="">
+                        <img class="img-fluid opacity-2" src="{{asset('img/ict/logos/logo-4.png')}}" alt="">
                     </div>
                     <div>
-                        <img class="img-fluid opacity-2" src="img/logos/logo-2.png" alt="">
+                        <img class="img-fluid opacity-2" src="{{asset('img/ict/logos/logo-2.png')}}" alt="">
                     </div>
                 </div>
 

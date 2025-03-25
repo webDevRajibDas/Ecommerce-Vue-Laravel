@@ -24,15 +24,22 @@
             </div>
 
             <div class="header-right">
-                <a href="#" class="header-icon d-lg-block d-none">
+
+                <a href="{{ auth()->check() ? route('profile') : route('login') }}" class="header-icon d-lg-block d-none">
                     <div class="header-user">
                         <i class="icon-user-2"></i>
                         <div class="header-userinfo">
-                            <span class="d-inline-block font2 line-height-1">Hello!</span>
-                            <h4 class="mb-0">My Account</h4>
+                            @auth
+                                <span class="d-inline-block font2 line-height-1">Hello, {{ Auth::user()->name }}!</span>
+                                <h4 class="mb-0">My Account</h4>
+                            @else
+                                <span class="d-inline-block font2 line-height-1">Hello!</span>
+                                <h4 class="mb-0">Login/Register</h4>
+                            @endauth
                         </div>
                     </div>
                 </a>
+
 
                 <a href="#" class="header-icon">
                     <i class="icon-wishlist-2"></i>

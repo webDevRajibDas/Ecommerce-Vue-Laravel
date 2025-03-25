@@ -31,15 +31,15 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <label for="login-email">
-                                Email address
+                                Email
                                 <span class="required">*</span>
                             </label>
                             <input type="email" class="form-input form-wide" name="email" value="{{ old('email') }}"
                                    id="login-email" required autocomplete="email" autofocus/>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                             <label for="login-password">
                                 Password
