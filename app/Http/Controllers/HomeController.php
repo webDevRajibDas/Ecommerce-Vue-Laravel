@@ -3,28 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Laravel\Fortify\Features;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('home');
+        return Inertia::render('Home', [
+            'canRegister' => Features::enabled(Features::registration()),
+            'featuredProducts' => \App\Models\Product::all(),
+            'slides' => [
+                [
+                    'image' => '/images/slider-1.jpg',
+                    'title' => 'Summer Collection 2023',
+                    'description' => 'Discover our latest summer dresses and accessories'
+                ],
+            ]
+        ]);
     }
-
-
 }

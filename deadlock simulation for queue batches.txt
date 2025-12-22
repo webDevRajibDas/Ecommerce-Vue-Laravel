@@ -1,0 +1,40 @@
+Great — here is a complete, production-ready Batch Processing Demo, including:
+
+✅ Full ProcessPodcastBatch command
+✅ ProcessPodcast job
+✅ job_batches insert lifecycle
+✅ Optional: Deadlock simulation script (for MySQL)
+✅ Optional: Batch dashboard (Vue + API) if you want
+
+
+Audio processing
+✅ Generating waveform
+✅ Extracting metadata
+✅ Saving DB records
+✅ Uploading to cloud storage
+✅ Sending notifications
+✅ Updating progress
+
+
+
+
+
+
+
+Route::get('/demo-batch', function () {
+    $batch = Bus::batch([
+        new ProcessPodcast(Podcast::find(1)),
+        new ProcessPodcast(Podcast::find(2)),
+        new ProcessPodcast(Podcast::find(3)),
+        new ProcessPodcast(Podcast::find(4)),
+        new ProcessPodcast(Podcast::find(5)),
+    ])->then(function (Batch $batch) {
+        info('All jobs completed successfully');
+    })->catch(function (Batch $batch, Throwable $e) {
+        info('A job failed');
+    })->finally(function (Batch $batch) {
+        info('Batch finished');
+    })->name('Process Podcasts')->dispatch();
+
+    return ['batch_id' => $batch->id];
+});

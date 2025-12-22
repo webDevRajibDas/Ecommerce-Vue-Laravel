@@ -3,14 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Services\ShardManager;
+use App\Models\Concerns\Shardable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, TwoFactorAuthenticatable , Shardable;
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +24,52 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_id', 
+        'shard_key'
     ];
+
+    
+    public function getShardKeyName()
+    {
+        return 'user_id';
+    }
+
+    // Relationship that respects sharding
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user_id', 'user_id')
+                    ->onShard($this->user_id);
+    }
+
+
+    // Create user on correct shard
+    public static function createOnShard(array $attributes)
+    {
+        $user = new static($attributes);
+        $user->setShardKey($attributes['user_id']);
+        $user->save();
+        return $user;
+    }
+
+// Find user across all shards
+    public static function findAcrossShards($userId)
+    {
+        $shardManager = app(ShardManager::class);
+        
+        foreach ($shardManager->getAllShards() as $shard) {
+            $user = $shard->table('users')
+                         ->where('user_id', $userId)
+                         ->first();
+            
+            if ($user) {
+                return (new static)->newFromBuilder($user)
+                                 ->setShardKey($userId);
+            }
+        }
+        
+        return null;
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -30,6 +78,8 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+        'two_factor_secret',
+        'two_factor_recovery_codes',
         'remember_token',
     ];
 
@@ -43,6 +93,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'two_factor_confirmed_at' => 'datetime',
         ];
     }
 }

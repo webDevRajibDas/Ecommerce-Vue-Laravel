@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Jobs;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
+
+class ProcessPodcast implements ShouldQueue
+{
+    // use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, Batchable;
+
+    // public $podcast;
+
+    // public function __construct(Podcast $podcast)
+    // {
+    //     $this->podcast = $podcast;
+    // }
+
+    // public function handle(): void
+    // {
+    //     // Skip if batch was cancelled
+    //     if ($this->batch()?->cancelled()) {
+    //         return;
+    //     }
+
+    //     sleep(1);
+    //     Log::info("Processed podcast ID: {$this->podcast->id}");
+    // }
+
+    use InteractsWithQueue, Queueable, SerializesModels;
+    public $podcastId;
+    public function __construct($podcastId)
+    {
+        $this->podcastId = $podcastId;
+    }
+
+    public function handle()
+    {
+        // Simulate heavy processing
+        sleep(rand(1, 2));
+
+        Log::info("Podcast processed: {$this->podcastId}");
+
+        // Simulate random failure for testing batches
+        if (rand(1, 10) === 5) {
+            throw new \Exception("Failed processing podcast {$this->podcastId}");
+        }
+    }
+}
