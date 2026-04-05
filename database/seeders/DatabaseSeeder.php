@@ -19,10 +19,11 @@ class DatabaseSeeder extends Seeder
         //$this->call(PodcastSeeder::class);
 
         $this->call([
-            CategorySeeder::class,
-            BrandSeeder::class,
-            ProductSeeder::class, // (already created earlier)
+            AdminUserSeeder::class,
+            //CategorySeeder::class,
+            //BrandSeeder::class,
+            //UsersTableSeeder::class,
+            //ProductSeeder::class, // (already created earlier)
         ]);
-
     }
 }

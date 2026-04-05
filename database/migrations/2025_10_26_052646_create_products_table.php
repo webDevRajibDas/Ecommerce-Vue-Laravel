@@ -11,65 +11,53 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Create products table with foreign keys
+        // Note: categories and brands tables are created in their own migrations
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+
             // Core Product Information
             $table->string('name');
-            $table->string('slug')->unique(); // For SEO-friendly URLs
-            $table->text('description')->nullable(); // Short description
-            $table->longText('body')->nullable(); // Full product details, specifications
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
+            $table->longText('body')->nullable();
             $table->string('image')->nullable();
-            // Pricing & Stock
 
-        
-            $table->decimal('price', 10, 2); // Use decimal for currency to avoid float inaccuracies
-            $table->decimal('sale_price', 10, 2)->nullable(); // For discounts
-             $table->decimal('cost_price', 10, 2)->nullable();
-            $table->string('sku')->unique(); // Stock Keeping Unit
-            $table->unsignedInteger('quantity')->default(0); // Available stock
+            // Pricing & Stock
+            $table->decimal('price', 10, 2);
+            $table->decimal('sale_price', 10, 2)->nullable();
+            $table->decimal('cost_price', 10, 2)->nullable();
+            $table->string('sku')->unique()->nullable();
+            $table->unsignedInteger('quantity')->default(0);
             $table->boolean('track_quantity')->default(true);
 
             // Relationships & Categorization
-            // Assumes you have 'categories' and 'brands' tables
             $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('set null');
             $table->foreignId('brand_id')->nullable()->constrained('brands')->onDelete('set null');
 
             // Status & Visibility
-            $table->boolean('is_visible')->default(false); // Controls if product is shown on the frontend
-            $table->boolean('is_featured')->default(false); // To feature on the homepage
-            $table->enum('type', ['simple', 'variable','digital','booking'])->default('simple');
+            $table->boolean('is_visible')->default(false);
+            $table->boolean('is_featured')->default(false);
+            $table->enum('type', ['simple', 'variable', 'digital', 'booking'])->default('simple');
 
-            // ...OR a more flexible JSON column for attributes
-            $table->json('attributes')->nullable(); // e.g., {"size": "XL", "color": "Blue"}
-
+            // Flexible JSON column for attributes
+            $table->json('attributes')->nullable();
 
             // SEO Meta
             $table->string('seo_title')->nullable();
             $table->text('seo_description')->nullable();
 
-            $table->softDeletes(); // For soft-deleting products
+            // Timestamps & Soft Deletes
+            $table->softDeletes();
             $table->timestamps();
-        });
 
-         Schema::create('product_images', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->string('path');
-            $table->boolean('is_main')->default(false);
-            $table->integer('order')->default(0);
-            $table->timestamps();
-        });
-
-
-        Schema::create('product_variations', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->json('variation_types')->nullable(); // ['size', 'color']
-            $table->json('size_options')->nullable(); // ['S', 'M', 'L']
-            $table->json('color_options')->nullable(); // ['Red', 'Blue']
-            $table->json('material_options')->nullable(); // ['Cotton', 'Silk']
-            $table->json('pattern_options')->nullable(); // ['Striped', 'Solid']
-            $table->timestamps();
+            // Indexes
+            $table->index('is_visible');
+            $table->index('is_featured');
+            $table->index('type');
+            $table->index('created_at');
+            $table->index('category_id');
+            $table->index('brand_id');
         });
     }
 

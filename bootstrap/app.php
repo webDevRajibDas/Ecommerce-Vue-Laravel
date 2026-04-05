@@ -2,6 +2,7 @@
 
 
 use Illuminate\Foundation\Application;
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\HandleAppearance;
 use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -27,6 +28,11 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->api(prepend: [
            
+        ]);
+
+        // Register admin middleware alias
+        $middleware->alias([
+            'admin' => AdminMiddleware::class,
         ]);
         
     })

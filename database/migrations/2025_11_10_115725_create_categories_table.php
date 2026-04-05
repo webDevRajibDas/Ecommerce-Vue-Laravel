@@ -14,14 +14,21 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug')->unique(); // SEO-friendly URL
+            $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->unsignedBigInteger('parent_id')->nullable(); // For nested categories
-            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('set null');
-            $table->integer('position')->default(0); // Sorting order
-            $table->timestamps();
 
+            $table->foreignId('parent_id')
+                ->nullable()
+                ->constrained('categories')
+                ->nullOnDelete();
+
+            $table->integer('position')->default(0);
+
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->index(['parent_id', 'position']);
         });
     }
 

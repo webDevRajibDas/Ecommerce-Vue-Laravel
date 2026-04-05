@@ -25,7 +25,8 @@ class User extends Authenticatable
         'email',
         'password',
         'user_id', 
-        'shard_key'
+        'shard_key',
+        'is_admin',
     ];
 
     
@@ -94,6 +95,23 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'two_factor_confirmed_at' => 'datetime',
+            'is_admin' => 'boolean',
         ];
+    }
+
+    /**
+     * Check if the user is an admin.
+     */
+    public function isAdmin(): bool
+    {
+        return $this->is_admin === true;
+    }
+
+    /**
+     * Scope a query to only include admin users.
+     */
+    public function scopeAdmin($query)
+    {
+        return $query->where('is_admin', true);
     }
 }

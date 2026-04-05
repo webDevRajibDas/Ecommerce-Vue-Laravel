@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
+use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
@@ -12,6 +14,7 @@ use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Http\Responses\LoginResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -31,6 +34,7 @@ class FortifyServiceProvider extends ServiceProvider
         $this->configureActions();
         $this->configureViews();
         $this->configureRateLimiting();
+        $this->configureRedirects();
     }
 
     /**
@@ -87,5 +91,42 @@ class FortifyServiceProvider extends ServiceProvider
 
             return Limit::perMinute(5)->by($throttleKey);
         });
+    }
+
+    /**
+     * Configure login redirects based on user role.
+     * Normal users go to /customer-panel, admin users go to /dashboard.
+     */
+    private function configureRedirects(): void
+    {
+        // Override the default LoginResponse to handle role-based redirects
+        app()->singleton(
+            \Laravel\Fortify\Contracts\LoginResponse::class,
+            CustomLoginResponse::class
+        );
+    }
+}
+
+/**
+ * Custom LoginResponse that redirects users based on their role.
+ * Admin users go to /dashboard, normal users go to /customer-panel.
+ */
+class CustomLoginResponse extends LoginResponse
+{
+    /**
+     * Create an new response instance.
+     */
+    public function toResponse($request): JsonResponse|\Symfony\Component\HttpFoundation\Response
+    {
+        $user = auth()->user();
+        
+        // Determine redirect path based on user role
+        $redirectPath = $user instanceof User && $user->isAdmin() 
+            ? '/dashboard' 
+            : '/customer-panel';
+
+        return $request->wantsJson()
+            ? new JsonResponse(['two_factor' => false], 200)
+            : redirect()->to($redirectPath);
     }
 }

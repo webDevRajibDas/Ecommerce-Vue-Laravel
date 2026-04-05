@@ -11,7 +11,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard, products, usersList, categoriesList} from '@/routes';
+import { dashboard, products, usersList, categoriesList, brandsList } from '@/routes';
 // Import route definitions
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
@@ -29,9 +29,14 @@ const mainNavItems: NavItem[] = [
         href: products(),
         icon: LayoutGrid,
     },
-        {
-        title: 'Categoriy List',
+    {
+        title: 'Category List',
         href: categoriesList(),
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Brand List',
+        href: brandsList(),
         icon: LayoutGrid,
     },
     {

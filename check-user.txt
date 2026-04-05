@@ -1,0 +1,18 @@
+<?php
+require __DIR__ . '/vendor/autoload.php';
+$app = require_once __DIR__ . '/bootstrap/app.php';
+$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+
+echo "Users in database:\n";
+$users = DB::table('users')->get();
+if ($users->isEmpty()) {
+    echo "No users found in database.\n";
+} else {
+    foreach ($users as $u) {
+        echo "ID: " . $u->id . "\n";
+        echo "Email: " . $u->email . "\n";
+        echo "Password starts with: " . substr($u->password, 0, 30) . "...\n";
+        echo "Password is hashed (starts with \$2y\$): " . (str_starts_with($u->password, '$2y$') ? 'Yes' : 'No') . "\n";
+        echo "---\n";
+    }
+}
