@@ -18,7 +18,10 @@ class Category extends Model
         'description',
         'is_active',
         'parent_id',
-        'position'
+        'position',
+        'icon',
+        'badge',
+        'product_count'
     ];
 
     protected static function boot()

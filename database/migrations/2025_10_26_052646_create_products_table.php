@@ -31,6 +31,14 @@ return new class extends Migration
             $table->unsignedInteger('quantity')->default(0);
             $table->boolean('track_quantity')->default(true);
 
+            // Inventory & Product Details
+            $table->unsignedInteger('low_stock_threshold')->default(5);
+            $table->string('barcode')->nullable();
+            $table->decimal('weight', 10, 3)->nullable();
+            $table->decimal('length', 10, 2)->nullable();
+            $table->decimal('width', 10, 2)->nullable();
+            $table->decimal('height', 10, 2)->nullable();
+
             // Relationships & Categorization
             $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('set null');
             $table->foreignId('brand_id')->nullable()->constrained('brands')->onDelete('set null');
@@ -43,9 +51,18 @@ return new class extends Migration
             // Flexible JSON column for attributes
             $table->json('attributes')->nullable();
 
+            // Additional Product Data
+            $table->json('tags')->nullable();
+            $table->string('warranty')->nullable();
+            $table->string('video_url')->nullable();
+
             // SEO Meta
             $table->string('seo_title')->nullable();
             $table->text('seo_description')->nullable();
+            $table->json('seo_keywords')->nullable();
+
+            // Publishing
+            $table->timestamp('published_at')->nullable();
 
             // Timestamps & Soft Deletes
             $table->softDeletes();

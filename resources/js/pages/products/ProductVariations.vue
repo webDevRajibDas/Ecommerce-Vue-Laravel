@@ -1,369 +1,552 @@
 <template>
-    <!-- Product Variations Card -->
-    <div class="card surface-card border-round-xl surface-border border-1 p-5 shadow-sm">
-        <div class="flex align-items-center justify-content-between mb-5">
-            <div class="flex align-items-center">
-                <div class="p-3 bg-purple-50 border-round-lg mr-3">
-                    <i class="pi pi-box text-xl text-purple-600"></i>
+    <div class="variations-compact">
+        <!-- Header with toggle -->
+        <div class="variations-header" @click="isExpanded = !isExpanded">
+            <div class="header-left">
+                <div class="toggle-icon" :class="{ expanded: isExpanded }">
+                    <i class="pi pi-chevron-right"></i>
                 </div>
-                <div>
-                    <h3 class="text-surface-900 m-0 text-xl font-semibold">
-                        Product Variations
-                    </h3>
-                    <p class="text-surface-500 m-0 text-sm">Add different product options</p>
+                <div class="header-info">
+                    <span class="header-title">Variants</span>
+                    <span class="header-meta" v-if="hasVariations">
+                        {{ selectedTypes.length }} option{{ selectedTypes.length !== 1 ? 's' : '' }} · {{ totalCombinations }} variant{{ totalCombinations !== 1 ? 's' : '' }}
+                    </span>
                 </div>
             </div>
-            <Badge :value="hasVariations ? 'Variable Product' : 'Simple Product'" 
-                   :severity="hasVariations ? 'success' : 'info'" />
+            <Button 
+                v-if="hasVariations"
+                icon="pi pi-plus" 
+                size="small" 
+                severity="secondary" 
+                text
+                @click.stop="showAddOption = !showAddOption"
+            />
         </div>
 
-        <!-- Variation Type Selection -->
-        <div class="field mb-6">
-            <label class="text-surface-800 mb-3 block font-medium flex align-items-center">
-                <i class="pi pi-sliders-h mr-2 text-purple-500"></i>
-                Select Variation Types
-                <Badge value="Optional" severity="info" class="ml-2" size="small" />
-            </label>
-            
-            <div class="grid gap-3">
-                <div v-for="type in variationTypes" :key="type.value" 
-                     class="col-12 md:col-6 lg:col-3">
-                    <div class="card cursor-pointer border-2 surface-border hover:border-primary transition-all duration-200"
-                         :class="{ 'border-primary bg-primary-50': selectedTypes.includes(type.value) }"
-                         @click="toggleVariationType(type.value)">
-                        <div class="p-4 text-center">
-                            <div class="mb-3">
-                                <i :class="[type.icon, 'text-2xl', { 'text-primary': selectedTypes.includes(type.value), 'text-surface-400': !selectedTypes.includes(type.value) }]"></i>
-                            </div>
-                            <div class="font-medium mb-1">{{ type.label }}</div>
-                            <small class="text-surface-500 text-xs">{{ type.description }}</small>
+        <!-- Expanded Content -->
+        <div class="variations-content" v-show="isExpanded">
+            <!-- Add variation type -->
+            <div class="add-type-section" v-if="showAddOption || availableTypes.length > 0">
+                <div class="available-types">
+                    <button
+                        v-for="type in availableTypes"
+                        :key="type.value"
+                        class="type-add-btn"
+                        @click="addVariationType(type.value)"
+                    >
+                        <i :class="type.icon"></i>
+                        <span>+ {{ type.label }}</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Variation options list -->
+            <div class="options-list" v-if="selectedTypes.length > 0">
+                <div 
+                    v-for="type in selectedTypes" 
+                    :key="type" 
+                    class="option-group"
+                >
+                    <div class="option-group-header">
+                        <span class="group-label">{{ getTypeLabel(type) }}</span>
+                        <button class="remove-type-btn" @click="removeVariationType(type)">
+                            <i class="pi pi-times"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Option tags -->
+                    <div class="option-tags">
+                        <div
+                            v-for="(opt, idx) in options[type]"
+                            :key="idx"
+                            class="option-tag"
+                        >
+                            <span 
+                                v-if="type === 'color'" 
+                                class="color-swatch" 
+                                :style="{ background: getColorValue(opt) }"
+                            ></span>
+                            <span class="tag-text">{{ opt }}</span>
+                            <button class="tag-remove" @click="removeOption(type, idx)">
+                                <i class="pi pi-times"></i>
+                            </button>
                         </div>
+                        <span class="empty-state" v-if="!options[type]?.length">
+                            No {{ getTypeLabel(type).toLowerCase() }} options yet
+                        </span>
+                    </div>
+
+                    <!-- Add option input -->
+                    <div class="add-option-row">
+                        <InputText 
+                            v-model="newOptions[type]"
+                            :placeholder="`Add ${getTypeLabel(type).toLowerCase()}...`"
+                            size="small"
+                            @keyup.enter="addOption(type)"
+                            class="option-input"
+                        />
+                        <Button 
+                            icon="pi pi-plus" 
+                            size="small" 
+                            severity="secondary" 
+                            outlined
+                            @click="addOption(type)"
+                            :disabled="!newOptions[type]?.trim()"
+                        />
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Variation Options -->
-        <div v-if="selectedTypes.length > 0" class="mb-6">
-            <h4 class="text-surface-800 mb-4 text-lg font-medium flex align-items-center">
-                <i class="pi pi-list mr-2 text-purple-500"></i>
-                Variation Options
-            </h4>
-            
-            <div class="grid gap-4">
-                <div v-for="type in selectedTypes" :key="type" 
-                     class="col-12 md:col-6 lg:col-3">
-                    <div class="p-4 surface-50 border-round-lg">
-                        <div class="flex justify-content-between align-items-center mb-3">
-                            <label class="text-surface-800 font-medium capitalize">
-                                {{ getTypeLabel(type) }} Options
-                            </label>
-                            <Button icon="pi pi-trash" class="p-button-text p-button-danger p-button-sm"
-                                    @click="removeVariationType(type)"/>
-                        </div>
-                        
-                        <!-- Option Input -->
-                        <div class="flex gap-2 mb-3">
-                            <InputText v-model="newOptions[type]" 
-                                       :placeholder="`Add ${getTypeLabel(type)}`" 
-                                       class="flex-1"
-                                       @keyup.enter="addOption(type)" />
-                            <Button icon="pi pi-plus" class="p-button-outlined p-button-sm"
-                                    @click="addOption(type)"
-                                    :disabled="!newOptions[type]?.trim()" />
-                        </div>
-                        
-                        <!-- Options List -->
-                        <div v-if="options[type]?.length > 0" class="space-y-2">
-                            <div v-for="(option, index) in options[type]" 
-                                 :key="index" class="flex justify-content-between align-items-center p-2 surface-card border-round hover:surface-hover">
-                                <div class="flex align-items-center">
-                                    <!-- Color Swatch -->
-                                    <div v-if="type === 'color'" 
-                                         class="w-6 h-6 border-round mr-2 border-1 surface-border"
-                                         :style="{ backgroundColor: getColorCode(option) }"></div>
-                                    
-                                    <!-- Size Badge -->
-                                    <Badge v-else-if="type === 'size'" :value="option" 
-                                           severity="info" class="mr-2" />
-                                    
-                                    <span class="capitalize">{{ option }}</span>
-                                </div>
-                                <div class="flex gap-1">
-                                    <Button icon="pi pi-pencil" class="p-button-text p-button-sm"
-                                            @click="editOption(type, index, option)" />
-                                    <Button icon="pi pi-trash" class="p-button-text p-button-danger p-button-sm"
-                                            @click="removeOption(type, index)" />
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Empty State -->
-                        <div v-else class="text-center py-3 text-surface-500">
-                            <i class="pi pi-inbox text-2xl mb-2"></i>
-                            <p class="text-sm m-0">No options added yet</p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Empty state -->
+            <div class="empty-variants" v-if="selectedTypes.length === 0">
+                <i class="pi pi-box"></i>
+                <span>This product has no variants</span>
+                <span class="empty-hint">Add options like Size, Color, etc. to create variants</span>
             </div>
-        </div>
 
-        <!-- Variation Summary -->
-        <div v-if="selectedTypes.length > 0" class="mb-6 p-4 surface-ground border-round">
-            <div class="flex align-items-center mb-3">
-                <i class="pi pi-info-circle text-primary mr-2"></i>
-                <h5 class="m-0 font-medium">Variation Summary</h5>
-            </div>
-            
-            <div class="grid">
-                <div class="col-12 md:col-6">
-                    <div class="text-surface-600 text-sm mb-2">Selected Variations</div>
-                    <div class="flex flex-wrap gap-2">
-                        <Tag v-for="type in selectedTypes" :key="type" 
-                             :value="getTypeLabel(type)" 
-                             icon="pi pi-check" severity="info" />
-                    </div>
+            <!-- Summary bar -->
+            <div class="summary-bar" v-if="hasVariations">
+                <div class="summary-info">
+                    <span class="summary-badge">{{ totalCombinations }} variants</span>
+                    <span class="summary-text">
+                        Based on {{ selectedTypes.length }} option{{ selectedTypes.length !== 1 ? 's' : '' }}
+                    </span>
                 </div>
-                <div class="col-12 md:col-6">
-                    <div class="text-surface-600 text-sm mb-2">Total Options</div>
-                    <div class="text-2xl font-bold text-primary">{{ totalOptions }}</div>
-                    <small class="text-surface-500">across {{ selectedTypes.length }} variation types</small>
-                </div>
-            </div>
-        </div>
-
-        <!-- Actions -->
-        <div class="flex justify-content-end gap-2 pt-4 border-top-1 surface-border">
-            <Button label="Clear All" icon="pi pi-trash" 
-                    class="p-button-outlined p-button-danger"
+                <Button 
+                    label="Clear all" 
+                    size="small" 
+                    severity="danger" 
+                    text 
                     @click="clearAllVariations"
-                    :disabled="selectedTypes.length === 0" />
+                />
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, watch } from 'vue'
-import { useToast } from 'primevue/usetoast'
+import { ref, reactive, computed } from 'vue';
+import InputText from 'primevue/inputtext';
+import Button from 'primevue/button';
 
-// Components
-import Button from 'primevue/button'
-import InputText from 'primevue/inputtext'
-import Tag from 'primevue/tag'
-import Badge from 'primevue/badge'
+const emit = defineEmits(['update', 'change']);
 
-const toast = useToast()
-const emit = defineEmits(['update', 'change'])
-
-// Props
 const props = defineProps({
-    initialData: {
-        type: Object,
-        default: () => ({})
+    initialData: { 
+        type: Object, 
+        default: () => ({ hasVariations: false, options: {}, selectedTypes: [] }) 
     }
-})
+});
 
-// Variation Types
+// Variation type definitions
 const variationTypes = [
-    { 
-        value: 'size', 
-        label: 'Size', 
-        icon: 'pi pi-arrows-h', 
-        description: 'S, M, L, XL' 
-    },
-    { 
-        value: 'color', 
-        label: 'Color', 
-        icon: 'pi pi-palette', 
-        description: 'Red, Blue, Green' 
-    },
-    { 
-        value: 'material', 
-        label: 'Material', 
-        icon: 'pi pi-cube', 
-        description: 'Cotton, Silk, Leather' 
-    },
-    { 
-        value: 'pattern', 
-        label: 'Pattern', 
-        icon: 'pi pi-th-large', 
-        description: 'Striped, Solid, Checkered' 
-    }
-]
+    { value: 'size',     label: 'Size',     icon: 'pi pi-arrows-alt',  placeholder: 'e.g., S, M, L, XL' },
+    { value: 'color',    label: 'Color',    icon: 'pi pi-palette',     placeholder: 'e.g., Red, Blue, Black' },
+    { value: 'material', label: 'Material', icon: 'pi pi-cube',        placeholder: 'e.g., Cotton, Silk, Wool' },
+    { value: 'pattern',  label: 'Pattern',  icon: 'pi pi-th-large',    placeholder: 'e.g., Striped, Solid, Floral' },
+    { value: 'style',    label: 'Style',    icon: 'pi pi-star',        placeholder: 'e.g., Casual, Formal, Sport' }
+];
 
 // State
-const selectedTypes = ref<string[]>(props.initialData.selectedTypes || [])
+const isExpanded = ref(false);
+const showAddOption = ref(false);
+const selectedTypes = ref<string[]>(props.initialData.selectedTypes || []);
 const options = reactive<Record<string, string[]>>({
-    size: props.initialData.size || [],
-    color: props.initialData.color || [],
-    material: props.initialData.material || [],
-    pattern: props.initialData.pattern || []
-})
-const newOptions = reactive<Record<string, string>>({})
+    size: props.initialData.options?.size || [],
+    color: props.initialData.options?.color || [],
+    material: props.initialData.options?.material || [],
+    pattern: props.initialData.options?.pattern || [],
+    style: props.initialData.options?.style || []
+});
+const newOptions = reactive<Record<string, string>>({});
 
 // Computed
-const hasVariations = computed(() => selectedTypes.value.length > 0)
+const availableTypes = computed(() => 
+    variationTypes.filter(t => !selectedTypes.value.includes(t.value))
+);
 
-const totalOptions = computed(() => {
-    let count = 0
-    selectedTypes.value.forEach(type => {
-        count += options[type]?.length || 0
-    })
-    return count
-})
+const hasVariations = computed(() => selectedTypes.value.length > 0);
+
+const totalOptions = computed(() =>
+    selectedTypes.value.reduce((sum, t) => sum + (options[t]?.length || 0), 0)
+);
+
+const totalCombinations = computed(() => {
+    if (!hasVariations.value) return 0;
+    return selectedTypes.value.reduce((product, t) => {
+        const count = options[t]?.length || 0;
+        return count > 0 ? product * count : product;
+    }, 1);
+});
 
 // Methods
-const getTypeLabel = (type: string): string => {
-    const found = variationTypes.find(t => t.value === type)
-    return found ? found.label : type
-}
+const getTypeLabel = (type: string) =>
+    variationTypes.find(t => t.value === type)?.label ?? type;
 
-const toggleVariationType = (type: string) => {
-    const index = selectedTypes.value.indexOf(type)
-    if (index > -1) {
-        selectedTypes.value.splice(index, 1)
-    } else {
-        selectedTypes.value.push(type)
+const getColorValue = (name: string): string => {
+    const colorMap: Record<string, string> = {
+        red: '#ef4444', blue: '#3b82f6', green: '#10b981', yellow: '#f59e0b',
+        black: '#111827', white: '#f3f4f6', gray: '#6b7280', grey: '#6b7280',
+        pink: '#ec4899', purple: '#8b5cf6', orange: '#f97316', brown: '#92400e',
+        navy: '#1e3a8a', teal: '#0d9488', cyan: '#06b6d4', indigo: '#4f46e5',
+        gold: '#fbbf24', silver: '#d1d5db', beige: '#f5f5dc', cream: '#fffdd0',
+        khaki: '#c3b091', olive: '#808000', burgundy: '#800020', coral: '#ff7f50',
+        mint: '#98ff98', lavender: '#e6e6fa', peach: '#ffdab9', rose: '#ff007f'
+    };
+    return colorMap[name.toLowerCase()] || '#e5e7eb';
+};
+
+const addVariationType = (type: string) => {
+    if (!selectedTypes.value.includes(type)) {
+        selectedTypes.value.push(type);
+        if (!options[type]) options[type] = [];
+        showAddOption.value = false;
+        emitUpdate();
     }
-    emitDataUpdate()
-}
-
-const addOption = (type: string) => {
-    const option = newOptions[type]?.trim()
-    if (option && !options[type]?.includes(option)) {
-        if (!options[type]) options[type] = []
-        options[type].push(option)
-        newOptions[type] = ''
-        emitDataUpdate()
-        
-        toast.add({
-            severity: 'success',
-            summary: 'Option Added',
-            detail: `Added "${option}" to ${getTypeLabel(type)} options`,
-            life: 2000
-        })
-    }
-}
-
-const removeOption = (type: string, index: number) => {
-    options[type].splice(index, 1)
-    emitDataUpdate()
-}
-
-const editOption = async (type: string, index: number, currentValue: string) => {
-    const newValue = prompt(`Edit ${getTypeLabel(type)} option:`, currentValue)
-    if (newValue && newValue.trim() && newValue !== currentValue) {
-        options[type][index] = newValue.trim()
-        emitDataUpdate()
-    }
-}
+};
 
 const removeVariationType = (type: string) => {
-    const index = selectedTypes.value.indexOf(type)
+    const index = selectedTypes.value.indexOf(type);
     if (index > -1) {
-        selectedTypes.value.splice(index, 1)
-        delete options[type]
-        emitDataUpdate()
-        
-        toast.add({
-            severity: 'info',
-            summary: 'Variation Removed',
-            detail: `Removed ${getTypeLabel(type)} variation`,
-            life: 3000
-        })
+        selectedTypes.value.splice(index, 1);
+        options[type] = [];
+        emitUpdate();
     }
-}
+};
+
+const addOption = (type: string) => {
+    const value = newOptions[type]?.trim();
+    if (value && !options[type]?.includes(value)) {
+        if (!options[type]) options[type] = [];
+        options[type].push(value);
+        newOptions[type] = '';
+        emitUpdate();
+    }
+};
+
+const removeOption = (type: string, index: number) => {
+    options[type]?.splice(index, 1);
+    emitUpdate();
+};
 
 const clearAllVariations = () => {
-    if (confirm('Are you sure you want to clear all variations?')) {
-        selectedTypes.value = []
-        Object.keys(options).forEach(key => {
-            options[key] = []
-        })
-        emitDataUpdate()
-        
-        toast.add({
-            severity: 'info',
-            summary: 'Cleared',
-            detail: 'All variations cleared',
-            life: 3000
-        })
-    }
-}
+    selectedTypes.value = [];
+    Object.keys(options).forEach(key => options[key] = []);
+    emitUpdate();
+};
 
-const getColorCode = (colorName: string): string => {
-    const colorMap: Record<string, string> = {
-        'red': '#ef4444',
-        'blue': '#3b82f6',
-        'green': '#10b981',
-        'yellow': '#f59e0b',
-        'black': '#000000',
-        'white': '#ffffff',
-        'gray': '#6b7280',
-        'pink': '#ec4899',
-        'purple': '#8b5cf6',
-        'orange': '#f97316',
-        'brown': '#92400e',
-        'navy': '#1e3a8a',
-        'teal': '#0d9488',
-        'maroon': '#991b1b',
-        'olive': '#3f6212',
-        'lime': '#65a30d',
-        'cyan': '#06b6d4',
-        'indigo': '#4f46e5',
-        'violet': '#7c3aed'
-    }
-    return colorMap[colorName.toLowerCase()] || '#6b7280'
-}
-
-const emitDataUpdate = () => {
-    const variationData = {
+const emitUpdate = () => {
+    const data = {
         selectedTypes: selectedTypes.value,
         options: { ...options },
         hasVariations: hasVariations.value,
-        totalOptions: totalOptions.value
-    }
-    
-    emit('update', variationData)
-    emit('change', variationData)
-}
+        totalOptions: totalOptions.value,
+        totalCombinations: totalCombinations.value
+    };
+    emit('update', data);
+    emit('change', data);
+};
 
-// Watch for changes
-watch([selectedTypes, options], emitDataUpdate, { deep: true })
-
-// Expose data and methods
+// Expose methods for parent component
 defineExpose({
     getVariationData: () => ({
         selectedTypes: selectedTypes.value,
         options: { ...options },
         hasVariations: hasVariations.value,
-        totalOptions: totalOptions.value
+        totalOptions: totalOptions.value,
+        totalCombinations: totalCombinations.value
     }),
-    clearVariations: () => {
-        selectedTypes.value = []
-        Object.keys(options).forEach(key => {
-            options[key] = []
-        })
-        emitDataUpdate()
-    }
-})
+    clearVariations: clearAllVariations
+});
 </script>
 
 <style scoped>
-.card {
-    transition: all 0.2s ease;
+/* Main Container */
+.variations-compact {
+    background: var(--surface-card, #ffffff);
+    border: 1px solid var(--surface-border, #e2e8f0);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Header */
+.variations-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background 0.15s;
+    user-select: none;
 }
 
-:deep(.p-tag) {
-    font-weight: 500;
+.variations-header:hover {
+    background: var(--surface-ground, #f1f5f9);
 }
 
-:deep(.p-badge) {
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.toggle-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: transform 0.2s;
+}
+
+.toggle-icon i {
+    font-size: 0.7rem;
+    color: var(--text-color-secondary, #64748b);
+    transition: transform 0.2s;
+}
+
+.toggle-icon.expanded i {
+    transform: rotate(90deg);
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.header-title {
+    font-size: 0.875rem;
     font-weight: 600;
+    color: var(--text-color, #1e293b);
+}
+
+.header-meta {
+    font-size: 0.7rem;
+    color: var(--text-color-secondary, #64748b);
+}
+
+/* Content */
+.variations-content {
+    border-top: 1px solid var(--surface-border, #e2e8f0);
+    padding: 1rem;
+}
+
+/* Add Type Section */
+.add-type-section {
+    margin-bottom: 1rem;
+}
+
+.available-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.type-add-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px dashed var(--surface-border, #e2e8f0);
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--text-color-secondary, #64748b);
+    transition: all 0.15s;
+}
+
+.type-add-btn:hover {
+    border-color: var(--primary-color, #7c3aed);
+    color: var(--primary-color, #7c3aed);
+    background: #ede9fe;
+}
+
+.type-add-btn i {
+    font-size: 0.7rem;
+}
+
+/* Options List */
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.option-group {
+    background: var(--surface-ground, #f1f5f9);
+    border: 1px solid var(--surface-border, #e2e8f0);
+    border-radius: 8px;
+    padding: 0.875rem;
+}
+
+.option-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.625rem;
+}
+
+.group-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-color, #1e293b);
+    text-transform: capitalize;
+}
+
+.remove-type-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color-secondary, #64748b);
+    transition: all 0.15s;
+}
+
+.remove-type-btn:hover {
+    background: #fef2f2;
+    color: #ef4444;
+}
+
+.remove-type-btn i {
+    font-size: 0.7rem;
+}
+
+/* Option Tags */
+.option-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    min-height: 28px;
+}
+
+.option-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.5rem 0.25rem 0.375rem;
+    background: var(--surface-card, #ffffff);
+    border: 1px solid var(--surface-border, #e2e8f0);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-color, #1e293b);
+}
+
+.color-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.tag-text {
+    text-transform: capitalize;
+}
+
+.tag-remove {
+    width: 18px;
+    height: 18px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color-secondary, #64748b);
+    transition: all 0.15s;
+    padding: 0;
+}
+
+.tag-remove:hover {
+    background: #fef2f2;
+    color: #ef4444;
+}
+
+.tag-remove i {
+    font-size: 0.55rem;
+}
+
+.empty-state {
+    font-size: 0.75rem;
+    color: var(--text-color-secondary, #64748b);
+    font-style: italic;
+}
+
+/* Add Option Row */
+.add-option-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.option-input {
+    flex: 1;
+}
+
+/* Empty Variants State */
+.empty-variants {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    text-align: center;
+    gap: 0.5rem;
+}
+
+.empty-variants i {
+    font-size: 2rem;
+    color: var(--text-color-secondary, #64748b);
+    opacity: 0.5;
+}
+
+.empty-variants span {
+    font-size: 0.875rem;
+    color: var(--text-color-secondary, #64748b);
+}
+
+.empty-hint {
+    font-size: 0.75rem !important;
+    opacity: 0.7;
+}
+
+/* Summary Bar */
+.summary-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.875rem;
+    border-top: 1px solid var(--surface-border, #e2e8f0);
+}
+
+.summary-info {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.summary-badge {
+    background: #ede9fe;
+    color: #7c3aed;
+    padding: 0.25rem 0.625rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.summary-text {
+    font-size: 0.75rem;
+    color: var(--text-color-secondary, #64748b);
 }
 </style>

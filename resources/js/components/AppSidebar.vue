@@ -11,7 +11,8 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard, products, usersList, categoriesList, brandsList } from '@/routes';
+import { dashboard, usersList, categoriesList, brandsList } from '@/routes';
+import products from '@/routes/products';
 // Import route definitions
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
@@ -26,7 +27,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Products',
-        href: products(),
+        href: products.index(),
         icon: LayoutGrid,
     },
     {
@@ -49,11 +50,6 @@ const mainNavItems: NavItem[] = [
 ];
 
 const footerNavItems: NavItem[] = [
-    {
-        title: 'Github Repo',
-        href: 'https://github.com/laravel/vue-starter-kit',
-        icon: Folder,
-    },
     {
         title: 'Documentation',
         href: 'https://laravel.com/docs/starter-kits#vue',

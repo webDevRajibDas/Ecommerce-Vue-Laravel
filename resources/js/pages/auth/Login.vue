@@ -300,7 +300,7 @@ defineProps<{
 
 /* Form group spacing */
 .form-group {
-    margin-bottom: 0;
+    margin-bottom: 12px;
 }
 
 /* Responsive adjustments */
